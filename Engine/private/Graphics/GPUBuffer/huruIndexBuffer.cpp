@@ -1,4 +1,4 @@
-#include "GraphicDevice/GPUBuffer/huruIndexBuffer.h"
+#include "Graphics/GPUBuffer/huruIndexBuffer.h"
 
 namespace huru::graphics
 {

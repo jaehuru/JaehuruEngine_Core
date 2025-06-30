@@ -1,8 +1,9 @@
 #pragma once
 
 #include "Resource/huruResource.h"
-#include "GraphicDevice/GPUBuffer/huruVertexBuffer.h"
-#include "GraphicDevice/GPUBuffer/huruIndexBuffer.h"
+#include "Graphics/huruInputLayout.h"
+#include "Graphics/GPUBuffer/huruVertexBuffer.h"
+#include "Graphics/GPUBuffer/huruIndexBuffer.h"
 
 namespace huru
 {
@@ -28,13 +29,19 @@ namespace huru
 
 		bool CreateVB(const vector<Vertex>& vertices);
 		bool CreateIB(const vector<UINT>& indices);
+		void SetVertexBufferParams(UINT vertexCount,
+									D3D11_INPUT_ELEMENT_DESC* layout,
+									const void* pShaderBytecodeWithInputSignature,
+									SIZE_T BytecodeLength);
+
 		void Bind();
 
 	private:
-		VertexBuffer mVB;
-		IndexBuffer mIB;
+		InputLayout			mInputLayout;
+		VertexBuffer		mVB;
+		IndexBuffer			mIB;
 
-		Data mData;
+		Data				mData;
 
 	};
 }

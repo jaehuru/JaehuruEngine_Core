@@ -27,6 +27,7 @@ namespace huru::enums
 	{
 		Texture,
 		Mesh,
+		Material,
 		Animation,
 		AudioClip,
 		Shader,

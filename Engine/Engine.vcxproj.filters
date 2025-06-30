@@ -109,35 +109,38 @@
     <ClInclude Include="public\Common\huruMath.h">
       <Filter>public\Common</Filter>
     </ClInclude>
-    <ClInclude Include="public\GraphicDevice\huruGraphicDevice_DX11.h">
-      <Filter>public\GraphicDevice</Filter>
-    </ClInclude>
-    <ClInclude Include="public\Common\huruGraphics.h">
-      <Filter>public\Common</Filter>
-    </ClInclude>
     <ClInclude Include="public\Resource\huruMesh.h">
       <Filter>public\Resource</Filter>
     </ClInclude>
     <ClInclude Include="public\Resource\huruMaterial.h">
       <Filter>public\Resource</Filter>
     </ClInclude>
-    <ClInclude Include="public\Resource\Graphics\huruShader.h">
-      <Filter>public\Resource\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="public\GraphicDevice\GPUBuffer\huruVertexBuffer.h">
-      <Filter>public\GraphicDevice\GPU Buffer</Filter>
-    </ClInclude>
-    <ClInclude Include="public\GraphicDevice\GPUBuffer\huruIndexBuffer.h">
-      <Filter>public\GraphicDevice\GPU Buffer</Filter>
-    </ClInclude>
-    <ClInclude Include="public\GraphicDevice\GPUBuffer\huruConstantBuffer.h">
-      <Filter>public\GraphicDevice\GPU Buffer</Filter>
-    </ClInclude>
     <ClInclude Include="public\Resource\huruAudioClip.h">
       <Filter>public\Resource</Filter>
     </ClInclude>
     <ClInclude Include="public\Component\Audio\huruAudioSource.h">
       <Filter>public\Component\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="public\Graphics\huruGraphics.h">
+      <Filter>public\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="public\Resource\huruShader.h">
+      <Filter>public\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="public\Graphics\huruGraphicDevice_DX11.h">
+      <Filter>public\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="public\Graphics\GPUBuffer\huruConstantBuffer.h">
+      <Filter>public\Graphics\GPU Buffer</Filter>
+    </ClInclude>
+    <ClInclude Include="public\Graphics\GPUBuffer\huruIndexBuffer.h">
+      <Filter>public\Graphics\GPU Buffer</Filter>
+    </ClInclude>
+    <ClInclude Include="public\Graphics\GPUBuffer\huruVertexBuffer.h">
+      <Filter>public\Graphics\GPU Buffer</Filter>
+    </ClInclude>
+    <ClInclude Include="public\Graphics\huruInputLayout.h">
+      <Filter>public\Graphics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -279,18 +282,6 @@
     <Filter Include="public\High Level Interface">
       <UniqueIdentifier>{d56f4d9b-952a-4c00-8941-071baec9db30}</UniqueIdentifier>
     </Filter>
-    <Filter Include="public\GraphicDevice">
-      <UniqueIdentifier>{cd5e9e1a-9428-4127-b21d-210fafda8a75}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="private\GraphicDevice">
-      <UniqueIdentifier>{e90158e6-d361-4217-baed-75593003ae9f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="public\Resource\Graphics">
-      <UniqueIdentifier>{2ec1cdb1-ffe5-4c33-9a7b-3e131a4355df}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="private\Resource\Graphics">
-      <UniqueIdentifier>{be56a3ac-97bd-4b6c-9b3b-8a91b3fba212}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Shaders">
       <UniqueIdentifier>{df3363d4-ddad-4962-bc41-4b43d79f410e}</UniqueIdentifier>
     </Filter>
@@ -303,10 +294,16 @@
     <Filter Include="Shaders\LIB">
       <UniqueIdentifier>{63a6b13d-0e9c-4af5-bedd-2dd66e7a68ee}</UniqueIdentifier>
     </Filter>
-    <Filter Include="public\GraphicDevice\GPU Buffer">
+    <Filter Include="public\Graphics">
+      <UniqueIdentifier>{cd5e9e1a-9428-4127-b21d-210fafda8a75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="public\Graphics\GPU Buffer">
       <UniqueIdentifier>{d9bb1d26-0482-4ecc-8035-198f0a95ab70}</UniqueIdentifier>
     </Filter>
-    <Filter Include="private\GraphicDevice\GPU Buffer">
+    <Filter Include="private\Graphics">
+      <UniqueIdentifier>{e90158e6-d361-4217-baed-75593003ae9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="private\Graphics\GPU Buffer">
       <UniqueIdentifier>{4cc65141-46d8-41fb-b722-b7d42a9958a3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -419,26 +416,29 @@
     <ClCompile Include="private\Common\huruMath.cpp">
       <Filter>private\Common</Filter>
     </ClCompile>
-    <ClCompile Include="private\GraphicDevice\huruGraphicDevice_DX11.cpp">
-      <Filter>private\GraphicDevice</Filter>
-    </ClCompile>
     <ClCompile Include="private\Resource\huruMesh.cpp">
       <Filter>private\Resource</Filter>
     </ClCompile>
     <ClCompile Include="private\Resource\huruMaterial.cpp">
       <Filter>private\Resource</Filter>
     </ClCompile>
-    <ClCompile Include="private\Resource\Graphics\huruShader.cpp">
-      <Filter>private\Resource\Graphics</Filter>
+    <ClCompile Include="private\Resource\huruShader.cpp">
+      <Filter>private\Resource</Filter>
     </ClCompile>
-    <ClCompile Include="private\GraphicDevice\GPUBuffer\huruVertexBuffer.cpp">
-      <Filter>private\GraphicDevice\GPU Buffer</Filter>
+    <ClCompile Include="private\Graphics\huruGraphicDevice_DX11.cpp">
+      <Filter>private\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="private\GraphicDevice\GPUBuffer\huruIndexBuffer.cpp">
-      <Filter>private\GraphicDevice\GPU Buffer</Filter>
+    <ClCompile Include="private\Graphics\GPUBuffer\huruConstantBuffer.cpp">
+      <Filter>private\Graphics\GPU Buffer</Filter>
     </ClCompile>
-    <ClCompile Include="private\GraphicDevice\GPUBuffer\huruConstantBuffer.cpp">
-      <Filter>private\GraphicDevice\GPU Buffer</Filter>
+    <ClCompile Include="private\Graphics\GPUBuffer\huruIndexBuffer.cpp">
+      <Filter>private\Graphics\GPU Buffer</Filter>
+    </ClCompile>
+    <ClCompile Include="private\Graphics\GPUBuffer\huruVertexBuffer.cpp">
+      <Filter>private\Graphics\GPU Buffer</Filter>
+    </ClCompile>
+    <ClCompile Include="private\Graphics\huruInputLayout.cpp">
+      <Filter>private\Graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -457,6 +457,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Shaders\LIB\ConstantBuffers.hlsli">
+      <Filter>Shaders\LIB</Filter>
+    </None>
+    <None Include="Shaders\LIB\Textures.hlsli">
+      <Filter>Shaders\LIB</Filter>
+    </None>
+    <None Include="Shaders\LIB\Samplers.hlsli">
       <Filter>Shaders\LIB</Filter>
     </None>
   </ItemGroup>

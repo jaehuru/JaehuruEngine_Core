@@ -5,7 +5,7 @@
 #include <DirectXTexEXR.h>
 
 #include "Resource/huruResource.h"
-#include "GraphicDevice/huruGraphicDevice_DX11.h"
+#include "Graphics/huruGraphicDevice_DX11.h"
 
 namespace huru::graphics
 {

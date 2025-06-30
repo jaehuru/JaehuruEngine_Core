@@ -21,7 +21,6 @@
   <ItemGroup>
     <ClInclude Include="public\Collision\huruCollisionManager.h" />
     <ClInclude Include="public\Common\CommonInclude.h" />
-    <ClInclude Include="public\Common\huruGraphics.h" />
     <ClInclude Include="public\Common\huruEntity.h" />
     <ClInclude Include="public\Common\huruEnums.h" />
     <ClInclude Include="public\Common\huruMath.h" />
@@ -40,23 +39,25 @@
     <ClInclude Include="public\Component\Transform\huruTransform.h" />
     <ClInclude Include="public\FMOD\huruFmod.h" />
     <ClInclude Include="public\GameObject\huruGameObject.h" />
-    <ClInclude Include="public\GraphicDevice\GPUBuffer\huruConstantBuffer.h" />
-    <ClInclude Include="public\GraphicDevice\GPUBuffer\huruIndexBuffer.h" />
-    <ClInclude Include="public\GraphicDevice\GPUBuffer\huruVertexBuffer.h" />
-    <ClInclude Include="public\GraphicDevice\huruGraphicDevice_DX11.h" />
+    <ClInclude Include="public\Graphics\GPUBuffer\huruConstantBuffer.h" />
+    <ClInclude Include="public\Graphics\GPUBuffer\huruIndexBuffer.h" />
+    <ClInclude Include="public\Graphics\GPUBuffer\huruVertexBuffer.h" />
+    <ClInclude Include="public\Graphics\huruGraphicDevice_DX11.h" />
+    <ClInclude Include="public\Graphics\huruGraphics.h" />
+    <ClInclude Include="public\Graphics\huruInputLayout.h" />
     <ClInclude Include="public\Helpers\huruInput.h" />
     <ClInclude Include="public\Helpers\huruTime.h" />
     <ClInclude Include="public\HighLevelInterface\huruApplication.h" />
     <ClInclude Include="public\Layer\huruLayer.h" />
     <ClInclude Include="public\Object\huruObject.h" />
     <ClInclude Include="public\Renderer\huruRenderer.h" />
-    <ClInclude Include="public\Resource\Graphics\huruShader.h" />
     <ClInclude Include="public\Resource\huruAnimation.h" />
     <ClInclude Include="public\Resource\huruAudioClip.h" />
     <ClInclude Include="public\Resource\huruMaterial.h" />
     <ClInclude Include="public\Resource\huruMesh.h" />
     <ClInclude Include="public\Resource\huruResource.h" />
     <ClInclude Include="public\Resource\huruResources.h" />
+    <ClInclude Include="public\Resource\huruShader.h" />
     <ClInclude Include="public\Resource\huruTexture.h" />
     <ClInclude Include="public\Scene\huruDontDestroyOnLoad.h" />
     <ClInclude Include="public\Scene\huruScene.h" />
@@ -85,23 +86,24 @@
     <ClCompile Include="private\Component\Transform\huruTransform.cpp" />
     <ClCompile Include="private\FMOD\huruFmod.cpp" />
     <ClCompile Include="private\GameObject\huruGameObject.cpp" />
-    <ClCompile Include="private\GraphicDevice\GPUBuffer\huruConstantBuffer.cpp" />
-    <ClCompile Include="private\GraphicDevice\GPUBuffer\huruIndexBuffer.cpp" />
-    <ClCompile Include="private\GraphicDevice\GPUBuffer\huruVertexBuffer.cpp" />
-    <ClCompile Include="private\GraphicDevice\huruGraphicDevice_DX11.cpp" />
+    <ClCompile Include="private\Graphics\GPUBuffer\huruConstantBuffer.cpp" />
+    <ClCompile Include="private\Graphics\GPUBuffer\huruIndexBuffer.cpp" />
+    <ClCompile Include="private\Graphics\GPUBuffer\huruVertexBuffer.cpp" />
+    <ClCompile Include="private\Graphics\huruGraphicDevice_DX11.cpp" />
+    <ClCompile Include="private\Graphics\huruInputLayout.cpp" />
     <ClCompile Include="private\Helpers\huruInput.cpp" />
     <ClCompile Include="private\Helpers\huruTime.cpp" />
     <ClCompile Include="private\HighLevelInterface\huruApplication.cpp" />
     <ClCompile Include="private\Layer\huruLayer.cpp" />
     <ClCompile Include="private\Object\huruObject.cpp" />
     <ClCompile Include="private\Renderer\huruRenderer.cpp" />
-    <ClCompile Include="private\Resource\Graphics\huruShader.cpp" />
     <ClCompile Include="private\Resource\huruAnimation.cpp" />
     <ClCompile Include="private\Resource\huruAudioClip.cpp" />
     <ClCompile Include="private\Resource\huruMaterial.cpp" />
     <ClCompile Include="private\Resource\huruMesh.cpp" />
     <ClCompile Include="private\Resource\huruResource.cpp" />
     <ClCompile Include="private\Resource\huruResources.cpp" />
+    <ClCompile Include="private\Resource\huruShader.cpp" />
     <ClCompile Include="private\Resource\huruTexture.cpp" />
     <ClCompile Include="private\Scene\huruDontDestroyOnLoad.cpp" />
     <ClCompile Include="private\Scene\huruScene.cpp" />
@@ -139,6 +141,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Shaders\LIB\ConstantBuffers.hlsli" />
+    <None Include="Shaders\LIB\Samplers.hlsli" />
+    <None Include="Shaders\LIB\Textures.hlsli" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

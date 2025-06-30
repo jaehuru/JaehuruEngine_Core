@@ -1,6 +1,6 @@
 #pragma once
 
-#include "GraphicDevice/huruGraphicDevice_DX11.h"
+#include "Graphics/huruGraphicDevice_DX11.h"
 
 namespace huru::graphics
 {

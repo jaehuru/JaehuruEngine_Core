@@ -1,4 +1,4 @@
-#include "Resource/Graphics/huruShader.h"
+#include "Resource/huruShader.h"
 
 
 namespace huru::graphics

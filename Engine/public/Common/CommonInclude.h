@@ -25,7 +25,7 @@
 #pragma comment(lib, "gdiplus.lib")
 #include "huruMath.h"
 #include "huruEnums.h"
-#include "huruGraphics.h"
+#include "Graphics/huruGraphics.h"
 
 #define CAST_UINT(value) static_cast<UINT>(value)
 #define CAST_FLOAT(value) static_cast<float>(value)

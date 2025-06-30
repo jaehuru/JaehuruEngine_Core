@@ -49,8 +49,15 @@ namespace huru
 		return mIB.Create(indices);
 	}
 
+	void Mesh::SetVertexBufferParams(UINT vertexCount, D3D11_INPUT_ELEMENT_DESC* layout, const void* pShaderBytecodeWithInputSignature, SIZE_T BytecodeLength)
+	{
+		mInputLayout.CreateInputLayout(vertexCount, layout, pShaderBytecodeWithInputSignature, BytecodeLength);
+	}
+
 	void Mesh::Bind()
 	{
+		mInputLayout.Bind();
+
 		mVB.Bind();
 		mIB.Bind();
 

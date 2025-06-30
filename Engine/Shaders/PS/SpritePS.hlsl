@@ -1,5 +1,5 @@
-Texture2D albedo : register(t0);
-SamplerState defaultSampler : register(s0);
+#include "../LIB/Samplers.hlsli"
+#include "../LIB/Textures.hlsli"
 
 struct VS_Input
 {
@@ -17,6 +17,6 @@ struct VS_Output
 
 float4 main(VS_Output input) : SV_Target
 {
-    float4 color = albedo.Sample(defaultSampler, input.uv);
+    float4 color = albedo.Sample(anisotropicSampler, input.uv);
     return color;
 }

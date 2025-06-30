@@ -22,6 +22,8 @@ namespace huru::graphics
 		bool	CreateTexture2D(const D3D11_TEXTURE2D_DESC* pDesc,
 								const D3D11_SUBRESOURCE_DATA* pInitialData,
 								ID3D11Texture2D** ppTexture2D);
+		bool	CreateSamplerState(const D3D11_SAMPLER_DESC* pSamplerDesc,
+									ID3D11SamplerState** ppSamplerState);
 		bool	CreateVertexShader(const wstring& fullPath,
 									ID3DBlob** ppCode,
 									ID3D11VertexShader** ppVertexShader);
@@ -37,6 +39,7 @@ namespace huru::graphics
 								const D3D11_SUBRESOURCE_DATA* pInitialData,
 								ID3D11Buffer** ppBuffer);
 
+		void	BindInputLayout(ID3D11InputLayout* pInputLayout);
 		bool	CreateShaderResourceView(ID3D11Resource* pResource,
 										const D3D11_SHADER_RESOURCE_VIEW_DESC* pDesc,
 										ID3D11ShaderResourceView** ppSRView);
@@ -51,6 +54,11 @@ namespace huru::graphics
 									const UINT* pStrides, const UINT* pOffsets);
 		void	BindIndexBuffer(ID3D11Buffer* pIndexBuffer, DXGI_FORMAT Format, UINT Offset);
 		void	BindConstantBuffer(eShaderStage stage, eCBType type, ID3D11Buffer* buffer);
+		void	BindSampler(eShaderStage stage,
+							UINT StartSlot,
+							UINT NumSamplers,
+							ID3D11SamplerState* const* ppSamplers);
+		void	BindSamplers(UINT StartSlot, UINT NumSamplers, ID3D11SamplerState* const* ppSamplers);
 
 		void	Initialize();
 		void	Draw();

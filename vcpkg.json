@@ -1,0 +1,7 @@
+{
+  "name": "jaehuru-engine",
+  "version-string": "V2.00",
+  "dependencies": [
+    "directxtex"
+  ]
+}

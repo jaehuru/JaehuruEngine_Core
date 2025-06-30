@@ -9,7 +9,7 @@ Win32 API 기반의 기초적인 윈도우 창 생성과 메시지 루프 처리
 
 ## ⚠️ Caution
 
-`Application::Initialize()` 함수에서 `Fmod::Initialize()`가 호출되는 순간부터 빌드가 안 되는 경우가 생깁니다.
+## FMOD 라이브러리 관련 설정 안내
 
 **클라이언트 프로젝트 설정**에서 반드시 아래 스크립트를 추가하세요.
 
@@ -39,6 +39,16 @@ IF "$(Configuration)"=="Debug" (
     xcopy /Y /D "$(SolutionDir)..\JaehuruEngine\External\FMOD\lib\x64\fmod.dll" "$(OutDir)"
     xcopy /Y /D "$(SolutionDir)..\JaehuruEngine\External\FMOD\lib\x64\fmodstudio.dll" "$(OutDir)"
 )
+```
+## vcpkg 라이브러리 관리 안내 
+
+이 엔진은 [vcpkg](https://github.com/microsoft/vcpkg)를 사용하여 외부 라이브러리를 관리합니다.
+
+- vcpkg가 시스템에 설치되어 있고, `vcpkg integrate install` 명령으로 Visual Studio와 연동되어 있어야 합니다.
+- 프로젝트 루트에 있는 `vcpkg.json` 파일에 필요한 라이브러리 목록이 명시되어 있습니다.
+- 다음 명령어로 필요한 라이브러리를 한 번에 설치할 수 있습니다. (엔진 루트 폴더에서 터미널/PowerShell을 열고 실행)
+```powershell
+vcpkg install
 ```
 ---
 # Version 1

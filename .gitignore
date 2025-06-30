@@ -404,7 +404,3 @@ FodyWeavers.xsd
 !External/**/
 !External/**/*
 
-#resource
-/x64￦Shaders_SOURCE￦
-/x64￦Resources￦
-

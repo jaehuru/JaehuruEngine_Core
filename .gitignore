@@ -404,3 +404,5 @@ FodyWeavers.xsd
 !External/**/
 !External/**/*
 
+# vcpkg
+vcpkg_installed/

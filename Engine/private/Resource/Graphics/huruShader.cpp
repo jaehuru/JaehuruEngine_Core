@@ -14,7 +14,7 @@ namespace huru::graphics
 
 	}
 
-	HRESULT Shader::Save(const std::wstring& path)
+	HRESULT Shader::Save(const wstring& path)
 	{
 		return E_NOTIMPL;
 	}

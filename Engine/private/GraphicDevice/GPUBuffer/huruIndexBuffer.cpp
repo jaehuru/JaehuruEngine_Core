@@ -12,7 +12,7 @@ namespace huru::graphics
 
 	}
 
-	bool IndexBuffer::Create(const std::vector<UINT>& indices)
+	bool IndexBuffer::Create(const vector<UINT>& indices)
 	{
 		desc.ByteWidth = sizeof(UINT) * (UINT)indices.size();
 		desc.BindFlags = D3D11_BIND_FLAG::D3D11_BIND_INDEX_BUFFER;

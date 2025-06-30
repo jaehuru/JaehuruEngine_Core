@@ -12,6 +12,7 @@ namespace huru
 {
 
 	Application::Application() : 
+		mbLoaded(false),
 		mHwnd(nullptr),
 		mHdc(nullptr),
 		mWidth(0),
@@ -29,9 +30,8 @@ namespace huru
 
 	void Application::Initialize(HWND hwnd, UINT width, UINT height)
 	{
-		adjustWindowRect(hwnd, width, height);
-		createBuffer(width, height);
-		initializeEtc();
+		AdjustWindowRect(hwnd, width, height);
+		InitializeEtc();
 
 		mGraphicDevice = make_unique<GraphicDevice_DX11>();
 		renderer::Initialize();
@@ -43,8 +43,32 @@ namespace huru
 		SceneManager::Initialize();
 	}
 
+	void Application::AdjustWindowRect(HWND hwnd, UINT width, UINT height)
+	{
+		mHwnd = hwnd;
+		mHdc = GetDC(hwnd);
+
+		RECT rect = { 0, 0, (LONG)width, (LONG)height };
+		::AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
+
+		mWidth = rect.right - rect.left;
+		mHeight = rect.bottom - rect.top;
+
+		SetWindowPos(hwnd, nullptr, 0, 0, mWidth, mHeight, 0);
+		ShowWindow(hwnd, true);
+	}
+
+	void Application::InitializeEtc()
+	{
+		Input::Initialize();
+		Time::Initialize();
+	}
+
 	void Application::Run()
 	{
+		if (mbLoaded == false)
+			mbLoaded = true;
+
 		Update();
 		LateUpdate();
 		Render();
@@ -63,17 +87,13 @@ namespace huru
 
 	void Application::LateUpdate()
 	{
-		// 후처리 업데이트 코드
 		CollisionManager::LateUpdate();
 		UIManager::LateUpdate();
 		SceneManager::LateUpdate();
-
 	}
 
 	void Application::Render()
 	{
-		mGraphicDevice->Draw();
-
 		Time::Render();
 		CollisionManager::Render();
 		UIManager::Render();
@@ -91,55 +111,5 @@ namespace huru
 		UIManager::Release();
 		Resources::Release();
 		renderer::Release();
-	}
-
-	void Application::clearRenderTarget()
-	{
-		HBRUSH blackBrush = (HBRUSH)CreateSolidBrush(RGB(0, 0, 0));
-		HBRUSH oldBrush = (HBRUSH)SelectObject(mBackHdc, blackBrush);
-
-		::Rectangle(mBackHdc, -1, -1, 1601, 901);
-
-		SelectObject(mBackHdc, oldBrush);
-		DeleteObject(blackBrush);
-	}
-
-	void Application::copyRenderTarget(HDC source, HDC dest)
-	{
-		BitBlt(dest, 0, 0, mWidth, mHeight,
-			source, 0, 0, SRCCOPY);
-	}
-
-	void Application::adjustWindowRect(HWND hwnd, UINT width, UINT height)
-	{
-		mHwnd = hwnd;
-		mHdc = GetDC(hwnd);
-
-		RECT rect = { 0, 0, static_cast<LONG>(width), static_cast<LONG>(height) };
-		AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
-
-		mWidth = rect.right - rect.left;
-		mHeight = rect.bottom - rect.top;
-
-		SetWindowPos(mHwnd, nullptr, 0, 0, mWidth, mHeight, 0);
-		ShowWindow(mHwnd, true);
-	}
-
-	void Application::createBuffer(UINT width, UINT height)
-	{
-		//윈도우 해상도에 맞는 백버퍼(도화지)생성
-		mBackBitmap = CreateCompatibleBitmap(mHdc, width, height);
-
-		//백버퍼를 가르킬 DC생성
-		mBackHdc = CreateCompatibleDC(mHdc);
-
-		HBITMAP oldBitmap = (HBITMAP)SelectObject(mBackHdc, mBackBitmap);
-		DeleteObject(oldBitmap);
-	}
-
-	void Application::initializeEtc()
-	{
-		Input::Initialize();
-		Time::Initialize();
 	}
 }

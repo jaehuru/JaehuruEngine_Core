@@ -10,9 +10,6 @@ namespace huru::renderer
 {
 	extern Camera*				mainCamera;
 
-	extern vector<Vertex>		vertexes;
-	extern vector<UINT>			indices;
-
 	extern Mesh*				mesh;
 
 	extern ConstantBuffer		constantBuffers[(UINT)eCBType::End];

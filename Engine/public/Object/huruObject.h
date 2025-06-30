@@ -36,7 +36,7 @@ namespace huru::object
 		return gameObj;
 	}
 
-	static void DonDestroyOnLoad(GameObject* gameObject)
+	static void DontDestroyOnLoad(GameObject* gameObject)
 	{
 		Scene* activeScene = SceneManager::GetActiveScene();
 		// 현재씬에서 게임 오브젝트를 삭제

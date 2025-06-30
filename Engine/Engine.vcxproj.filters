@@ -448,6 +448,12 @@
     <FxCompile Include="Shaders\PS\TrianglePS.hlsl">
       <Filter>Shaders\PS</Filter>
     </FxCompile>
+    <FxCompile Include="Shaders\VS\SpriteVS.hlsl">
+      <Filter>Shaders\VS</Filter>
+    </FxCompile>
+    <FxCompile Include="Shaders\PS\SpritePS.hlsl">
+      <Filter>Shaders\PS</Filter>
+    </FxCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Shaders\LIB\ConstantBuffers.hlsli">

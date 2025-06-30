@@ -3,6 +3,7 @@
 #include "Renderer/huruRenderer.h"
 #include "Resource/Graphics/huruShader.h"
 #include "Resource/huruResources.h"
+#include "Resource/huruTexture.h"
 
 extern Application application;
 
@@ -176,17 +177,46 @@ namespace huru::graphics
 		return true;
 	}
 
-	void GraphicDevice_DX11::BindPrimitiveTopology(const D3D11_PRIMITIVE_TOPOLOGY topology)
+	bool GraphicDevice_DX11::CreateShaderResourceView(ID3D11Resource* pResource, const D3D11_SHADER_RESOURCE_VIEW_DESC* pDesc, ID3D11ShaderResourceView** ppSRView)
 	{
-		mContext->IASetPrimitiveTopology(topology);
+		if (FAILED(mDevice->CreateShaderResourceView(pResource, pDesc, ppSRView)))
+			return false;
+
+		return true;
 	}
 
-	void GraphicDevice_DX11::SetDataBuffer(ID3D11Buffer* buffer, void* data, UINT size)
+	void GraphicDevice_DX11::SetDataGpuBuffer(ID3D11Buffer* buffer, void* data, UINT size)
 	{
 		D3D11_MAPPED_SUBRESOURCE sub = {};
 		mContext->Map(buffer, 0, D3D11_MAP::D3D11_MAP_WRITE_DISCARD, 0, &sub);
 		memcpy(sub.pData, data, size);
 		mContext->Unmap(buffer, 0);
+	}
+
+	void GraphicDevice_DX11::SetShaderResource(eShaderStage stage, UINT startSlot, ID3D11ShaderResourceView** ppSRV)
+	{
+		if ((UINT)eShaderStage::VS & (UINT)stage)
+			mContext->VSSetShaderResources(startSlot, 1, ppSRV);
+
+		if ((UINT)eShaderStage::HS & (UINT)stage)
+			mContext->HSSetShaderResources(startSlot, 1, ppSRV);
+
+		if ((UINT)eShaderStage::DS & (UINT)stage)
+			mContext->DSSetShaderResources(startSlot, 1, ppSRV);
+
+		if ((UINT)eShaderStage::GS & (UINT)stage)
+			mContext->GSSetShaderResources(startSlot, 1, ppSRV);
+
+		if ((UINT)eShaderStage::PS & (UINT)stage)
+			mContext->PSSetShaderResources(startSlot, 1, ppSRV);
+
+		if ((UINT)eShaderStage::CS & (UINT)stage)
+			mContext->CSSetShaderResources(startSlot, 1, ppSRV);
+	}
+
+	void GraphicDevice_DX11::BindPrimitiveTopology(const D3D11_PRIMITIVE_TOPOLOGY topology)
+	{
+		mContext->IASetPrimitiveTopology(topology);
 	}
 
 	void GraphicDevice_DX11::BindVS(ID3D11VertexShader* pVertexShader)
@@ -301,7 +331,7 @@ namespace huru::graphics
 			assert(NULL && "Create depthstencilview failed!");
 
 #pragma region inputLayout Desc
-		D3D11_INPUT_ELEMENT_DESC inputLayoutDesces[2] = {};
+		D3D11_INPUT_ELEMENT_DESC inputLayoutDesces[3] = {};
 
 		inputLayoutDesces[0].AlignedByteOffset = 0;
 		inputLayoutDesces[0].Format = DXGI_FORMAT_R32G32B32_FLOAT;
@@ -316,6 +346,13 @@ namespace huru::graphics
 		inputLayoutDesces[1].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
 		inputLayoutDesces[1].SemanticName = "COLOR";
 		inputLayoutDesces[1].SemanticIndex = 0;
+
+		inputLayoutDesces[2].AlignedByteOffset = 28;
+		inputLayoutDesces[2].Format = DXGI_FORMAT_R32G32_FLOAT;
+		inputLayoutDesces[2].InputSlot = 0;
+		inputLayoutDesces[2].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
+		inputLayoutDesces[2].SemanticName = "TEXCOORD";
+		inputLayoutDesces[2].SemanticIndex = 0;
 #pragma endregion
 
 		Shader* triangle = Resources::Find<Shader>(L"TriangleShader");
@@ -323,6 +360,14 @@ namespace huru::graphics
 		if (!(CreateInputLayout(inputLayoutDesces, 2
 			, triangle->GetVSBlob()->GetBufferPointer()
 			, triangle->GetVSBlob()->GetBufferSize()
+			, &renderer::inputLayouts)))
+			assert(NULL && "Create input layout failed!");
+
+		Shader* sprite = Resources::Find<Shader>(L"SpriteShader");
+
+		if (!(CreateInputLayout(inputLayoutDesces, 3
+			, sprite->GetVSBlob()->GetBufferPointer()
+			, sprite->GetVSBlob()->GetBufferSize()
 			, &renderer::inputLayouts)))
 			assert(NULL && "Create input layout failed!");
 	}
@@ -348,14 +393,18 @@ namespace huru::graphics
 		
 		renderer::mesh->Bind();
 
-		Vector4 pos(0.5f, 0.0f, 0.0f, 1.0f);
+		Vector4 pos(0.0f, 0.0f, 0.0f, 1.0f);
 		renderer::constantBuffers[(UINT)eCBType::Transform].SetData(&pos);
 		renderer::constantBuffers[(UINT)eCBType::Transform].Bind(eShaderStage::VS);
 
-		Shader* triangle = Resources::Find<Shader>(L"TriangleShader");
-		triangle->Bind();
+		Shader* sprite = Resources::Find<Shader>(L"SpriteShader");
+		sprite->Bind();
 
-		mContext->Draw(3, 0);
+		Texture* texture = Resources::Find<Texture>(L"BG");
+		if (texture)
+			texture->Bind(eShaderStage::PS, 0);
+
+		mContext->DrawIndexed(6, 0, 0);
 
 		mSwapChain->Present(1, 0);
 	}

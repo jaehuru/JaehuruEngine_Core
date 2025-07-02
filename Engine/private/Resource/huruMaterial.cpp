@@ -5,7 +5,9 @@ namespace huru
 {
 	Material::Material() :
 		Resource(eResourceType::Material),
-		mMode(eRenderingMode::Opaque)
+		mMode(eRenderingMode::Opaque),
+		mAlbedoTexture(nullptr),
+		mShader(nullptr)
 	{
 
 	}
@@ -26,6 +28,10 @@ namespace huru
 
 	void Material::Bind()
 	{
-		mShader->Bind();
+		if (mShader)
+			mShader->Bind();
+
+		if (mAlbedoTexture)
+			mAlbedoTexture->Bind(eShaderStage::PS, (UINT)eTextureType::Albedo);
 	}
 }

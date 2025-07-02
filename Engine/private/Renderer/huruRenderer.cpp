@@ -4,6 +4,7 @@
 #include "Resource/huruShader.h"
 #include "Resource/huruMesh.h"
 #include "Resource/huruMaterial.h"
+#include "Resource/huruTexture.h"
 
 namespace huru::renderer
 {
@@ -175,19 +176,6 @@ namespace huru::renderer
 		LoadRectMesh();
 	}
 
-	void LoadMeterails()
-	{
-		Material* triangleMaterial = new Material();
-		Resources::Insert(L"TriangleMaterial", triangleMaterial);
-
-		triangleMaterial->SetShader(Resources::Find<Shader>(L"TriangleShader"));
-
-		Material* spriteMaterial = new Material();
-		Resources::Insert(L"SpriteMaterial", spriteMaterial);
-
-		spriteMaterial->SetShader(Resources::Find<Shader>(L"SpriteShader"));
-	}
-
 	void LoadShaders()
 	{
 		map<eShaderStage, wstring> triangleShaderPaths = {
@@ -202,6 +190,20 @@ namespace huru::renderer
 
 		Resources::Load<Shader>(L"TriangleShader", triangleShaderPaths);
 		Resources::Load<Shader>(L"SpriteShader", spriteShaderPaths);
+	}
+
+	void LoadMeterails()
+	{
+		Material* triangleMaterial = new Material();
+		triangleMaterial->SetShader(Resources::Find<Shader>(L"TriangleShader"));
+		Resources::Insert(L"TriangleMaterial", triangleMaterial);
+
+		Material* spriteMaterial = new Material();
+		Texture* texture = Resources::Find<Texture>(L"BG");
+		spriteMaterial->SetAlbedoTexture(texture);
+		spriteMaterial->SetShader(Resources::Find<Shader>(L"SpriteShader"));
+
+		Resources::Insert(L"SpriteMaterial", spriteMaterial);
 	}
 
 	void LoadConstantBuffers()

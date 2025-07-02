@@ -34,7 +34,6 @@ namespace huru
 		InitializeEtc();
 
 		mGraphicDevice = make_unique<GraphicDevice_DX11>();
-		renderer::Initialize();
 		mGraphicDevice->Initialize();
 
 		Fmod::Initialize();

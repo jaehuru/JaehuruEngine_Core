@@ -398,10 +398,6 @@ namespace huru::graphics
 		Material* material = huru::Resources::Find<Material>(L"SpriteMaterial");
 		material->Bind();
 
-		Texture* texture = Resources::Find<Texture>(L"BG");
-		if (texture)
-			texture->Bind(eShaderStage::PS, 0);
-
 		mContext->DrawIndexed(6, 0, 0);
 
 		mesh = Resources::Find<Mesh>(L"TriangleMesh");

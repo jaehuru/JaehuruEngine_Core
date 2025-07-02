@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Resource/huruResource.h"
+#include "Resource/huruTexture.h"
 
 namespace huru
 {
@@ -26,11 +27,13 @@ namespace huru
 		void	Bind();
 
 		void	SetShader(Shader* shader)	{ mShader = shader; }
+		void	SetAlbedoTexture(Texture* texture) { mAlbedoTexture = texture; mData.albedo = texture->GetName(); }
 
 	private:
 		eRenderingMode	mMode;
 		Material::Data	mData;
 
+		Texture*		mAlbedoTexture;
 		Shader*			mShader;
 	};
 }

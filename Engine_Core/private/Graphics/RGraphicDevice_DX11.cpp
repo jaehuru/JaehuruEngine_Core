@@ -450,8 +450,8 @@ void RGraphicDevice_DX11::Draw()
 	mesh->Bind();
 
 	FVector4 pos(-0.2f, 0.0f, 0.0f, 1.0f);
-	constantBuffers[(UINT)ECBType::JTransform].SetData(&pos);
-	constantBuffers[(UINT)ECBType::JTransform].Bind(EShaderStage::VS);
+	renderer::constantBuffers[(UINT)ECBType::JTransform].SetData(&pos);
+	renderer::constantBuffers[(UINT)ECBType::JTransform].Bind(EShaderStage::VS);
 
 	RMaterial* material = RResources::Find<RMaterial>(L"SpriteMaterial");
 	material->Bind();
@@ -462,8 +462,8 @@ void RGraphicDevice_DX11::Draw()
 	mesh->Bind();
 
 	pos = FVector4(0.2f, 0.0f, 0.0f, 1.0f);
-	constantBuffers[(UINT)ECBType::JTransform].SetData(&pos);
-	constantBuffers[(UINT)ECBType::JTransform].Bind(EShaderStage::VS);
+	renderer::constantBuffers[(UINT)ECBType::JTransform].SetData(&pos);
+	renderer::constantBuffers[(UINT)ECBType::JTransform].Bind(EShaderStage::VS);
 
 	material = RResources::Find<RMaterial>(L"TriangleMaterial");
 	material->Bind();

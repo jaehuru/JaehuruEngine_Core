@@ -36,11 +36,11 @@ fmodstudioL_vc.lib
 5. **빌드 이벤트 → 빌드 후 이벤트**
 ```
 IF "$(Configuration)"=="Debug" (
-    xcopy /Y /D "$(SolutionDir)..\JaehuruEngine\External\FMOD\lib\x64\fmodL.dll" "$(OutDir)"
-    xcopy /Y /D "$(SolutionDir)..\JaehuruEngine\External\FMOD\lib\x64\fmodstudioL.dll" "$(OutDir)"
+    xcopy /Y /D "$(SolutionDir)..\JaehuruEngine_Core\External\FMOD\lib\x64\fmodL.dll" "$(OutDir)"
+    xcopy /Y /D "$(SolutionDir)..\JaehuruEngine_Core\External\FMOD\lib\x64\fmodstudioL.dll" "$(OutDir)"
 ) ELSE (
-    xcopy /Y /D "$(SolutionDir)..\JaehuruEngine\External\FMOD\lib\x64\fmod.dll" "$(OutDir)"
-    xcopy /Y /D "$(SolutionDir)..\JaehuruEngine\External\FMOD\lib\x64\fmodstudio.dll" "$(OutDir)"
+    xcopy /Y /D "$(SolutionDir)..\JaehuruEngine_Core\External\FMOD\lib\x64\fmod.dll" "$(OutDir)"
+    xcopy /Y /D "$(SolutionDir)..\JaehuruEngine_Core\External\FMOD\lib\x64\fmodstudio.dll" "$(OutDir)"
 )
 ```
 ## vcpkg 라이브러리 관리 안내 

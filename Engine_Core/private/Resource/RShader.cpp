@@ -69,7 +69,7 @@ void RShader::Bind()
 	if (mPS)
 		GetDevice()->BindPS(mPS.Get());
 
-	GetDevice()->BindRasterizerState(rasterizerStates[(UINT)mRasterizerState].Get());
-	GetDevice()->BindBlendState(blendStates[(UINT)mBlendState].Get(), nullptr, 0xffffff);
-	GetDevice()->BindDepthStencilState(depthStencilStates[(UINT)mDepthStencilState].Get(), 0);
+	GetDevice()->BindRasterizerState(renderer::rasterizerStates[(UINT)mRasterizerState].Get());
+	GetDevice()->BindBlendState(renderer::blendStates[(UINT)mBlendState].Get(), nullptr, 0xffffff);
+	GetDevice()->BindDepthStencilState(renderer::depthStencilStates[(UINT)mDepthStencilState].Get(), 0);
 }

@@ -114,5 +114,5 @@ void JApplication::Release()
 	JSceneManager::Release();
 	UUIManager::Release();
 	RResources::Release();
-	Release();
+	renderer::Release();
 }

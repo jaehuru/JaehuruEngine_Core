@@ -45,7 +45,7 @@ namespace huru
 			mMaterial->BindShader();
 
 		if (mSprite)
-			mSprite->Bind(eShaderStage::PS, (UINT)eTextureType::Albedo);
+			mSprite->Bind(eShaderStage::PS, (UINT)eTextureType::Sprite);
 
 		if (mMesh)
 			GetDevice()->DrawIndexed(mMesh->GetIndexCount(), 0, 0);

@@ -20,6 +20,7 @@ Win32 API를 활용한 윈도우 창 생성 및 메시지 루프 처리와 같�
 1. **C/C++ → 일반 → 추가 포함 디렉터리**
 ```
 $(SolutionDir)..\JaehuruEngine_Core\External\FMOD\lib\x64
+$(SolutionDir)JaehuruEngine_Core\Engine_Core\public
 ```
 3. **링커 → 일반 → 추가 라이브러리 디렉터리**
 ```

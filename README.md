@@ -171,3 +171,22 @@ vcpkg install
 
 # Reflections
 엔진 아키텍처를 리팩토링하는 과정에서 큰 흥미를 느낄 수 있었다. 구조가 점차 명확해지고 체계적으로 정리되면서, 엔진과 클라이언트 간의 역할이 분리되고 각각의 책임이 분명해지는 점이 특히 인상적이었다. 이러한 경험을 통해 엔진 개발에 대한 흥미가 더욱 깊어졌고, 나아가 언리얼 엔진의 구조를 분석하고 직접 구현해보고자 하는 동기 또한 생겼다. 
+
+---
+# 참고한 오픈소스
+
+본 프로젝트는 다음 오픈소스를 참고하여 개발되었습니다.
+
+- [YamYam_Engine](https://github.com/eazuooz/YamYam_Engine) (MIT License)  
+  일부 구조와 아이디어, 코드를 기반으로 수정 및 확장하여 사용하였습니다.
+
+해당 프로젝트는 MIT 라이선스를 따르며, 원 저작자의 저작권 및 라이선스 정보는 아래와 같습니다:
+
+> 저작권 (MIT License)  
+> Copyright (c) 2023  
+>  
+> Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:  
+>  
+> The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.  
+>  
+> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

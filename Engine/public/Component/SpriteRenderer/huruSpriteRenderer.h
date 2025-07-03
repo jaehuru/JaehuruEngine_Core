@@ -1,10 +1,17 @@
 #pragma once
 
 #include "Component/huruComponent.h"
-#include "Resource/huruTexture.h"
+
 
 namespace huru
 {
+	namespace graphics
+	{
+		class Texture;
+	}
+	class Material;
+	class Mesh;
+
 	class SpriteRenderer : public Component
 	{
 	public:
@@ -16,12 +23,12 @@ namespace huru
 		void	LateUpdate()	override;
 		void	Render()		override;
 
-		void	SetTexture(Texture* texture)	{ mTexture = texture; }
-		void	SetSize(Vector2 size)			{ mSize = size; }
+		void	SetSprite(Texture* sprite)				{ mSprite = sprite; }
+		void	SetMaterial(Material* material)			{ mMaterial = material; }
 
 	private:
-		Texture*		mTexture;
-		Vector2			mSize;
-
-	};
+		Texture*		mSprite;
+		Material*		mMaterial;
+		Mesh*			mMesh;
+	}; 
 }

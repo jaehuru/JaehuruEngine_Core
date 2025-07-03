@@ -1,15 +1,17 @@
 #include "Component/SpriteRenderer/huruSpriteRenderer.h"
-#include "GameObject/huruGameObject.h"
-#include "Component/Transform/huruTransform.h"
 #include "Resource/huruTexture.h"
-#include "Renderer/huruRenderer.h"
+#include "Resource/huruResources.h"
+#include "Resource/huruMaterial.h"
+#include "Resource/huruMesh.h"
+#include "Graphics/huruGraphicDevice_DX11.h"
 
 namespace huru
 {
 	SpriteRenderer::SpriteRenderer() :
 		Component(eComponentType::SpriteRenderer),
-		mTexture(nullptr),
-		mSize(Vector2::One)
+		mSprite(nullptr),
+		mMaterial(nullptr),
+		mMesh(nullptr)
 	{
 
 	}
@@ -21,7 +23,7 @@ namespace huru
 
 	void SpriteRenderer::Initialize()
 	{
-
+		mMesh = Resources::Find<Mesh>(L"RectMesh");
 	}
 
 	void SpriteRenderer::Update()
@@ -36,7 +38,16 @@ namespace huru
 
 	void SpriteRenderer::Render()
 	{
-		if (mTexture == nullptr)
-			assert(false);
+		if (mMesh)
+			mMesh->Bind();
+
+		if (mMaterial)
+			mMaterial->BindShader();
+
+		if (mSprite)
+			mSprite->Bind(eShaderStage::PS, (UINT)eTextureType::Albedo);
+
+		if (mMesh)
+			GetDevice()->DrawIndexed(mMesh->GetIndexCount(), 0, 0);
 	}
 }

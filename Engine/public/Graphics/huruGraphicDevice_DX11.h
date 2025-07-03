@@ -59,9 +59,19 @@ namespace huru::graphics
 							UINT NumSamplers,
 							ID3D11SamplerState* const* ppSamplers);
 		void	BindSamplers(UINT StartSlot, UINT NumSamplers, ID3D11SamplerState* const* ppSamplers);
+		void	BindViewPort();
+		void	BindRenderTargets(UINT NumViews = 1,
+									ID3D11RenderTargetView* const* ppRenderTargetViews = nullptr,
+									ID3D11DepthStencilView* pDepthStencilView = nullptr);
+		void	BindDefaultRenderTarget();
+
+		void	ClearRenderTargetView();
+		void	ClearDepthStencilView();
 
 		void	Initialize();
 		void	Draw();
+		void	DrawIndexed(UINT IndexCount, UINT StartIndexLocation, INT BaseVertexLocation);
+		void	Present();
 
 		Microsoft::WRL::ComPtr<ID3D11Device> GetID3D11Device() { return mDevice; }
 

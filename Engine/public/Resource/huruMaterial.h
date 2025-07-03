@@ -25,6 +25,8 @@ namespace huru
 		virtual HRESULT Load(const wstring& path) override;
 
 		void	Bind();
+		void	BindShader();
+		void	BindTextures();
 
 		void	SetShader(Shader* shader)	{ mShader = shader; }
 		void	SetAlbedoTexture(Texture* texture) { mAlbedoTexture = texture; mData.albedo = texture->GetName(); }

@@ -27,14 +27,16 @@ namespace huru
 		virtual HRESULT Load(const wstring& path) override;
 
 
-		bool CreateVB(const vector<Vertex>& vertices);
-		bool CreateIB(const vector<UINT>& indices);
-		void SetVertexBufferParams(UINT vertexCount,
+		bool	CreateVB(const vector<Vertex>& vertices);
+		bool	CreateIB(const vector<UINT>& indices);
+		void	SetVertexBufferParams(UINT vertexCount,
 									D3D11_INPUT_ELEMENT_DESC* layout,
 									const void* pShaderBytecodeWithInputSignature,
 									SIZE_T BytecodeLength);
 
-		void Bind();
+		void	Bind();
+
+		UINT	GetIndexCount() const	{ return mIB.GetIndexCount(); }
 
 	private:
 		InputLayout			mInputLayout;

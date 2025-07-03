@@ -1,8 +1,10 @@
 #include "Graphics/GPUBuffer/huruIndexBuffer.h"
 
+
 namespace huru::graphics
 {
-	IndexBuffer::IndexBuffer()
+	IndexBuffer::IndexBuffer() :
+		mIndexCount(0)
 	{
 
 	}
@@ -14,6 +16,8 @@ namespace huru::graphics
 
 	bool IndexBuffer::Create(const vector<UINT>& indices)
 	{
+		mIndexCount = (UINT)indices.size();
+
 		desc.ByteWidth = sizeof(UINT) * (UINT)indices.size();
 		desc.BindFlags = D3D11_BIND_FLAG::D3D11_BIND_INDEX_BUFFER;
 		desc.Usage = D3D11_USAGE_DEFAULT;

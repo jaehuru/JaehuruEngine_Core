@@ -93,10 +93,17 @@ namespace huru
 
 	void Application::Render()
 	{
+		GetDevice()->ClearRenderTargetView();
+		GetDevice()->ClearDepthStencilView();
+		GetDevice()->BindViewPort();
+		GetDevice()->BindDefaultRenderTarget();
+
 		Time::Render();
 		CollisionManager::Render();
 		UIManager::Render();
 		SceneManager::Render();
+
+		GetDevice()->Present();
 	}
 
 	void Application::Destroy()

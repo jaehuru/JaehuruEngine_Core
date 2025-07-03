@@ -11,7 +11,6 @@ namespace huru
 		static T* Find(const wstring& key)
 		{
 			auto iter = mResources.find(key);
-
 			if (iter == mResources.end())
 				return nullptr;
 

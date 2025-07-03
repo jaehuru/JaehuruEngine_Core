@@ -247,13 +247,13 @@ namespace huru::renderer
 	void LoadShaders()
 	{
 		map<eShaderStage, wstring> triangleShaderPaths = {
-			{ eShaderStage::VS, L"../JaehuruEngine/Engine/Shaders/VS/TriangleVS.hlsl" },
-			{ eShaderStage::PS, L"../JaehuruEngine/Engine/Shaders/PS/TrianglePS.hlsl" },
+			{ eShaderStage::VS, L"../JaehuruEngine_Core/Engine_Core/Shaders/VS/TriangleVS.hlsl" },
+			{ eShaderStage::PS, L"../JaehuruEngine_Core/Engine_Core/Shaders/PS/TrianglePS.hlsl" },
 		};
 
 		map<eShaderStage, wstring> spriteShaderPaths = {
-			{ eShaderStage::VS, L"../JaehuruEngine/Engine/Shaders/VS/Sprite-DefaultVS.hlsl" },
-			{ eShaderStage::PS, L"../JaehuruEngine/Engine/Shaders/PS/Sprite-DefaultPS.hlsl" },
+			{ eShaderStage::VS, L"../JaehuruEngine_Core/Engine_Core/Shaders/VS/Sprite-DefaultVS.hlsl" },
+			{ eShaderStage::PS, L"../JaehuruEngine_Core/Engine_Core/Shaders/PS/Sprite-DefaultPS.hlsl" },
 		};
 
 		Resources::Load<Shader>(L"TriangleShader", triangleShaderPaths);

@@ -23,16 +23,13 @@
 #pragma comment(lib, "winmm.lib")
 #include <gdiplus.h>
 #pragma comment(lib, "gdiplus.lib")
-#include "huruMath.h"
-#include "huruEnums.h"
-#include "Graphics/huruGraphics.h"
+#include "Math.h"
+#include "Enums.h"
+#include "Graphics/RGraphics.h"
 
 #define CAST_UINT(value) static_cast<UINT>(value)
 #define CAST_FLOAT(value) static_cast<float>(value)
 
 using namespace std;
-using namespace huru;
-using namespace huru::math;
-using namespace huru::enums;
-using namespace huru::graphics;
+
 

@@ -1,0 +1,34 @@
+#pragma once
+
+#include "Common/FEntity.h"
+#include "Actor/AActor.h"
+#include "Layer/JLayer.h"
+
+
+class JScene : public FEntity
+{
+public:
+	JScene();
+	~JScene();
+
+	virtual void	Initialize();
+	virtual void	Update();
+	virtual void	LateUpdate();
+	virtual void	Render();
+	virtual void	Destroy();
+
+	virtual void	OnEnter();
+	virtual void	OnExit();
+
+	void	AddGameObject(AActor* gameObj, const ELayerType type);
+	void	EraseGameObject(AActor* gameObj);
+
+	JLayer*	GetLayer(const ELayerType type) const	{ return mLayers[(UINT)type]; }
+
+private:
+	void	createLayers();
+		
+private:
+	vector<JLayer*>		mLayers;
+};
+

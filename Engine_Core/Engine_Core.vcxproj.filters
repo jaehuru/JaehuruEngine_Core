@@ -1,145 +1,145 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="public\Collision\huruCollisionManager.h">
+    <ClInclude Include="public\Collision\JCollisionManager.h">
       <Filter>public\Collision</Filter>
     </ClInclude>
     <ClInclude Include="public\Common\CommonInclude.h">
       <Filter>public\Common</Filter>
     </ClInclude>
-    <ClInclude Include="public\Common\huruEntity.h">
+    <ClInclude Include="public\Common\FEntity.h">
       <Filter>public\Common</Filter>
     </ClInclude>
-    <ClInclude Include="public\Common\huruEnums.h">
+    <ClInclude Include="public\Common\Enums.h">
       <Filter>public\Common</Filter>
     </ClInclude>
-    <ClInclude Include="public\Component\Animator\huruAnimator.h">
+    <ClInclude Include="public\Component\Animator\JAnimator.h">
       <Filter>public\Component\Animator</Filter>
     </ClInclude>
-    <ClInclude Include="public\Component\Audio\huruAudioListener.h">
+    <ClInclude Include="public\Component\Audio\JAudioListener.h">
       <Filter>public\Component\Audio</Filter>
     </ClInclude>
-    <ClInclude Include="public\Component\Camera\huruCamera.h">
+    <ClInclude Include="public\Component\Camera\JCamera.h">
       <Filter>public\Component\Camera</Filter>
     </ClInclude>
-    <ClInclude Include="public\Component\Collider\huruBoxCollider2D.h">
+    <ClInclude Include="public\Component\Collider\JBoxCollider2D.h">
       <Filter>public\Component\Collider</Filter>
     </ClInclude>
-    <ClInclude Include="public\Component\Collider\huruCircleCollider2D.h">
+    <ClInclude Include="public\Component\Collider\JCircleCollider2D.h">
       <Filter>public\Component\Collider</Filter>
     </ClInclude>
-    <ClInclude Include="public\Component\Collider\huruCollider.h">
+    <ClInclude Include="public\Component\Collider\JCollider.h">
       <Filter>public\Component\Collider</Filter>
     </ClInclude>
-    <ClInclude Include="public\Component\Rigidbody\huruRigidbody.h">
+    <ClInclude Include="public\Component\Rigidbody\JRigidbody.h">
       <Filter>public\Component\Rigidbody</Filter>
     </ClInclude>
-    <ClInclude Include="public\Component\Script\huruScript.h">
+    <ClInclude Include="public\Component\Script\JScript.h">
       <Filter>public\Component\Script</Filter>
     </ClInclude>
-    <ClInclude Include="public\Component\SpriteRenderer\huruSpriteRenderer.h">
+    <ClInclude Include="public\Component\SpriteRenderer\JSpriteRenderer.h">
       <Filter>public\Component\SpriteRenderer</Filter>
     </ClInclude>
-    <ClInclude Include="public\Component\TileMapRenderer\huruTileMapRenderer.h">
+    <ClInclude Include="public\Component\TileMapRenderer\JTileMapRenderer.h">
       <Filter>public\Component\TileMapRenderer</Filter>
     </ClInclude>
-    <ClInclude Include="public\Component\Transform\huruTransform.h">
+    <ClInclude Include="public\Component\Transform\JTransform.h">
       <Filter>public\Component\Transform</Filter>
     </ClInclude>
-    <ClInclude Include="public\Component\huruComponent.h">
+    <ClInclude Include="public\Component\JComponent.h">
       <Filter>public\Component</Filter>
     </ClInclude>
-    <ClInclude Include="public\FMOD\huruFmod.h">
+    <ClInclude Include="public\FMOD\JFmod.h">
       <Filter>public\FMOD</Filter>
     </ClInclude>
-    <ClInclude Include="public\GameObject\huruGameObject.h">
-      <Filter>public\GameObject</Filter>
+    <ClInclude Include="public\GameObject\AActor.h">
+      <Filter>public\Actor</Filter>
     </ClInclude>
-    <ClInclude Include="public\Helpers\huruInput.h">
+    <ClInclude Include="public\Helpers\Input.h">
       <Filter>public\Helpers</Filter>
     </ClInclude>
-    <ClInclude Include="public\Helpers\huruTime.h">
+    <ClInclude Include="public\Helpers\Time.h">
       <Filter>public\Helpers</Filter>
     </ClInclude>
-    <ClInclude Include="public\Layer\huruLayer.h">
+    <ClInclude Include="public\Layer\JLayer.h">
       <Filter>public\Layer</Filter>
     </ClInclude>
-    <ClInclude Include="public\Object\huruObject.h">
+    <ClInclude Include="public\Object\JObject.h">
       <Filter>public\Object</Filter>
     </ClInclude>
-    <ClInclude Include="public\Renderer\huruRenderer.h">
+    <ClInclude Include="public\Renderer\RRenderer.h">
       <Filter>public\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="public\Resource\huruAnimation.h">
+    <ClInclude Include="public\Resource\RAnimation.h">
       <Filter>public\Resource</Filter>
     </ClInclude>
-    <ClInclude Include="public\Resource\huruResource.h">
+    <ClInclude Include="public\Resource\RResource.h">
       <Filter>public\Resource</Filter>
     </ClInclude>
-    <ClInclude Include="public\Resource\huruResources.h">
+    <ClInclude Include="public\Resource\RResources.h">
       <Filter>public\Resource</Filter>
     </ClInclude>
-    <ClInclude Include="public\Resource\huruTexture.h">
+    <ClInclude Include="public\Resource\RTexture.h">
       <Filter>public\Resource</Filter>
     </ClInclude>
-    <ClInclude Include="public\Scene\huruDontDestroyOnLoad.h">
+    <ClInclude Include="public\Scene\JDontDestroyOnLoad.h">
       <Filter>public\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="public\Scene\huruScene.h">
+    <ClInclude Include="public\Scene\JScene.h">
       <Filter>public\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="public\Scene\huruSceneManager.h">
+    <ClInclude Include="public\Scene\JSceneManager.h">
       <Filter>public\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="public\UI\huruUIBase.h">
+    <ClInclude Include="public\UI\UUIBase.h">
       <Filter>public\UI</Filter>
     </ClInclude>
-    <ClInclude Include="public\UI\huruUIButton.h">
+    <ClInclude Include="public\UI\UButton.h">
       <Filter>public\UI</Filter>
     </ClInclude>
-    <ClInclude Include="public\UI\huruUIManager.h">
+    <ClInclude Include="public\UI\UUIManager.h">
       <Filter>public\UI</Filter>
     </ClInclude>
-    <ClInclude Include="public\HighLevelInterface\huruApplication.h">
+    <ClInclude Include="public\HighLevelInterface\JApplication.h">
       <Filter>public\High Level Interface</Filter>
     </ClInclude>
-    <ClInclude Include="public\UI\huruUIHUD.h">
+    <ClInclude Include="public\UI\UHUD.h">
       <Filter>public\UI</Filter>
     </ClInclude>
-    <ClInclude Include="public\Common\huruMath.h">
+    <ClInclude Include="public\Common\Math.h">
       <Filter>public\Common</Filter>
     </ClInclude>
-    <ClInclude Include="public\Resource\huruMesh.h">
+    <ClInclude Include="public\Resource\RMesh.h">
       <Filter>public\Resource</Filter>
     </ClInclude>
-    <ClInclude Include="public\Resource\huruMaterial.h">
+    <ClInclude Include="public\Resource\RMaterial.h">
       <Filter>public\Resource</Filter>
     </ClInclude>
-    <ClInclude Include="public\Resource\huruAudioClip.h">
+    <ClInclude Include="public\Resource\RAudioClip.h">
       <Filter>public\Resource</Filter>
     </ClInclude>
-    <ClInclude Include="public\Component\Audio\huruAudioSource.h">
+    <ClInclude Include="public\Component\Audio\JAudioSource.h">
       <Filter>public\Component\Audio</Filter>
     </ClInclude>
-    <ClInclude Include="public\Graphics\huruGraphics.h">
+    <ClInclude Include="public\Graphics\RGraphics.h">
       <Filter>public\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="public\Resource\huruShader.h">
+    <ClInclude Include="public\Resource\RShader.h">
       <Filter>public\Resource</Filter>
     </ClInclude>
-    <ClInclude Include="public\Graphics\huruGraphicDevice_DX11.h">
+    <ClInclude Include="public\Graphics\RGraphicDevice_DX11.h">
       <Filter>public\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="public\Graphics\GPUBuffer\huruConstantBuffer.h">
+    <ClInclude Include="public\Graphics\GPUBuffer\RConstantBuffer.h">
       <Filter>public\Graphics\GPU Buffer</Filter>
     </ClInclude>
-    <ClInclude Include="public\Graphics\GPUBuffer\huruIndexBuffer.h">
+    <ClInclude Include="public\Graphics\GPUBuffer\RIndexBuffer.h">
       <Filter>public\Graphics\GPU Buffer</Filter>
     </ClInclude>
-    <ClInclude Include="public\Graphics\GPUBuffer\huruVertexBuffer.h">
+    <ClInclude Include="public\Graphics\GPUBuffer\RVertexBuffer.h">
       <Filter>public\Graphics\GPU Buffer</Filter>
     </ClInclude>
-    <ClInclude Include="public\Graphics\huruInputLayout.h">
+    <ClInclude Include="public\Graphics\RInputLayout.h">
       <Filter>public\Graphics</Filter>
     </ClInclude>
   </ItemGroup>
@@ -158,9 +158,6 @@
     </Filter>
     <Filter Include="public\FMOD">
       <UniqueIdentifier>{db57a0b9-ef3a-4979-9c19-38039e387f75}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="public\GameObject">
-      <UniqueIdentifier>{43ec8ab2-c649-4d26-a443-a67cfee88d06}</UniqueIdentifier>
     </Filter>
     <Filter Include="public\Helpers">
       <UniqueIdentifier>{e82e24cc-22b1-40a6-b5e0-7d0988115d94}</UniqueIdentifier>
@@ -191,9 +188,6 @@
     </Filter>
     <Filter Include="private\FMOD">
       <UniqueIdentifier>{8ca130f1-a0b4-4c7b-bffb-9849a5ffa7ed}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="private\GameObject">
-      <UniqueIdentifier>{12ec4236-3e82-443c-8313-c672def504a3}</UniqueIdentifier>
     </Filter>
     <Filter Include="private\Helpers">
       <UniqueIdentifier>{452e13bc-8d7b-4019-8e33-8e9c5a9c7c9f}</UniqueIdentifier>
@@ -306,139 +300,145 @@
     <Filter Include="private\Graphics\GPU Buffer">
       <UniqueIdentifier>{4cc65141-46d8-41fb-b722-b7d42a9958a3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="public\Actor">
+      <UniqueIdentifier>{43ec8ab2-c649-4d26-a443-a67cfee88d06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="private\Actor">
+      <UniqueIdentifier>{12ec4236-3e82-443c-8313-c672def504a3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="private\Collision\huruCollisionManager.cpp">
+    <ClCompile Include="private\Collision\JCollisionManager.cpp">
       <Filter>private\Collision</Filter>
     </ClCompile>
-    <ClCompile Include="private\Common\huruEntity.cpp">
+    <ClCompile Include="private\Common\FEntity.cpp">
       <Filter>private\Common</Filter>
     </ClCompile>
-    <ClCompile Include="private\FMOD\huruFmod.cpp">
+    <ClCompile Include="private\FMOD\JFmod.cpp">
       <Filter>private\FMOD</Filter>
     </ClCompile>
-    <ClCompile Include="private\GameObject\huruGameObject.cpp">
-      <Filter>private\GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="private\Helpers\huruInput.cpp">
+    <ClCompile Include="private\Helpers\Input.cpp">
       <Filter>private\Helpers</Filter>
     </ClCompile>
-    <ClCompile Include="private\Helpers\huruTime.cpp">
+    <ClCompile Include="private\Helpers\Time.cpp">
       <Filter>private\Helpers</Filter>
     </ClCompile>
-    <ClCompile Include="private\Layer\huruLayer.cpp">
+    <ClCompile Include="private\Layer\JLayer.cpp">
       <Filter>private\Layer</Filter>
     </ClCompile>
-    <ClCompile Include="private\Object\huruObject.cpp">
+    <ClCompile Include="private\Object\JObject.cpp">
       <Filter>private\Object</Filter>
     </ClCompile>
-    <ClCompile Include="private\Renderer\huruRenderer.cpp">
+    <ClCompile Include="private\Renderer\RRenderer.cpp">
       <Filter>private\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="private\Resource\huruAnimation.cpp">
+    <ClCompile Include="private\Resource\RAnimation.cpp">
       <Filter>private\Resource</Filter>
     </ClCompile>
-    <ClCompile Include="private\Resource\huruResource.cpp">
+    <ClCompile Include="private\Resource\RResource.cpp">
       <Filter>private\Resource</Filter>
     </ClCompile>
-    <ClCompile Include="private\Resource\huruResources.cpp">
+    <ClCompile Include="private\Resource\RResources.cpp">
       <Filter>private\Resource</Filter>
     </ClCompile>
-    <ClCompile Include="private\Resource\huruTexture.cpp">
+    <ClCompile Include="private\Resource\RTexture.cpp">
       <Filter>private\Resource</Filter>
     </ClCompile>
-    <ClCompile Include="private\Scene\huruDontDestroyOnLoad.cpp">
+    <ClCompile Include="private\Scene\JDontDestroyOnLoad.cpp">
       <Filter>private\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="private\Scene\huruScene.cpp">
+    <ClCompile Include="private\Scene\JScene.cpp">
       <Filter>private\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="private\Scene\huruSceneManager.cpp">
+    <ClCompile Include="private\Scene\JSceneManager.cpp">
       <Filter>private\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="private\UI\huruUIBase.cpp">
+    <ClCompile Include="private\UI\UUIBase.cpp">
       <Filter>private\UI</Filter>
     </ClCompile>
-    <ClCompile Include="private\UI\huruUIButton.cpp">
+    <ClCompile Include="private\UI\UButton.cpp">
       <Filter>private\UI</Filter>
     </ClCompile>
-    <ClCompile Include="private\UI\huruUIManager.cpp">
+    <ClCompile Include="private\UI\UUIManager.cpp">
       <Filter>private\UI</Filter>
     </ClCompile>
-    <ClCompile Include="private\Component\huruComponent.cpp">
+    <ClCompile Include="private\Component\JComponent.cpp">
       <Filter>private\Component</Filter>
     </ClCompile>
-    <ClCompile Include="private\Component\Animator\huruAnimator.cpp">
+    <ClCompile Include="private\Component\Animator\JAnimator.cpp">
       <Filter>private\Component\Animator</Filter>
     </ClCompile>
-    <ClCompile Include="private\Component\Audio\huruAudioListener.cpp">
+    <ClCompile Include="private\Component\Audio\JAudioListener.cpp">
       <Filter>private\Component\Audio</Filter>
     </ClCompile>
-    <ClCompile Include="private\Component\Camera\huruCamera.cpp">
+    <ClCompile Include="private\Component\Camera\JCamera.cpp">
       <Filter>private\Component\Camera</Filter>
     </ClCompile>
-    <ClCompile Include="private\Component\Collider\huruBoxCollider2D.cpp">
+    <ClCompile Include="private\Component\Collider\JBoxCollider2D.cpp">
       <Filter>private\Component\Collider</Filter>
     </ClCompile>
-    <ClCompile Include="private\Component\Collider\huruCircleCollider2D.cpp">
+    <ClCompile Include="private\Component\Collider\JCircleCollider2D.cpp">
       <Filter>private\Component\Collider</Filter>
     </ClCompile>
-    <ClCompile Include="private\Component\Collider\huruCollider.cpp">
+    <ClCompile Include="private\Component\Collider\JCollider.cpp">
       <Filter>private\Component\Collider</Filter>
     </ClCompile>
-    <ClCompile Include="private\Component\Rigidbody\huruRigidbody.cpp">
+    <ClCompile Include="private\Component\Rigidbody\JRigidbody.cpp">
       <Filter>private\Component\Rigidbody</Filter>
     </ClCompile>
-    <ClCompile Include="private\Component\Script\huruScript.cpp">
+    <ClCompile Include="private\Component\Script\JScript.cpp">
       <Filter>private\Component\Script</Filter>
     </ClCompile>
-    <ClCompile Include="private\Component\SpriteRenderer\huruSpriteRenderer.cpp">
+    <ClCompile Include="private\Component\SpriteRenderer\JSpriteRenderer.cpp">
       <Filter>private\Component\SpriteRenderer</Filter>
     </ClCompile>
-    <ClCompile Include="private\Component\TileMapRenderer\huruTileMapRenderer.cpp">
+    <ClCompile Include="private\Component\TileMapRenderer\JTileMapRenderer.cpp">
       <Filter>private\Component\TileMapRenderer</Filter>
     </ClCompile>
-    <ClCompile Include="private\Component\Transform\huruTransform.cpp">
+    <ClCompile Include="private\Component\Transform\JTransform.cpp">
       <Filter>private\Component\Transform</Filter>
     </ClCompile>
-    <ClCompile Include="private\Resource\huruAudioClip.cpp">
+    <ClCompile Include="private\Resource\RAudioClip.cpp">
       <Filter>private\Resource</Filter>
     </ClCompile>
-    <ClCompile Include="private\Component\Audio\huruAudioSource.cpp">
+    <ClCompile Include="private\Component\Audio\JAudioSource.cpp">
       <Filter>private\Component\Audio</Filter>
     </ClCompile>
-    <ClCompile Include="private\HighLevelInterface\huruApplication.cpp">
+    <ClCompile Include="private\HighLevelInterface\JApplication.cpp">
       <Filter>private\High Level Interface</Filter>
     </ClCompile>
-    <ClCompile Include="private\UI\huruUIHUD.cpp">
+    <ClCompile Include="private\UI\UHUD.cpp">
       <Filter>private\UI</Filter>
     </ClCompile>
-    <ClCompile Include="private\Common\huruMath.cpp">
+    <ClCompile Include="private\Common\Math.cpp">
       <Filter>private\Common</Filter>
     </ClCompile>
-    <ClCompile Include="private\Resource\huruMesh.cpp">
+    <ClCompile Include="private\Resource\RMesh.cpp">
       <Filter>private\Resource</Filter>
     </ClCompile>
-    <ClCompile Include="private\Resource\huruMaterial.cpp">
+    <ClCompile Include="private\Resource\RMaterial.cpp">
       <Filter>private\Resource</Filter>
     </ClCompile>
-    <ClCompile Include="private\Resource\huruShader.cpp">
+    <ClCompile Include="private\Resource\RShader.cpp">
       <Filter>private\Resource</Filter>
     </ClCompile>
-    <ClCompile Include="private\Graphics\huruGraphicDevice_DX11.cpp">
+    <ClCompile Include="private\Graphics\RGraphicDevice_DX11.cpp">
       <Filter>private\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="private\Graphics\GPUBuffer\huruConstantBuffer.cpp">
+    <ClCompile Include="private\Graphics\GPUBuffer\RConstantBuffer.cpp">
       <Filter>private\Graphics\GPU Buffer</Filter>
     </ClCompile>
-    <ClCompile Include="private\Graphics\GPUBuffer\huruIndexBuffer.cpp">
+    <ClCompile Include="private\Graphics\GPUBuffer\RIndexBuffer.cpp">
       <Filter>private\Graphics\GPU Buffer</Filter>
     </ClCompile>
-    <ClCompile Include="private\Graphics\GPUBuffer\huruVertexBuffer.cpp">
+    <ClCompile Include="private\Graphics\GPUBuffer\RVertexBuffer.cpp">
       <Filter>private\Graphics\GPU Buffer</Filter>
     </ClCompile>
-    <ClCompile Include="private\Graphics\huruInputLayout.cpp">
+    <ClCompile Include="private\Graphics\RInputLayout.cpp">
       <Filter>private\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="private\Actor\AActor.cpp">
+      <Filter>private\Actor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

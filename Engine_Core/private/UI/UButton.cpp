@@ -1,5 +1,7 @@
 #include "UI/UButton.h"
 #include "Helpers/Input.h"
+#include "Resource/RTexture.h"
+#include "Resource/RResources.h"
 
 
 UButton::UButton()
@@ -67,5 +69,31 @@ void UButton::OnClear()
 
 void UButton::ButtonClick()
 {
-	int a = 0;
+}
+
+void UButton::Serialize(json& jsonObject) const
+{
+	UUIBase::Serialize(jsonObject);
+	if (mTexture)
+	{
+		wstring wstr = mTexture->GetName();
+		wstring_convert<codecvt_utf8<wchar_t>> conv;
+		jsonObject["texturePath"] = conv.to_bytes(wstr);
+	}
+	else
+	{
+		jsonObject["texturePath"] = "";
+	}
+}
+
+void UButton::Deserialize(const json& jsonObject)
+{
+	UUIBase::Deserialize(jsonObject);
+	string texturePath = jsonObject.value("texturePath", "");
+	if (!texturePath.empty())                                     
+	{                                                             
+		wstring_convert<codecvt_utf8<wchar_t>> conv;
+		wstring wKey = conv.from_bytes(texturePath);        
+		mTexture = RResources::Load<RTexture>(wKey, wKey);         
+	}
 }

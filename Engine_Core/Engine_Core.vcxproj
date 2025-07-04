@@ -19,10 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="public\Actor\AActor.h" />
     <ClInclude Include="public\Collision\JCollisionManager.h" />
     <ClInclude Include="public\Common\CommonInclude.h" />
     <ClInclude Include="public\Common\FEntity.h" />
     <ClInclude Include="public\Common\Enums.h" />
+    <ClInclude Include="public\Common\ISerializable.h" />
     <ClInclude Include="public\Common\Math.h" />
     <ClInclude Include="public\Component\Animator\JAnimator.h" />
     <ClInclude Include="public\Component\Audio\JAudioListener.h" />
@@ -38,7 +40,6 @@
     <ClInclude Include="public\Component\TileMapRenderer\JTileMapRenderer.h" />
     <ClInclude Include="public\Component\Transform\JTransform.h" />
     <ClInclude Include="public\FMOD\JFmod.h" />
-    <ClInclude Include="public\GameObject\AActor.h" />
     <ClInclude Include="public\Graphics\GPUBuffer\RConstantBuffer.h" />
     <ClInclude Include="public\Graphics\GPUBuffer\RIndexBuffer.h" />
     <ClInclude Include="public\Graphics\GPUBuffer\RVertexBuffer.h" />

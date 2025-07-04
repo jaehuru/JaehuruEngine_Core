@@ -9,9 +9,12 @@ class RShader : public RResource
 		RShader();
 		virtual ~RShader();
 
-		virtual HRESULT Save(const wstring& path) override;
-		virtual HRESULT Load(const wstring& path) override;
+		HRESULT Save(const wstring& path) override;
+		HRESULT Load(const wstring& path) override;
 		HRESULT Load(const map<EShaderStage, wstring>& shaderPaths);
+
+        void	Serialize(json& jsonObject) const	override;
+        void	Deserialize(const json& jsonObject) override;
 
 		bool	Create(const EShaderStage stage, const wstring& fullPath);
 		bool	CreateVertexShader(const wstring& fullPath);
@@ -42,7 +45,10 @@ class RShader : public RResource
 		Microsoft::WRL::ComPtr<ID3D11GeometryShader>	mGS;
 		Microsoft::WRL::ComPtr<ID3D11PixelShader>		mPS;
 
-		ERasterizerState		mRasterizerState;
-		EBlendState				mBlendState;
-		EDepthStencilState		mDepthStencilState;
+		ERasterizerState			mRasterizerState;
+		EBlendState					mBlendState;
+		EDepthStencilState			mDepthStencilState;
+
+        map<EShaderStage, wstring>	mShaderPaths;
 };
+

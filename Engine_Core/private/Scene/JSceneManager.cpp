@@ -1,5 +1,9 @@
 #include "Scene/JSceneManager.h"
 #include "Scene/JDontDestroyOnLoad.h"
+#include "Component/Camera/JCamera.h"
+#include <string>
+#include <locale>
+#include <codecvt>
 
 
 map<wstring, JScene*> JSceneManager::mScene = {};
@@ -24,14 +28,14 @@ JScene* JSceneManager::LoadScene(const wstring& name)
 	return iter->second;
 }
 
-vector<AActor*> JSceneManager::GetGameObjects(ELayerType layer)
+vector<AActor*> JSceneManager::GetActors(ELayerType layer)
 {
-	vector<AActor*> gameObjects = mActiveScene->GetLayer(layer)->GetGameObjects();
-	vector<AActor*> dontDestroyOnLoad = mDontDestroyOnLoad->GetLayer(layer)->GetGameObjects();
+	vector<AActor*> actors = mActiveScene->GetLayer(layer)->GetActors();
+	vector<AActor*> dontDestroyOnLoad = mDontDestroyOnLoad->GetLayer(layer)->GetActors();
 
-	gameObjects.insert(gameObjects.end(), dontDestroyOnLoad.begin(), dontDestroyOnLoad.end());
+    actors.insert(actors.end(), dontDestroyOnLoad.begin(), dontDestroyOnLoad.end());
 
-	return gameObjects;
+	return actors;
 }
 
 void JSceneManager::Initialize()
@@ -56,6 +60,87 @@ void JSceneManager::Render()
 {
 	mActiveScene->Render();
 	mDontDestroyOnLoad->Render();
+}
+
+void JSceneManager::Serialize(json& jsonObject)
+{
+    json scenesArray = json::array();
+    wstring_convert<codecvt_utf8<wchar_t>, wchar_t> converter;
+
+    for (const auto& pair : mScene)
+    {
+        json sceneJson;
+        sceneJson["Name"] = converter.to_bytes(pair.first);
+        pair.second->Serialize(sceneJson);
+        scenesArray.push_back(sceneJson);
+    }
+    jsonObject["Scenes"] = scenesArray;
+
+    if (mDontDestroyOnLoad)
+    {
+        json dontDestroyJson;
+        mDontDestroyOnLoad->Serialize(dontDestroyJson);
+        jsonObject["DontDestroyOnLoad"] = dontDestroyJson;
+    }
+}
+
+void JSceneManager::Deserialize(const json& jsonObject)
+{
+    Release();
+
+    wstring_convert<codecvt_utf8<wchar_t>, wchar_t> converter;
+
+    const json& scenesArray = jsonObject["Scenes"];
+    for (const auto& sceneJson : scenesArray)
+    {
+        wstring name = converter.from_bytes(sceneJson["Name"]);
+        JScene* newScene = nullptr;
+
+        if (name == L"JDontDestroyOnLoad")
+        {
+            newScene = new JDontDestroyOnLoad();
+        }
+        else
+        {
+            newScene = new JScene();
+        }
+        
+        newScene->Deserialize(sceneJson);
+        mScene.insert(make_pair(name, newScene));
+    }
+
+    if (jsonObject.contains("DontDestroyOnLoad"))
+    {
+        const json& dontDestroyJson = jsonObject["DontDestroyOnLoad"];
+        wstring name = converter.from_bytes(dontDestroyJson["Name"]);
+        if (name == L"JDontDestroyOnLoad")
+        {
+            mDontDestroyOnLoad = new JDontDestroyOnLoad();
+            mDontDestroyOnLoad->Deserialize(dontDestroyJson);
+        }
+    }
+}
+
+AActor* JSceneManager::FindActorByName(const wstring& name)
+{
+    for (const auto& scenePair : mScene)
+    {
+        JScene* scene = scenePair.second;
+        for (UINT i = 0; i < (UINT)ELayerType::Max; ++i)
+        {
+            JLayer* layer = scene->GetLayer((ELayerType)i);
+            if (layer == nullptr) continue;
+
+            for (AActor* actor : layer->GetActors())
+            {
+                if (actor->GetName() == name)
+                {
+                    return actor;
+                }
+            }
+        }
+    }
+    return nullptr;
 }
 
 void JSceneManager::Destroy()

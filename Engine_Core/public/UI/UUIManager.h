@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Common/CommonInclude.h"
-
+#include "Common/ISerializable.h"
 
 class UUIBase;
 
@@ -21,17 +21,20 @@ public:
 
 	static void		RegisterUIFactory(EUIType type, UIFactoryFunc factory);
 
+	static void		Serialize(json& jsonObject);
+	static void		Deserialize(const json& jsonObject);
+
 private:
 	static void		OnLoad(EUIType type);
 	static void		OnComplete(UUIBase* addUI);
 	static void		OnFail();
 
 private:
-	static unordered_map<EUIType, UIFactoryFunc>		mUIFactories;
-	static unordered_map<EUIType, UUIBase*>				mUIs;
-	static stack<UUIBase*>								mUIBases;
-	static queue<EUIType>								mRequestUIQueue;
-	static UUIBase*										mActiveUI;
+	static unordered_map<EUIType, UIFactoryFunc>	mUIFactories;
+	static unordered_map<EUIType, UUIBase*>			mUIs;
+	static stack<UUIBase*>							mUIBases;
+	static queue<EUIType>							mRequestUIQueue;
+	static UUIBase*									mActiveUI;
 };
 
 

@@ -14,8 +14,9 @@ public:
 	void	LateUpdate()	override;
 	void	Render()		override;
 
+    void	Serialize(json& jsonObject) const		override;
+    void	Deserialize(const json& jsonObject)		override;
+
 private:
 	FVector2 mRadius;
 };
-
-

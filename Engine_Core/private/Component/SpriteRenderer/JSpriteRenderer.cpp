@@ -49,3 +49,60 @@ void JSpriteRenderer::Render()
 	if (mMesh)
 		GetDevice()->DrawIndexed(mMesh->GetIndexCount(), 0, 0);
 }
+
+void JSpriteRenderer::Serialize(json& jsonObject) const
+{
+    JComponent::Serialize(jsonObject);
+    wstring_convert<codecvt_utf8<wchar_t>, wchar_t> converter;
+
+    if (mSprite)
+    {
+        jsonObject["SpriteName"] = converter.to_bytes(mSprite->GetName());
+    }
+    else
+    {
+        jsonObject["SpriteName"] = "";
+    }
+
+    if (mMaterial)
+    {
+        jsonObject["MaterialName"] = converter.to_bytes(mMaterial->GetName());
+    }
+    else
+    {
+        jsonObject["MaterialName"] = "";
+    }
+
+    if (mMesh)
+    {
+        jsonObject["MeshName"] = converter.to_bytes(mMesh->GetName());
+    }
+    else
+    {
+        jsonObject["MeshName"] = "";
+    }
+}
+
+void JSpriteRenderer::Deserialize(const json& jsonObject)
+{
+    JComponent::Deserialize(jsonObject);
+    wstring_convert<codecvt_utf8<wchar_t>, wchar_t> converter;
+
+    wstring spriteName = converter.from_bytes(jsonObject["SpriteName"]);
+    if (!spriteName.empty())
+    {
+        mSprite = RResources::Find<RTexture>(spriteName);
+    }
+
+    wstring materialName = converter.from_bytes(jsonObject["MaterialName"]);
+    if (!materialName.empty())
+    {
+        mMaterial = RResources::Find<RMaterial>(materialName);
+    }
+
+    wstring meshName = converter.from_bytes(jsonObject["MeshName"]);
+    if (!meshName.empty())
+    {
+        mMesh = RResources::Find<RMesh>(meshName);
+    }
+}

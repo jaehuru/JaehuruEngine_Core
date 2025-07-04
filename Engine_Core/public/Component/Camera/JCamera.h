@@ -19,14 +19,18 @@ public:
 	void	LateUpdate()		override;
 	void	Render()			override;
 
+    void	Serialize(json& jsonObject) const	override;
+    void	Deserialize(const json& jsonObject) override;
+
 	void	SetTarget(AActor* target)	{ mTarget = target; }
+    void    LinkTargetActor();
 
 private:
-	AActor*		mTarget;
+	AActor*				mTarget;
+	wstring				mTargetActorNameTemp;
 
 	FVector2			mDistance;
 	FVector2			mResolution;
 	FVector2			mLookPosition;
+
 };
-
-

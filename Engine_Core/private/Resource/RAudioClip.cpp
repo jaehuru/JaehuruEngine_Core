@@ -14,8 +14,16 @@ RAudioClip::RAudioClip() :
 
 RAudioClip::~RAudioClip()
 {
-	mSound->release();
-	mSound = nullptr;
+	if (mSound)
+	{
+		mSound->release();
+		mSound = nullptr;
+	}
+}
+
+HRESULT RAudioClip::Save(const wstring& path)
+{
+	return E_NOTIMPL;
 }
 
 HRESULT RAudioClip::Load(const wstring& path)
@@ -27,6 +35,24 @@ HRESULT RAudioClip::Load(const wstring& path)
 	mSound->set3DMinMaxDistance(mMinDistance, mMaxDistance);
 
 	return S_OK;
+}
+
+void RAudioClip::Serialize(json& jsonObject) const
+{
+    RResource::Serialize(jsonObject);
+    jsonObject["MinDistance"] = mMinDistance;
+    jsonObject["MaxDistance"] = mMaxDistance;
+    jsonObject["Loop"] = mbLoop;
+}
+
+void RAudioClip::Deserialize(const json& jsonObject)
+{
+    RResource::Deserialize(jsonObject);
+    mMinDistance = jsonObject["MinDistance"];
+    mMaxDistance = jsonObject["MaxDistance"];
+    mbLoop = jsonObject["Loop"];
+
+    Load(GetPath());
 }
 
 void RAudioClip::Play()

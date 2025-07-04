@@ -36,3 +36,13 @@ void JBoxCollider2D::Render()
 	JTransform* tr = GetOwner()->GetComponent<JTransform>();
 	FVector2 pos = tr->GetPosition();
 }
+
+void JBoxCollider2D::Serialize(json& jsonObject) const
+{
+    JCollider::Serialize(jsonObject);
+}
+
+void JBoxCollider2D::Deserialize(const json& jsonObject)
+{
+    JCollider::Deserialize(jsonObject);
+}

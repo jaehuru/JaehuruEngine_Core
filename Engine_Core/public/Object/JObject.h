@@ -15,7 +15,7 @@ static T* Instantiate(ELayerType type)
 	gameObj->SetLayerType(type);
 	JScene* activeScene = JSceneManager::GetActiveScene();
 	JLayer* layer = activeScene->GetLayer(type);
-	layer->AddGameObject(gameObj);
+	layer->AddActor(gameObj);
 
 	return gameObj;
 }
@@ -27,7 +27,7 @@ static T* Instantiate(ELayerType type, FVector2 position)
 	gameObj->SetLayerType(type);
 	JScene* activeScene = JSceneManager::GetActiveScene();
 	JLayer* layer = activeScene->GetLayer(type);
-	layer->AddGameObject(gameObj);
+	layer->AddActor(gameObj);
 
 	JTransform* tr = gameObj->GetComponent<JTransform>();
 	tr->SetPosition(position);
@@ -39,11 +39,11 @@ static void JDontDestroyOnLoad(AActor* actor)
 {
 	JScene* activeScene = JSceneManager::GetActiveScene();
 	// 현재씬에서 게임 오브젝트를 삭제
-	activeScene->EraseGameObject(actor);
+	activeScene->EraseActor(actor);
 
 	// 해당 게임 오브젝트를 -> DonDestroy씬으로 넣음
 	JScene* dontDestroyOnLoad = 
 		JSceneManager::GetDontDestroyOnLoad();
 	dontDestroyOnLoad->
-		AddGameObject(actor, actor->GetLayerType());
+		AddActor(actor, actor->GetLayerType());
 }

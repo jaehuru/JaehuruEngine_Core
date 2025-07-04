@@ -31,6 +31,9 @@ public:
 	void	Render();
 	void	UIClear();
 
+    void	Serialize(json& jsonObject) const	override;
+    void	Deserialize(const json& jsonObject) override;
+
 	virtual void	OnInit();
 	virtual void	OnActive();
 	virtual void	OnInActive();
@@ -40,8 +43,8 @@ public:
 	virtual void	OnClear();
 
 	EUIType		GetType() const				{ return mType; }
-	FVector2		GetPos() const				{ return mPosition; }
-	FVector2		GetSize() const				{ return mSize; }
+	FVector2	GetPos() const				{ return mPosition; }
+	FVector2	GetSize() const				{ return mSize; }
 
 	bool		IsFullScreen() const		{ return mbFullScreen; }
 
@@ -53,12 +56,12 @@ public:
 protected:
 	FVector2		mPosition;
 	FVector2		mSize;
-	bool		mbMouseOn;
+	bool			mbMouseOn;
 
 private:
-	EUIType		mType;
-	bool		mbFullScreen;
-	bool		mbEnabled;
+	EUIType			mType;
+	bool			mbFullScreen;
+	bool			mbEnabled;
 	UUIBase*		mParent;
 };
 

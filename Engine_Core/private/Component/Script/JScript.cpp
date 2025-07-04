@@ -33,6 +33,16 @@ void JScript::Render()
 
 }
 
+void JScript::Serialize(json& jsonObject) const
+{
+    JComponent::Serialize(jsonObject);
+}
+
+void JScript::Deserialize(const json& jsonObject)
+{
+    JComponent::Deserialize(jsonObject);
+}
+
 void JScript::OnCollisionEnter(JCollider* other)
 {
 

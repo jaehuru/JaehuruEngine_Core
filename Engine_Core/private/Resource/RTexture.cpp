@@ -63,3 +63,13 @@ void RTexture::Bind(EShaderStage stage, UINT startSlot)
 {
 	GetDevice()->SetShaderResource(stage, startSlot, mSRV.GetAddressOf());
 }
+
+void RTexture::Serialize(json& jsonObject) const
+{
+    RResource::Serialize(jsonObject);
+}
+
+void RTexture::Deserialize(const json& jsonObject)
+{
+    RResource::Deserialize(jsonObject);
+}

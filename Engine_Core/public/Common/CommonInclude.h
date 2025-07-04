@@ -1,5 +1,6 @@
 #pragma once
 
+#define _SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING
 #define NOMINMAX
 #include <Windows.h>
 #include <assert.h>
@@ -19,6 +20,9 @@
 #include <thread>
 #include <mmsystem.h>
 #include <dinput.h>
+#include <nlohmann/json.hpp>
+#include <locale>
+#include <codecvt>
 #pragma comment(lib, "Msimg32.lib")
 #pragma comment(lib, "winmm.lib")
 #include <gdiplus.h>
@@ -31,5 +35,6 @@
 #define CAST_FLOAT(value) static_cast<float>(value)
 
 using namespace std;
+using namespace nlohmann;
 
 

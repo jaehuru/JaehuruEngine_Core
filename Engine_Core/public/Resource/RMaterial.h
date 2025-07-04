@@ -18,22 +18,29 @@ public:
 	RMaterial();
 	virtual ~RMaterial();
 
-	virtual HRESULT Save(const wstring& path) override;
-	virtual HRESULT Load(const wstring& path) override;
+	HRESULT Save(const wstring& path) override;
+	HRESULT Load(const wstring& path) override;
+
+	void	Serialize(json& jsonObject) const		override;               
+	void	Deserialize(const json & jsonObject)	override;
 
 	void	Bind();
 	void	BindShader();
 	void	BindTextures();
 
-	void	SetShader(RShader* shader)	{ mShader = shader; }
-	void	SetAlbedoTexture(RTexture* texture) { mAlbedoTexture = texture; mData.albedo = texture->GetName(); }
+	void	SetShader(RShader* shader)			{ mShader = shader; }
+	void	SetAlbedoTexture(RTexture* texture) 
+	{ 
+		mAlbedoTexture = texture;
+		mData.albedo = texture->GetName(); 
+	}
 
 private:
 	ERenderingMode	mMode;
 	RMaterial::Data	mData;
 
 	RTexture*		mAlbedoTexture;
-	RShader*			mShader;
+	RShader*		mShader;
 };
 
 

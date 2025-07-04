@@ -8,20 +8,23 @@ class AActor;
 class JComponent : public FEntity
 {
 public:
-	JComponent(EComponentType type);
-	virtual ~JComponent();
+    JComponent(EComponentType type);
+    virtual ~JComponent();
 
-	virtual void	Initialize();
-	virtual void	Update();
-	virtual void	LateUpdate();
-	virtual void	Render();
+    virtual void	Initialize();
+    virtual void	Update();
+    virtual void	LateUpdate();
+    virtual void	Render();
 
-	AActor*		GetOwner() const			{ return mOwner; }
-	EComponentType	GetType() const				{ return mType; }
+    void    Serialize(json& jsonObject) const override;
+    void    Deserialize(const json& jsonObject) override;
 
-	void			SetOwner(AActor* owner) { mOwner = owner; }
+    AActor*		    GetOwner() const			{ return mOwner; }
+    EComponentType	GetType() const				{ return mType; }
+
+    void			SetOwner(AActor* owner) { mOwner = owner; }
 
 private:
-	AActor*			mOwner;
-	EComponentType		mType;
+    AActor*			    mOwner;
+    EComponentType		mType;
 };

@@ -33,3 +33,13 @@ void JAudioListener::LateUpdate()
 void JAudioListener::Render()
 {
 }
+
+void JAudioListener::Serialize(json& jsonObject) const
+{
+    JComponent::Serialize(jsonObject);
+}
+
+void JAudioListener::Deserialize(const json& jsonObject)
+{
+    JComponent::Deserialize(jsonObject);
+}

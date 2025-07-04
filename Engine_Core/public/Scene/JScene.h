@@ -20,8 +20,11 @@ public:
 	virtual void	OnEnter();
 	virtual void	OnExit();
 
-	void	AddGameObject(AActor* gameObj, const ELayerType type);
-	void	EraseGameObject(AActor* gameObj);
+    void	Serialize(json& jsonObject) const	override;
+    void	Deserialize(const json& jsonObject) override;
+
+	void	AddActor(AActor* gameObj, const ELayerType type);
+	void	EraseActor(AActor* gameObj);
 
 	JLayer*	GetLayer(const ELayerType type) const	{ return mLayers[(UINT)type]; }
 
@@ -31,4 +34,3 @@ private:
 private:
 	vector<JLayer*>		mLayers;
 };
-

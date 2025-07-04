@@ -1,22 +1,20 @@
 #pragma once
 
-#include "CommonInclude.h"
+#include "Common/ISerializable.h"
 
-
-class FEntity
+class FEntity : public ISerializable
 {
 public:
-	FEntity();
-	virtual ~FEntity();
+    FEntity();
+    virtual ~FEntity();
 
+    virtual void Serialize(json& jsonObject) const override;
+    virtual void Deserialize(const json& jsonObject) override;
 
-	wstring&	GetName() 						{ return mName; }
+    wstring&	GetName() 						{ return mName; }
 
-	void		SetName(const wstring& name)	{ mName = name; }
+    void		SetName(const wstring& name)	{ mName = name; }
 
 private:
-	wstring		mName;
+    wstring		mName;
 };
-
-
-

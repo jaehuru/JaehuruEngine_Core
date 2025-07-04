@@ -1,4 +1,6 @@
 #include "Layer/JLayer.h"
+#include "Collision/JCollisionManager.h"
+#include "Actor/AActor.h"
 
 
 JLayer::JLayer() :
@@ -75,12 +77,52 @@ void JLayer::Render()
 void JLayer::Destroy()
 {
 	vector<AActor*> deleteObjects = {};
-	findDeadGameObjects(deleteObjects);
-	eraseDeadGameObject();
-	deleteGameObjects(deleteObjects);
+	findDeadActors(deleteObjects);
+	eraseDeadActor();
+	deleteActors(deleteObjects);
 }
 
-void JLayer::AddGameObject(AActor* actor)
+void JLayer::Serialize(json& jsonObject) const
+{
+    FEntity::Serialize(jsonObject);
+    json actorsArray = json::array();
+    for (AActor* actor : mActors)
+    {
+        if (actor == nullptr)
+            continue;
+
+        json actorJson;
+        actor->Serialize(actorJson);
+        actorsArray.push_back(actorJson);
+    }
+    jsonObject["Actors"] = actorsArray;
+}
+
+void JLayer::Deserialize(const json& jsonObject)
+{
+    FEntity::Deserialize(jsonObject);
+
+    // Clear existing actors
+    for (AActor* actor : mActors)
+    {
+        if (actor != nullptr)
+        {
+            delete actor;
+            actor = nullptr;
+        }
+    }
+    mActors.clear();
+
+    const json& actorsArray = jsonObject["Actors"];
+    for (const auto& actorJson : actorsArray)
+    {
+        AActor* newActor = new AActor();
+        newActor->Deserialize(actorJson);
+        AddActor(newActor);
+    }
+}
+
+void JLayer::AddActor(AActor* actor)
 {
 	if (actor == nullptr)
 		return;
@@ -88,7 +130,7 @@ void JLayer::AddGameObject(AActor* actor)
 	mActors.push_back(actor);
 }
 
-void JLayer::EraseGameObject(AActor* eraseActor)
+void JLayer::EraseActor(AActor* eraseActor)
 {
 	erase_if(mActors,
 		[=](AActor* actor)
@@ -97,7 +139,7 @@ void JLayer::EraseGameObject(AActor* eraseActor)
 		});
 }
 
-void JLayer::findDeadGameObjects(OUT vector<AActor*>& actors)
+void JLayer::findDeadActors(OUT vector<AActor*>& actors)
 {
 	for (AActor* actor : mActors)
 	{
@@ -107,7 +149,7 @@ void JLayer::findDeadGameObjects(OUT vector<AActor*>& actors)
 	}
 }
 
-void JLayer::deleteGameObjects(vector<AActor*> actors)
+void JLayer::deleteActors(vector<AActor*> actors)
 {
 	for (AActor* actor : actors)
 	{
@@ -116,7 +158,7 @@ void JLayer::deleteGameObjects(vector<AActor*> actors)
 	}
 }
 
-void JLayer::eraseDeadGameObject()
+void JLayer::eraseDeadActor()
 {
 	erase_if(mActors,
 		[](AActor* actor)

@@ -10,7 +10,11 @@ public:
 	RAudioClip();
 	virtual ~RAudioClip();
 
-	virtual HRESULT		Load(const wstring& path) override;
+	HRESULT Save(const wstring& path)			override;
+	HRESULT	Load(const wstring& path)			override;
+
+	void	Serialize(json& jsonObject) const	override;
+	void	Deserialize(const json& jsonObject)	override;
 
 	void	Play();
 	void	Stop();

@@ -16,6 +16,9 @@ public:
 	void	LateUpdate()	override;
 	void	Render()		override;
 
+    void	Serialize(json& jsonObject) const	override;
+    void	Deserialize(const json& jsonObject) override;
+
 	void	Play();
 	void	Stop();
 	void	SetLoop(bool loop);
@@ -26,5 +29,3 @@ public:
 private:
 	RAudioClip*		mAudioClip;
 };
-
-

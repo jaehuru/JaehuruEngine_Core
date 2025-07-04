@@ -61,6 +61,9 @@ public:
 		mResources.insert(make_pair(key, resource));
 	}
 
+	static void Serialize(json& jsonObject);
+	static void Deserialize(const json& jsonObject);
+
 	static void Release()
 	{
 		for (auto& iter : mResources)
@@ -73,3 +76,4 @@ public:
 private:
 	static map<wstring, RResource*> mResources;
 };
+

@@ -77,8 +77,8 @@ void JCollisionManager::CollisionLayerCheck(ELayerType left,
 
 void JCollisionManager::LayerCollision(ELayerType left, ELayerType right)
 {
-	const vector<AActor*>& leftObjs = JSceneManager::GetGameObjects(left);
-	const vector<AActor*>& rightObjs = JSceneManager::GetGameObjects(right);
+	const vector<AActor*>& leftObjs = JSceneManager::GetActors(left);
+	const vector<AActor*>& rightObjs = JSceneManager::GetActors(right);
 
 	for (AActor* leftObj : leftObjs)
 	{

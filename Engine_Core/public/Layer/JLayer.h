@@ -16,20 +16,21 @@ public:
 	virtual void	Render();
 	virtual void	Destroy();
 
-	void	AddGameObject(AActor* actor);
-	void	EraseGameObject(AActor* eraseActor);
+    void	Serialize(json& jsonObject) const	override;
+    void	Deserialize(const json& jsonObject) override;
 
-	const vector<AActor*>	GetGameObjects()	{ return mActors; }
+	void	AddActor(AActor* actor);
+	void	EraseActor(AActor* eraseActor);
+
+	const vector<AActor*>	GetActors()	{ return mActors; }
 
 private:
-	void	findDeadGameObjects(OUT vector<AActor*>& actors);
-	void	deleteGameObjects(vector<AActor*> actors);
-	void	eraseDeadGameObject();
+	void	findDeadActors(OUT vector<AActor*>& actors);
+	void	deleteActors(vector<AActor*> actors);
+	void	eraseDeadActor();
 
 private:
 	vector<AActor*>		mActors;
 };
 
-typedef vector<AActor*>::iterator GameObjectIter;
-
-
+typedef vector<AActor*>::iterator ActorIter;

@@ -1,7 +1,8 @@
-﻿#include "UI/UUIManager.h"
+#include "UI/UUIManager.h"
 #include "UI/UUIBase.h"
 #include "UI/UHUD.h"
 #include "UI/UButton.h"
+
 
 
 unordered_map<EUIType, UUIManager::UIFactoryFunc> UUIManager::mUIFactories = { };
@@ -87,6 +88,20 @@ void UUIManager::Release()
 		iter.second = nullptr;
 	}
 	mUIs.clear();
+
+	// Clear mUIBases stack
+	while (!mUIBases.empty())
+	{
+		mUIBases.pop();
+	}
+
+	// Clear mRequestUIQueue
+	while (!mRequestUIQueue.empty())
+	{
+		mRequestUIQueue.pop();
+	}
+
+	mActiveUI = nullptr;
 }
 
 void UUIManager::Push(EUIType type)
@@ -142,6 +157,41 @@ void UUIManager::Pop(EUIType type)
 void UUIManager::RegisterUIFactory(EUIType type, UIFactoryFunc factory)
 {
 	mUIFactories[type] = factory;
+}
+
+void UUIManager::Serialize(json& jsonObject)
+{
+	json uiArray = json::array();
+	for (auto const& [type, ui] : mUIs)
+	{
+		json uiJson;
+		ui->Serialize(uiJson);
+		uiJson["Type"] = static_cast<int>(type);
+		uiArray.push_back(uiJson);
+	}
+	jsonObject["UIs"] = uiArray;
+}
+
+void UUIManager::Deserialize(const json& jsonObject)
+{
+	Release();
+
+	if (jsonObject.contains("UIs") && jsonObject["UIs"].is_array())
+	{
+		for (const auto& uiJson : jsonObject["UIs"])
+		{
+			EUIType type = static_cast<EUIType>(uiJson["Type"]);
+			auto it = mUIFactories.find(type);
+			if (it != mUIFactories.end())
+			{
+				UUIBase* ui = it->second();
+				ui->Deserialize(uiJson);
+				mUIs.insert(make_pair(type, ui));
+				ui->Initialize();
+				ui->Active();
+			}
+		}
+	}
 }
 
 void UUIManager::OnLoad(EUIType type)

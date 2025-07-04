@@ -28,6 +28,9 @@ public:
 	virtual void	LateUpdate();
 	virtual void	Render();
 
+    void	Serialize(json& jsonObject) const override;
+    void	Deserialize(const json& jsonObject) override;
+
 	template <typename T>
 	T* AddComponent()
 	{
@@ -77,5 +80,3 @@ private:
 	vector<JComponent*>			mComponents;
 	ELayerType					mLayerType;
 };
-
-

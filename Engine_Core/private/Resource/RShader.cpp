@@ -1,5 +1,8 @@
 #include "Resource/RShader.h"
 #include "Renderer/RRenderer.h"
+#include <string>
+#include <locale>
+#include <codecvt>
 
 
 RShader::RShader() : 
@@ -37,6 +40,42 @@ HRESULT RShader::Load(const map<EShaderStage, wstring>& shaderPaths)
 	return S_OK;
 }
 
+void RShader::Serialize(json& jsonObject) const
+{
+    RResource::Serialize(jsonObject);
+    jsonObject["RasterizerState"] = static_cast<int>(mRasterizerState);
+    jsonObject["BlendState"] = static_cast<int>(mBlendState);
+    jsonObject["DepthStencilState"] = static_cast<int>(mDepthStencilState);
+
+    json shaderPathsArray = json::array();
+    wstring_convert<codecvt_utf8<wchar_t>, wchar_t> converter;
+    for (const auto& pair : mShaderPaths)
+    {
+        json pathEntry;
+        pathEntry["Stage"] = static_cast<int>(pair.first);
+        pathEntry["Path"] = converter.to_bytes(pair.second);
+        shaderPathsArray.push_back(pathEntry);
+    }
+    jsonObject["ShaderPaths"] = shaderPathsArray;
+}
+
+void RShader::Deserialize(const json& jsonObject)
+{
+    RResource::Deserialize(jsonObject);
+    mRasterizerState = static_cast<ERasterizerState>(jsonObject["RasterizerState"]);
+    mBlendState = static_cast<EBlendState>(jsonObject["BlendState"]);
+    mDepthStencilState = static_cast<EDepthStencilState>(jsonObject["DepthStencilState"]);
+
+    const json& shaderPathsArray = jsonObject["ShaderPaths"];
+    wstring_convert<codecvt_utf8<wchar_t>, wchar_t> converter;
+    for (const auto& pathEntry : shaderPathsArray)
+    {
+        EShaderStage stage = static_cast<EShaderStage>(pathEntry["Stage"]);
+        wstring path = converter.from_bytes(pathEntry["Path"]);
+        mShaderPaths[stage] = path;
+    }
+}
+
 bool RShader::Create(const EShaderStage stage, const wstring& fullPath)
 {
 	switch (stage)
@@ -45,7 +84,7 @@ bool RShader::Create(const EShaderStage stage, const wstring& fullPath)
 		return CreateVertexShader(fullPath);
 	case EShaderStage::PS:
 		return CreatePixelShader(fullPath);
-		// Geometry, Compute 등 확장 가능
+		// Geometry, Compute
 	default:
 		assert(false && "Invalid RShader Stage");
 		return false;

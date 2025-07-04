@@ -14,10 +14,13 @@ public:
 	void		LateUpdate()	override;
 	void		Render()		override;
 
-	FVector2		GetVelocity() const				{ return mVelocity; }
+    void		Serialize(json& jsonObject) const	override;
+    void		Deserialize(const json& jsonObject) override;
+
+	FVector2	GetVelocity() const				{ return mVelocity; }
 
 	void		SetMass(float mass)				{ mMass = mass; }
-	void		AddForce(FVector2 force)			{ mForce = force; }
+	void		AddForce(FVector2 force)		{ mForce = force; }
 	void		SetGround(bool ground)			{ mbGround = ground; }
 	void		SetVelocity(FVector2 velocity)	{ mVelocity = velocity; }
 
@@ -32,5 +35,3 @@ private:
 	FVector2			mLimitedVelocity;	
 	FVector2			mGravity;			
 };
-
-

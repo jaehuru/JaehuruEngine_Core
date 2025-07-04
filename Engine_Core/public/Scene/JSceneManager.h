@@ -30,14 +30,20 @@ public:
 	static void		Destroy();
 	static void		Release();
 
+    static void		Serialize(json& jsonObject);
+    static void		Deserialize(const json& jsonObject);
+
+	static AActor*	FindActorByName(const wstring& name);
+
 	static JScene*				GetActiveScene()		{ return mActiveScene; }
 	static JScene*				GetDontDestroyOnLoad()	{ return mDontDestroyOnLoad; }
-	static vector<AActor*>	GetGameObjects(ELayerType layer);
+	static vector<AActor*>		GetActors(ELayerType layer);
 
 private:
-	static map<wstring, JScene*> mScene;
-	static JScene*				mActiveScene;
-	static JScene*				mDontDestroyOnLoad;
+	static map<wstring, JScene*>	mScene;
+	static JScene*					mActiveScene;
+	static JScene*					mDontDestroyOnLoad;
 };
+
 
 

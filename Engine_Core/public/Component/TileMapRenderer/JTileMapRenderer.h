@@ -17,6 +17,9 @@ public:
 	void	LateUpdate()	override;
 	void	Render()		override;
 
+    void Serialize(json& jsonObject) const override;
+    void Deserialize(const json& jsonObject) override;
+
 	FVector2		GetIndex() const				{ return mIndex; }
 
 	void		SetTexture(RTexture* texture)	{ mTexture = texture; }

@@ -51,6 +51,28 @@ void UUIBase::UIClear()
 	OnClear();
 }
 
+void UUIBase::Serialize(json& jsonObject) const
+{
+    FEntity::Serialize(jsonObject);
+    jsonObject["PositionX"] = mPosition.x;
+    jsonObject["PositionY"] = mPosition.y;
+    jsonObject["SizeX"] = mSize.x;
+    jsonObject["SizeY"] = mSize.y;
+    jsonObject["Type"] = static_cast<int>(mType);
+    jsonObject["FullScreen"] = mbFullScreen;
+}
+
+void UUIBase::Deserialize(const json& jsonObject)
+{
+    FEntity::Deserialize(jsonObject);
+    mPosition.x = jsonObject["PositionX"];
+    mPosition.y = jsonObject["PositionY"];
+    mSize.x = jsonObject["SizeX"];
+    mSize.y = jsonObject["SizeY"];
+    mType = static_cast<EUIType>(jsonObject["Type"]);
+    mbFullScreen = jsonObject["FullScreen"];
+}
+
 void UUIBase::OnInit()
 {
 

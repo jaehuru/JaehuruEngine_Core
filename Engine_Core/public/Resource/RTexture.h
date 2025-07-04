@@ -14,8 +14,11 @@ public:
 	RTexture();
 	~RTexture();
 
-	virtual HRESULT Save(const wstring& path) override;
-	virtual HRESULT Load(const wstring& path) override;
+	HRESULT Save(const wstring& path) override;
+	HRESULT Load(const wstring& path) override;
+
+    void Serialize(json& jsonObject) const override;
+    void Deserialize(const json& jsonObject) override;
 
 	void Bind(EShaderStage stage, UINT startSlot);
 
@@ -27,5 +30,3 @@ private:
 	Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> mSRV;
 	Microsoft::WRL::ComPtr<ID3D11RenderTargetView> mRTV;
 };
-
-

@@ -36,7 +36,7 @@ void JRigidbody::Update()
 
 	mVelocity += mAccelation * Time::DeltaTime();
 
-	if (mbGround) // 땅
+	if (mbGround) // 
 	{
 		FVector2 gravity = mGravity;
 		gravity.Normalize();
@@ -44,12 +44,12 @@ void JRigidbody::Update()
 		float dot = mVelocity.Dot(gravity);
 		mVelocity -= gravity * dot;
 	}
-	else // 공중
+	else // 
 	{
 		mVelocity += mGravity * Time::DeltaTime();
 	}
 
-	// 최대 속도 제한
+	// 獵 撻 
 	FVector2 gravity = mGravity;
 	gravity.Normalize();
 	float dot = mVelocity.Dot(gravity);
@@ -74,12 +74,12 @@ void JRigidbody::Update()
 
 	if (!(mVelocity == FVector2::Zero))
 	{
-		// 속도 반대방향으로 마찰력 작용
+		// 撻 莩  謗
 		FVector2 friction = -mVelocity;
 		friction.Normalize();
 		friction = friction * mFriction * mMass * Time::DeltaTime();
 
-		// 마찰력으로 인한 속도 감소량이 현재 속도보다 큰 경우
+		//   撻 念  撻 큰 
 		if (mVelocity.Length() <= friction.Length())
 		{
 			mVelocity = FVector2::Zero;
@@ -106,4 +106,40 @@ void JRigidbody::LateUpdate()
 void JRigidbody::Render()
 {
 
+}
+
+void JRigidbody::Serialize(json& jsonObject) const
+{
+    JComponent::Serialize(jsonObject);
+    jsonObject["Ground"] = mbGround;
+    jsonObject["Mass"] = mMass;
+    jsonObject["Friction"] = mFriction;
+    jsonObject["ForceX"] = mForce.x;
+    jsonObject["ForceY"] = mForce.y;
+    jsonObject["AccelationX"] = mAccelation.x;
+    jsonObject["AccelationY"] = mAccelation.y;
+    jsonObject["VelocityX"] = mVelocity.x;
+    jsonObject["VelocityY"] = mVelocity.y;
+    jsonObject["LimitedVelocityX"] = mLimitedVelocity.x;
+    jsonObject["LimitedVelocityY"] = mLimitedVelocity.y;
+    jsonObject["GravityX"] = mGravity.x;
+    jsonObject["GravityY"] = mGravity.y;
+}
+
+void JRigidbody::Deserialize(const json& jsonObject)
+{
+    JComponent::Deserialize(jsonObject);
+    mbGround = jsonObject["Ground"];
+    mMass = jsonObject["Mass"];
+    mFriction = jsonObject["Friction"];
+    mForce.x = jsonObject["ForceX"];
+    mForce.y = jsonObject["ForceY"];
+    mAccelation.x = jsonObject["AccelationX"];
+    mAccelation.y = jsonObject["AccelationY"];
+    mVelocity.x = jsonObject["VelocityX"];
+    mVelocity.y = jsonObject["VelocityY"];
+    mLimitedVelocity.x = jsonObject["LimitedVelocityX"];
+    mLimitedVelocity.y = jsonObject["LimitedVelocityY"];
+    mGravity.x = jsonObject["GravityX"];
+    mGravity.y = jsonObject["GravityY"];
 }

@@ -52,9 +52,6 @@
     <ClInclude Include="public\FMOD\JFmod.h">
       <Filter>public\FMOD</Filter>
     </ClInclude>
-    <ClInclude Include="public\GameObject\AActor.h">
-      <Filter>public\Actor</Filter>
-    </ClInclude>
     <ClInclude Include="public\Helpers\Input.h">
       <Filter>public\Helpers</Filter>
     </ClInclude>
@@ -141,6 +138,12 @@
     </ClInclude>
     <ClInclude Include="public\Graphics\RInputLayout.h">
       <Filter>public\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="public\Common\ISerializable.h">
+      <Filter>public\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="public\Actor\AActor.h">
+      <Filter>public\Actor</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

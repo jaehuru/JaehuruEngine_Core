@@ -1,6 +1,9 @@
 #include "Component/Animator/JAnimator.h"
 #include "Resource/RResources.h"
 #include "Resource/RAnimation.h"
+#include <string>
+#include <locale>
+#include <codecvt>
 
 
 JAnimator::JAnimator() :
@@ -62,6 +65,40 @@ void JAnimator::Render()
 
 }
 
+void JAnimator::Serialize(json& jsonObject) const
+{
+    JComponent::Serialize(jsonObject);
+    jsonObject["Loop"] = mbLoop;
+
+    json animationsArray = json::array();
+    wstring_convert<codecvt_utf8<wchar_t>, wchar_t> converter;
+    for (const auto& pair : mAnimations)
+    {
+        json animationJson;
+        animationJson["Name"] = converter.to_bytes(pair.first);
+        pair.second->Serialize(animationJson);
+        animationsArray.push_back(animationJson);
+    }
+    jsonObject["Animations"] = animationsArray;
+}
+
+void JAnimator::Deserialize(const json& jsonObject)
+{
+    JComponent::Deserialize(jsonObject);
+    mbLoop = jsonObject["Loop"];
+
+    const json& animationsArray = jsonObject["Animations"];
+    wstring_convert<codecvt_utf8<wchar_t>, wchar_t> converter;
+
+    for (const auto& animationJson : animationsArray)
+    {
+        wstring name = converter.from_bytes(animationJson["Name"]);
+        RAnimation* newAnimation = new RAnimation();
+        newAnimation->Deserialize(animationJson);
+        AddAnimation(name, newAnimation);
+    }
+}
+
 void JAnimator::CreateAnimation(const wstring& name,
 								RTexture* spriteSheet,
 								FVector2 leftTop, FVector2 size,
@@ -76,7 +113,7 @@ void JAnimator::CreateAnimation(const wstring& name,
 	animation = new RAnimation();
 	animation->SetName(name);
 	animation->CreateAnimation(name, spriteSheet, leftTop, size, 
-									offset, spriteLength, duration);
+								offset, spriteLength, duration);
 
 	animation->SetAnimator(this);
 

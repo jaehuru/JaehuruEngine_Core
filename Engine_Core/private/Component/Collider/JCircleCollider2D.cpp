@@ -36,3 +36,17 @@ void JCircleCollider2D::Render()
 	JTransform* tr = GetOwner()->GetComponent<JTransform>();
 	FVector2 pos = tr->GetPosition();
 }
+
+void JCircleCollider2D::Serialize(json& jsonObject) const
+{
+    JCollider::Serialize(jsonObject);
+    jsonObject["RadiusX"] = mRadius.x;
+    jsonObject["RadiusY"] = mRadius.y;
+}
+
+void JCircleCollider2D::Deserialize(const json& jsonObject)
+{
+    JCollider::Deserialize(jsonObject);
+    mRadius.x = jsonObject["RadiusX"];
+    mRadius.y = jsonObject["RadiusY"];
+}

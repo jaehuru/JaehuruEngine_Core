@@ -15,24 +15,25 @@ public:
 	void	LateUpdate()	override;
 	void	Render()		override;
 
+    void Serialize(json& jsonObject) const override;
+    void Deserialize(const json& jsonObject) override;
+
 	virtual void OnCollisionEnter(JCollider* other);
 	virtual void OnCollisionStay(JCollider* other);
 	virtual void OnCollisionExit(JCollider* other);
 
-	FVector2			GetOffset() const				{ return mOffset; }
+	FVector2		GetOffset() const				{ return mOffset; }
 	UINT32			GetID()	const					{ return mID; }
-	FVector2			GetSize() const					{ return mSize; }
+	FVector2		GetSize() const					{ return mSize; }
 	EColliderType	GetColliderType() const			{ return mType; }
 
 	void			SetOffset(FVector2 offset) 		{ mOffset = offset; }
 	void			SetSize(FVector2 size) 			{ mSize = size; }
 
 private:
-	static UINT32	mCollisionID;
-	UINT			mID;
+	static UINT32		mCollisionID;
+	UINT				mID;
 	FVector2			mOffset;
 	FVector2			mSize;
-	EColliderType	mType;
+	EColliderType		mType;
 };
-
-

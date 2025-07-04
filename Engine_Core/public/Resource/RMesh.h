@@ -22,8 +22,11 @@ public:
 	RMesh();
 	~RMesh();
 
-	virtual HRESULT Save(const wstring& path) override;
-	virtual HRESULT Load(const wstring& path) override;
+	HRESULT Save(const wstring& path)			override;
+	HRESULT Load(const wstring& path)			override;
+
+    void	Serialize(json& jsonObject) const	override;
+    void	Deserialize(const json& jsonObject) override;
 
 
 	bool	CreateVB(const vector<FVertex>& vertices);
@@ -39,11 +42,9 @@ public:
 
 private:
 	RInputLayout			mInputLayout;
-	RVertexBuffer		mVB;
+	RVertexBuffer			mVB;
 	RIndexBuffer			mIB;
 
-	Data				mData;
+	Data					mData;
 
 };
-
-

@@ -39,6 +39,9 @@ public:
 	void		LateUpdate()	override;
 	void		Render()		override;
 
+    void		Serialize(json& jsonObject) const	override;
+    void		Deserialize(const json& jsonObject) override;
+
 	void		CreateAnimation(const wstring& name,
 								RTexture* spriteSheet,
 								FVector2 leftTop,
@@ -69,5 +72,3 @@ private:
 	map<wstring, Events*>				mEvents;
 
 };
-
-

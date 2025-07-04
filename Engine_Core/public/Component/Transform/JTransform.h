@@ -14,16 +14,19 @@ public:
 	void	LateUpdate()	override;
 	void	Render()		override;
 
-	FVector2 GetPosition() const			{ return mPosition; }
+	void	Serialize(json& jsonObject) const override;
+	void	Deserialize(const json& jsonObject) override;
+
+	FVector2 GetPosition() const		{ return mPosition; }
 	FVector2 GetScale() const			{ return mScale; }
 	float	GetRotation() const			{ return mRotation; }
 
 	void	SetPosition(FVector2 pos)	{ mPosition.x = pos.x; mPosition.y = pos.y; }
-	void	SetScale(FVector2 scale)		{ mScale = scale; }
+	void	SetScale(FVector2 scale)	{ mScale = scale; }
 	void	SetRotation(float rotate)	{ mRotation = rotate; }
 
 private:
 	FVector2			mPosition;
 	FVector2			mScale;
-	float			mRotation;
+	float				mRotation;
 };

@@ -1,5 +1,6 @@
 #include "Scene/JScene.h"
 #include "Collision/JCollisionManager.h"
+#include "Component/Camera/JCamera.h"
 
 
 JScene::JScene() :
@@ -114,7 +115,6 @@ void JScene::Deserialize(const json& jsonObject)
         mLayers[(UINT)layerType] = newLayer;
     }
 
-    // After all actors and components are deserialized, link camera targets.
     for (JLayer* layer : mLayers)
     {
         if (layer == nullptr)

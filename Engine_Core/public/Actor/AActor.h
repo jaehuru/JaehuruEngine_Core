@@ -56,8 +56,9 @@ public:
 		return component;
 	}
 
-	EState		GetState() const		{ return mState; }
-	ELayerType	GetLayerType() const	{ return mLayerType; }
+	const vector<JComponent*>&	GetComponents() const	{ return mComponents; }
+	EState						GetState() const		{ return mState; }
+	ELayerType					GetLayerType() const	{ return mLayerType; }
 
 	void	SetActive(bool power)
 	{

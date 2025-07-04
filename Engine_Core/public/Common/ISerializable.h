@@ -8,7 +8,7 @@ public:
     virtual ~ISerializable() = default;
 
 
-    virtual void Serialize(nlohmann::json & jsonObject) const = 0;
-    virtual void Deserialize(const nlohmann::json & jsonObject) = 0;
+    virtual void Serialize(json & jsonObject) const = 0;
+    virtual void Deserialize(const json & jsonObject) = 0;
 };
 

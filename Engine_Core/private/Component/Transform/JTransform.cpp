@@ -1,10 +1,15 @@
 #include "Component/Transform/JTransform.h"
+#include "Graphics/RGraphics.h"
+#include "Component/Camera/JCamera.h"
+#include "Graphics/GPUBuffer/RConstantBuffer.h"
+#include "Renderer/RRenderer.h"
 
 JTransform::JTransform() :
 	JComponent(EComponentType::JTransform),
-	mPosition(FVector2::Zero),
-	mScale(FVector2::One),
-	mRotation(0.f)
+	mWorldMatrix(FMatrix::Identity),
+	mScale(FVector3::One),
+	mRotation(FVector3::Zero),
+	mPosition(FVector3::Zero)
 {
 
 }
@@ -26,7 +31,17 @@ void JTransform::Update()
 
 void JTransform::LateUpdate()
 {
+	FMatrix scale = FMatrix::CreateScale(mScale.x, mScale.y, mScale.z);
+	FMatrix rotation = FMatrix::CreateRotationX(Radian(mRotation.x));
+	rotation *= FMatrix::CreateRotationY(Radian(mRotation.y));
+	rotation *= FMatrix::CreateRotationZ(Radian(mRotation.z));
+	FMatrix translation = FMatrix::CreateTranslation(mPosition);
 
+	mWorldMatrix = scale * rotation * translation;
+
+	mForward = FVector3::TransformNormal(FVector3::Forward, rotation);
+	mRight = FVector3::TransformNormal(FVector3::Right, rotation);
+	mUp = FVector3::TransformNormal(FVector3::Up, rotation);
 }
 
 void JTransform::Render()
@@ -36,20 +51,23 @@ void JTransform::Render()
 
 void JTransform::Serialize(json& jsonObject) const
 {
-	JComponent::Serialize(jsonObject);
-	jsonObject["PositionX"] = mPosition.x;
-	jsonObject["PositionY"] = mPosition.y;
-	jsonObject["ScaleX"] = mScale.x;
-	jsonObject["ScaleY"] = mScale.y;
-	jsonObject["Rotation"] = mRotation;
+	
 }
 
 void JTransform::Deserialize(const json& jsonObject)
 {
-	JComponent::Deserialize(jsonObject);
-	mPosition.x = jsonObject["PositionX"];
-	mPosition.y = jsonObject["PositionY"];
-	mScale.x = jsonObject["ScaleX"];
-	mScale.y = jsonObject["ScaleY"];
-	mRotation = jsonObject["Rotation"];
+	
+}
+
+void JTransform::Bind()
+{
+	JTransformCB cbData = {};
+	cbData.world = GetWorldMatrix();
+	cbData.view = JCamera::GetGpuViewMatrix();
+	cbData.projection = JCamera::GetGpuProjectionMatrix();
+
+	RConstantBuffer* cb = renderer::constantBuffers[CBSLOT_TRANSFORM];
+
+	cb->SetData(&cbData);
+	cb->Bind(EShaderStage::All);
 }

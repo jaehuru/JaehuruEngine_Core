@@ -17,16 +17,35 @@ public:
 	void	Serialize(json& jsonObject) const override;
 	void	Deserialize(const json& jsonObject) override;
 
-	FVector2 GetPosition() const		{ return mPosition; }
-	FVector2 GetScale() const			{ return mScale; }
-	float	GetRotation() const			{ return mRotation; }
+	void	Bind();
 
-	void	SetPosition(FVector2 pos)	{ mPosition.x = pos.x; mPosition.y = pos.y; }
-	void	SetScale(FVector2 scale)	{ mScale = scale; }
-	void	SetRotation(float rotate)	{ mRotation = rotate; }
+	JTransform*		GetParent()			{ return mParent; }
+	const FMatrix	GetWorldMatrix()	{ return mWorldMatrix; }
+
+	const FVector3	GetPosition()		{ return mPosition; }
+	const FVector3	GetRotation()		{ return mRotation; }
+	const FVector3	GetScale()			{ return mScale; }
+
+	const FVector3	Foward()			{ return mForward; };
+	const FVector3	Right()				{ return mRight; };
+	const FVector3	Up()				{ return mUp; };
+
+	void	SetPosition(FVector3 position)			{ mPosition = position; }
+	void	SetPosition(float x, float y, float z)	{ mPosition = FVector3(x, y, z); }
+	void	SetRotation(FVector3 rotation)			{ mRotation = rotation; }
+	void	SetRotation(float x, float y, float z)	{ mRotation = FVector3(x, y, z); }
+	void	SetScale(FVector3 scale)				{ mScale = scale; }
+	void	SetScale(float x, float y, float z)		{ mScale = FVector3(x, y, z); }
 
 private:
-	FVector2			mPosition;
-	FVector2			mScale;
-	float				mRotation;
+	JTransform*		mParent;
+	FMatrix			mWorldMatrix;
+	
+	FVector3		mPosition;
+	FVector3		mRotation;
+	FVector3		mScale;
+	
+	FVector3		mForward;
+	FVector3		mRight;
+	FVector3		mUp;
 };

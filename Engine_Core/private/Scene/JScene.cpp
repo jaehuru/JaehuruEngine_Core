@@ -1,6 +1,7 @@
 #include "Scene/JScene.h"
 #include "Collision/JCollisionManager.h"
 #include "Component/Camera/JCamera.h"
+#include "Scene/JSceneManager.h"
 
 
 JScene::JScene() :
@@ -22,13 +23,8 @@ JScene::~JScene()
 }
 void JScene::Initialize()
 {
-	for (JLayer* layer : mLayers)
-	{
-		if (layer == nullptr)
-			continue;
-
-		layer->Initialize();
-	}
+    const wstring& sceneName = GetName();
+    JSceneManager::SetActiveScene(sceneName);
 }
 
 void JScene::Update()
@@ -77,64 +73,12 @@ void JScene::Destroy()
 
 void JScene::Serialize(json& jsonObject) const
 {
-    FEntity::Serialize(jsonObject);
-    json layersArray = json::array();
-    for (JLayer* layer : mLayers)
-    {
-        if (layer == nullptr)
-            continue;
-
-        json layerJson;
-        layer->Serialize(layerJson);
-        layersArray.push_back(layerJson);
-    }
-    jsonObject["Layers"] = layersArray;
+    
 }
 
 void JScene::Deserialize(const json& jsonObject)
 {
-    FEntity::Deserialize(jsonObject);
-
-    for (JLayer* layer : mLayers)
-    {
-        if (layer != nullptr)
-        {
-            delete layer;
-            layer = nullptr;
-        }
-    }
-    mLayers.clear();
-    mLayers.resize((UINT)ELayerType::Max);
-
-    const json& layersArray = jsonObject["Layers"];
-    for (const auto& layerJson : layersArray)
-    {
-        JLayer* newLayer = new JLayer();
-        newLayer->Deserialize(layerJson);
-        ELayerType layerType = static_cast<ELayerType>(layerJson["Type"]);
-        mLayers[(UINT)layerType] = newLayer;
-    }
-
-    for (JLayer* layer : mLayers)
-    {
-        if (layer == nullptr)
-            continue;
-
-        for (AActor* actor : layer->GetActors())
-        {
-            if (actor == nullptr)
-                continue;
-
-            for (JComponent* comp : actor->GetComponents())
-            {
-                JCamera* camera = dynamic_cast<JCamera*>(comp);
-                if (camera)
-                {
-                    camera->LinkTargetActor();
-                }
-            }
-        }
-    }
+    
 }
 
 void JScene::OnEnter()
@@ -147,15 +91,15 @@ void JScene::OnExit()
 	JCollisionManager::Clear();
 }
 
-void JScene::AddActor(AActor* gameObj, const ELayerType type)
+void JScene::AddActor(AActor* actor, const ELayerType type)
 {
-	mLayers[(UINT)type]->AddActor(gameObj);
+	mLayers[(UINT)type]->AddActor(actor);
 }
 
-void JScene::EraseActor(AActor* gameObj)
+void JScene::EraseActor(AActor* actor)
 {
-	ELayerType layerType = gameObj->GetLayerType();
-	mLayers[(UINT)layerType]->EraseActor(gameObj);
+	ELayerType layerType = actor->GetLayerType();
+	mLayers[(UINT)layerType]->EraseActor(actor);
 }
 
 void JScene::createLayers()

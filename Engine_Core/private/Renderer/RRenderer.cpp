@@ -10,7 +10,7 @@ namespace renderer
 {
 	JCamera* mainCamera = nullptr;
 
-	RConstantBuffer constantBuffers[(UINT)ECBType::End] = {};
+	RConstantBuffer* constantBuffers[(UINT)ECBType::End] = {};
 	Microsoft::WRL::ComPtr<ID3D11SamplerState> samplerStates[(UINT)ESamplerType::End] = {};
 	Microsoft::WRL::ComPtr<ID3D11RasterizerState> rasterizerStates[(UINT)ERasterizerState::End] = {};
 	Microsoft::WRL::ComPtr<ID3D11BlendState> blendStates[(UINT)EBlendState::End] = {};
@@ -267,7 +267,7 @@ namespace renderer
 		RResources::Insert(L"TriangleMaterial", triangleMaterial);
 
 		RMaterial* spriteMaterial = new RMaterial();
-		RTexture* texture = RResources::Find<RTexture>(L"BG");
+		RTexture* texture = RResources::Find<RTexture>(L"Player");
 		spriteMaterial->SetAlbedoTexture(texture);
 		spriteMaterial->SetShader(RResources::Find<RShader>(L"SpriteShader"));
 
@@ -276,7 +276,8 @@ namespace renderer
 
 	void LoadConstantBuffers()
 	{
-		constantBuffers[(UINT)ECBType::JTransform].Create(ECBType::JTransform, sizeof(FVector4));
+		constantBuffers[CBSLOT_TRANSFORM] = new RConstantBuffer(ECBType::JTransform);
+		constantBuffers[CBSLOT_TRANSFORM]->Create(sizeof(JTransformCB));
 	}
 
 	void Initialize()
@@ -290,6 +291,10 @@ namespace renderer
 
 	void Release()
 	{
-
+		for (UINT i = 0; i < (UINT)ECBType::End; i++)
+		{
+			delete constantBuffers[i];
+			constantBuffers[i] = nullptr;
+		}
 	}
 }

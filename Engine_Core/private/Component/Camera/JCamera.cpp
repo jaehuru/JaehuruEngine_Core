@@ -1,18 +1,23 @@
 #include "Component/Camera/JCamera.h"
 #include "Actor/AActor.h"
 #include "Component/Transform/JTransform.h"
-#include "HighLevelInterface/JApplication.h"
+#include "HighLevelInterface/IApplication.h"
 #include "Scene/JSceneManager.h"
 
-extern JApplication application;
+extern IApplication application;
 
+FMatrix JCamera::ViewMatrix			= FMatrix::Identity;
+FMatrix JCamera::ProjectionMatrix	= FMatrix::Identity;
 
 JCamera::JCamera() :
 	JComponent(EComponentType::JCamera),
-	mTarget(nullptr),
-	mDistance(FVector2::Zero),
-	mResolution(FVector2::Zero),
-	mLookPosition(FVector2::Zero)
+	mProjectionType(EProjectionType::Perspective),
+	mViewMatrix(FMatrix::Identity),
+	mProjectionMatrix(FMatrix::Identity),
+	mAspectRatio(0.0f),
+	mNear(1.0f),
+	mFar(1000.0f),
+	mSize(1.0f)
 {
 
 }
@@ -24,29 +29,21 @@ JCamera::~JCamera()
 
 void JCamera::Initialize()
 {
-	mResolution.x = (float)application.GetWidth();
-	mResolution.y = (float)application.GetHeight();
+
 }
 
 void JCamera::Update()
 {
-	if (mTarget)
-	{
-		JTransform* tr = mTarget->GetComponent<JTransform>();
-		mLookPosition = tr->GetPosition();
-	}
-	else
-	{
-		JTransform* cameraTr = GetOwner()->GetComponent<JTransform>();
-		mLookPosition = cameraTr->GetPosition();
-	}
 
-	mDistance = mLookPosition - (mResolution / 2.f);
 }
 
 void JCamera::LateUpdate()
 {
+    CreateViewMatrix();
+    CreateProjectionMatrix(mProjectionType);
 
+    ViewMatrix = mViewMatrix;
+    ProjectionMatrix = mProjectionMatrix;
 }
 
 void JCamera::Render()
@@ -56,53 +53,40 @@ void JCamera::Render()
 
 void JCamera::Serialize(json& jsonObject) const
 {
-    JComponent::Serialize(jsonObject);
-    jsonObject["DistanceX"] = mDistance.x;
-    jsonObject["DistanceY"] = mDistance.y;
-    jsonObject["ResolutionX"] = mResolution.x;
-    jsonObject["ResolutionY"] = mResolution.y;
-    jsonObject["LookPositionX"] = mLookPosition.x;
-    jsonObject["LookPositionY"] = mLookPosition.y;
-
-    if (mTarget)
-    {
-        wstring_convert<codecvt_utf8<wchar_t>> conv;
-        jsonObject["TargetActorName"] = conv.to_bytes(mTarget->GetName());
-    }
-    else
-    {
-        jsonObject["TargetActorName"] = "";
-    }
+    
 }
 
 void JCamera::Deserialize(const json& jsonObject)
 {
-    JComponent::Deserialize(jsonObject);
-    mDistance.x = jsonObject["DistanceX"];
-    mDistance.y = jsonObject["DistanceY"];
-    mResolution.x = jsonObject["ResolutionX"];
-    mResolution.y = jsonObject["ResolutionY"];
-    mLookPosition.x = jsonObject["LookPositionX"];
-    mLookPosition.y = jsonObject["LookPositionY"];
-
-    string targetActorNameStr = jsonObject.value("TargetActorName", "");
-    if (!targetActorNameStr.empty())
-    {
-        wstring_convert<codecvt_utf8<wchar_t>> conv;
-        mTargetActorNameTemp = conv.from_bytes(targetActorNameStr);
-    }
+	
 }
 
-void JCamera::LinkTargetActor()
+void JCamera::CreateViewMatrix()
 {
-    if (!mTargetActorNameTemp.empty())
-    {
-        AActor* targetActor = JSceneManager::FindActorByName(mTargetActorNameTemp);
-        if (targetActor)
-        {
-            SetTarget(targetActor);
-        }
-        // Clear the temporary name after linking
-        mTargetActorNameTemp.clear();
-    }
+	JTransform* transform = GetOwner()->GetComponent<JTransform>();
+
+	const FVector3 pos = transform->GetPosition();
+	const FVector3 up = transform->Up();
+	const FVector3 forward = transform->Foward();
+
+	mViewMatrix = FMatrix::CreateLookToLH(pos, forward, up);
+}
+
+void JCamera::CreateProjectionMatrix(EProjectionType type)
+{
+	RECT winRect;
+	GetClientRect(application.GetHwnd(), &winRect);
+	float width = (float)(winRect.right - winRect.left);
+	float height = (float)(winRect.bottom - winRect.top);
+	mAspectRatio = width / height;
+
+	switch (type)
+	{
+	case EProjectionType::Perspective:
+		mProjectionMatrix = FMatrix::CreatePerspectiveFieldOfViewLH(XM_2PI / 6.0f, mAspectRatio, mNear, mFar);
+		break;
+	case EProjectionType::Orthographic:
+		mProjectionMatrix = FMatrix::CreateOrthographicLH(width / mSize, height / mSize, mNear, mFar);
+		break;
+	}
 }

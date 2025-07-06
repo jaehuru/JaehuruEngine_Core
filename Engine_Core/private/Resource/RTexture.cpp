@@ -1,8 +1,8 @@
 #include "Resource/RTexture.h"
-#include "HighLevelInterface/JApplication.h"
+#include "HighLevelInterface/IApplication.h"
 #include "Resource/RResources.h"
 
-extern JApplication application;
+extern IApplication application;
 
 
 RTexture::RTexture() :

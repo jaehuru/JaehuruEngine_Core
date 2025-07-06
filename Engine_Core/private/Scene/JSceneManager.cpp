@@ -10,22 +10,30 @@ map<wstring, JScene*> JSceneManager::mScene = {};
 JScene* JSceneManager::mActiveScene = nullptr;
 JScene* JSceneManager::mDontDestroyOnLoad = nullptr;
 
+bool JSceneManager::SetActiveScene(const wstring& name)
+{
+    map<std::wstring, JScene*>::iterator iter
+        = mScene.find(name);
+
+    if (iter == mScene.end())
+        return false;
+
+    mActiveScene = iter->second;
+    return true;
+}
+
 JScene* JSceneManager::LoadScene(const wstring& name)
 {
 	if (mActiveScene)
 		mActiveScene->OnExit();
 
 
-	map<wstring, JScene*>::iterator iter
-		= mScene.find(name);
+    if (!SetActiveScene(name))
+        return nullptr;
 
-	if (iter == mScene.end())
-		return nullptr;
-
-	mActiveScene = iter->second;
 	mActiveScene->OnEnter();
 
-	return iter->second;
+    return mActiveScene;
 }
 
 vector<AActor*> JSceneManager::GetActors(ELayerType layer)

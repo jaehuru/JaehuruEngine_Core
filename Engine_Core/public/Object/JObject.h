@@ -11,37 +11,35 @@
 template<typename T>
 static T* Instantiate(ELayerType type)
 {
-	T* gameObj = new T();
-	gameObj->SetLayerType(type);
+	T* actor = new T();
+	actor->SetLayerType(type);
 	JScene* activeScene = JSceneManager::GetActiveScene();
 	JLayer* layer = activeScene->GetLayer(type);
-	layer->AddActor(gameObj);
+	layer->AddActor(actor);
 
-	return gameObj;
+	return actor;
 }
 
 template<typename T>
-static T* Instantiate(ELayerType type, FVector2 position)
+static T* Instantiate(ELayerType type, FVector3 position)
 {
-	T* gameObj = new T();
-	gameObj->SetLayerType(type);
+	T* actor = new T();
+	actor->SetLayerType(type);
 	JScene* activeScene = JSceneManager::GetActiveScene();
 	JLayer* layer = activeScene->GetLayer(type);
-	layer->AddActor(gameObj);
+	layer->AddActor(actor);
 
-	JTransform* tr = gameObj->GetComponent<JTransform>();
+	JTransform* tr = actor->GetComponent<JTransform>();
 	tr->SetPosition(position);
 
-	return gameObj;
+	return actor;
 }
 
 static void JDontDestroyOnLoad(AActor* actor)
 {
 	JScene* activeScene = JSceneManager::GetActiveScene();
-	// 현재씬에서 게임 오브젝트를 삭제
 	activeScene->EraseActor(actor);
 
-	// 해당 게임 오브젝트를 -> DonDestroy씬으로 넣음
 	JScene* dontDestroyOnLoad = 
 		JSceneManager::GetDontDestroyOnLoad();
 	dontDestroyOnLoad->

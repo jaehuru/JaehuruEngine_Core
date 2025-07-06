@@ -27,7 +27,7 @@ void JAudioSource::Update()
 void JAudioSource::LateUpdate()
 {
 	JTransform* transform = GetOwner()->GetComponent<JTransform>();
-	FVector2 pos = transform->GetPosition();
+    FVector3 pos = transform->GetPosition();
 }
 
 void JAudioSource::Render()

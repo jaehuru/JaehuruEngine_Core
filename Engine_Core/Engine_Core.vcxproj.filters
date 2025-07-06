@@ -97,7 +97,7 @@
     <ClInclude Include="public\UI\UUIManager.h">
       <Filter>public\UI</Filter>
     </ClInclude>
-    <ClInclude Include="public\HighLevelInterface\JApplication.h">
+    <ClInclude Include="public\HighLevelInterface\IApplication.h">
       <Filter>public\High Level Interface</Filter>
     </ClInclude>
     <ClInclude Include="public\UI\UHUD.h">
@@ -407,7 +407,7 @@
     <ClCompile Include="private\Component\Audio\JAudioSource.cpp">
       <Filter>private\Component\Audio</Filter>
     </ClCompile>
-    <ClCompile Include="private\HighLevelInterface\JApplication.cpp">
+    <ClCompile Include="private\HighLevelInterface\IApplication.cpp">
       <Filter>private\High Level Interface</Filter>
     </ClCompile>
     <ClCompile Include="private\UI\UHUD.cpp">

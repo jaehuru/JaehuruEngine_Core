@@ -4,6 +4,8 @@
 #include "Resource/RMaterial.h"
 #include "Resource/RMesh.h"
 #include "Graphics/RGraphicDevice_DX11.h"
+#include "Component/Transform/JTransform.h"
+#include "Actor/AActor.h"
 
 
 JSpriteRenderer::JSpriteRenderer() :
@@ -37,6 +39,10 @@ void JSpriteRenderer::LateUpdate()
 
 void JSpriteRenderer::Render()
 {
+    JTransform* transform = GetOwner()->GetComponent<JTransform>();
+    if (transform)
+        transform->Bind();
+
 	if (mMesh)
 		mMesh->Bind();
 

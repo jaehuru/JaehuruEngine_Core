@@ -1,8 +1,8 @@
 #include "Helpers/Input.h"
-#include "HighLevelInterface/JApplication.h"
+#include "HighLevelInterface/IApplication.h"
 
 
-extern JApplication application;
+extern IApplication application;
 
 
 vector<Input::Key> Input::Keys		= { };

@@ -33,8 +33,8 @@ void JBoxCollider2D::LateUpdate()
 
 void JBoxCollider2D::Render()
 {
-	JTransform* tr = GetOwner()->GetComponent<JTransform>();
-	FVector2 pos = tr->GetPosition();
+	JTransform* transform = GetOwner()->GetComponent<JTransform>();
+	FVector3 pos = transform->GetPosition();
 }
 
 void JBoxCollider2D::Serialize(json& jsonObject) const

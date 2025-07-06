@@ -1,9 +1,9 @@
 #include "Graphics/GPUBuffer/RConstantBuffer.h"
 
 
-RConstantBuffer::RConstantBuffer() : 
+RConstantBuffer::RConstantBuffer(ECBType type) :
 	mSize(0),
-	mType(ECBType::None)
+	mType(type)
 {
 
 }
@@ -13,9 +13,8 @@ RConstantBuffer::~RConstantBuffer()
 
 }
 
-bool RConstantBuffer::Create(ECBType type, UINT size, void* data)
+bool RConstantBuffer::Create(UINT size, void* data)
 {
-	mType = type;
 	mSize = size;
 	desc.ByteWidth = size;
 	desc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;

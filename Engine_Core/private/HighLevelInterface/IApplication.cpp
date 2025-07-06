@@ -1,4 +1,4 @@
-#include "HighLevelInterface/JApplication.h"
+#include "HighLevelInterface/IApplication.h"
 #include "Renderer/RRenderer.h"
 #include "Helpers/Input.h"
 #include "Helpers/Time.h"
@@ -9,7 +9,7 @@
 #include "FMOD/JFmod.h"
 
 
-JApplication::JApplication() : 
+IApplication::IApplication() : 
 	mbLoaded(false),
 	mHwnd(nullptr),
 	mHdc(nullptr),
@@ -21,12 +21,12 @@ JApplication::JApplication() :
 
 }
 
-JApplication::~JApplication()
+IApplication::~IApplication()
 {
 		
 }
 
-void JApplication::Initialize(HWND hwnd, UINT width, UINT height)
+void IApplication::Initialize(HWND hwnd, UINT width, UINT height)
 {
 	AdjustWindowRect(hwnd, width, height);
 	InitializeEtc();
@@ -40,7 +40,7 @@ void JApplication::Initialize(HWND hwnd, UINT width, UINT height)
 	JSceneManager::Initialize();
 }
 
-void JApplication::AdjustWindowRect(HWND hwnd, UINT width, UINT height)
+void IApplication::AdjustWindowRect(HWND hwnd, UINT width, UINT height)
 {
 	mHwnd = hwnd;
 	mHdc = GetDC(hwnd);
@@ -55,13 +55,13 @@ void JApplication::AdjustWindowRect(HWND hwnd, UINT width, UINT height)
 	ShowWindow(hwnd, true);
 }
 
-void JApplication::InitializeEtc()
+void IApplication::InitializeEtc()
 {
 	Input::Initialize();
 	Time::Initialize();
 }
 
-void JApplication::Run()
+void IApplication::Run()
 {
 	if (mbLoaded == false)
 		mbLoaded = true;
@@ -73,7 +73,7 @@ void JApplication::Run()
 	Destroy();
 }
 
-void JApplication::Update()
+void IApplication::Update()
 {
 	Input::Update();
 	Time::Update();
@@ -82,14 +82,14 @@ void JApplication::Update()
 	JSceneManager::Update();
 }
 
-void JApplication::LateUpdate()
+void IApplication::LateUpdate()
 {
 	JCollisionManager::LateUpdate();
 	UUIManager::LateUpdate();
 	JSceneManager::LateUpdate();
 }
 
-void JApplication::Render()
+void IApplication::Render()
 {
 	GetDevice()->ClearRenderTargetView();
 	GetDevice()->ClearDepthStencilView();
@@ -104,12 +104,12 @@ void JApplication::Render()
 	GetDevice()->Present();
 }
 
-void JApplication::Destroy()
+void IApplication::Destroy()
 {
 	JSceneManager::Destroy();
 }
 
-void JApplication::Release()
+void IApplication::Release()
 {
 	JSceneManager::Release();
 	UUIManager::Release();

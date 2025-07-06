@@ -30,72 +30,7 @@ void JRigidbody::Initialize()
 
 void JRigidbody::Update()
 {
-	// F = ma
-	// a = F/m
-	mAccelation = mForce / mMass;
-
-	mVelocity += mAccelation * Time::DeltaTime();
-
-	if (mbGround) // 
-	{
-		FVector2 gravity = mGravity;
-		gravity.Normalize();
-
-		float dot = mVelocity.Dot(gravity);
-		mVelocity -= gravity * dot;
-	}
-	else // 
-	{
-		mVelocity += mGravity * Time::DeltaTime();
-	}
-
-	// ִ ӵ 
-	FVector2 gravity = mGravity;
-	gravity.Normalize();
-	float dot = mVelocity.Dot(gravity);
-	gravity = gravity * dot;
-
-	FVector2 sideVelocity = mVelocity - gravity;
-	if (mLimitedVelocity.y < gravity.Length())
-	{
-		gravity.Normalize();
-		gravity *= mLimitedVelocity.y;
-	}
-		
-	if (mLimitedVelocity.x < sideVelocity.Length())
-	{
-		sideVelocity.Normalize();
-		sideVelocity *= mLimitedVelocity.x;
-	}
-
-	mVelocity = gravity + sideVelocity;
-
-
-
-	if (!(mVelocity == FVector2::Zero))
-	{
-		// ӵ ݴ  ۿ
-		FVector2 friction = -mVelocity;
-		friction.Normalize();
-		friction = friction * mFriction * mMass * Time::DeltaTime();
-
-		//   ӵ ҷ  ӵ ū 
-		if (mVelocity.Length() <= friction.Length())
-		{
-			mVelocity = FVector2::Zero;
-		}
-		else
-		{
-			mVelocity += friction;
-		}
-	}
-
-	JTransform* transform = GetOwner()->GetComponent<JTransform>();
-	FVector2 pos = transform->GetPosition();
-	pos = pos + mVelocity * Time::DeltaTime();
-	transform->SetPosition(pos);
-
-	mForce = FVector2::One;
+	
 }
 
 void JRigidbody::LateUpdate()

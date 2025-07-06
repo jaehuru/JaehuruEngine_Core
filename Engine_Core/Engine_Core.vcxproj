@@ -48,7 +48,7 @@
     <ClInclude Include="public\Graphics\RInputLayout.h" />
     <ClInclude Include="public\Helpers\Input.h" />
     <ClInclude Include="public\Helpers\Time.h" />
-    <ClInclude Include="public\HighLevelInterface\JApplication.h" />
+    <ClInclude Include="public\HighLevelInterface\IApplication.h" />
     <ClInclude Include="public\Layer\JLayer.h" />
     <ClInclude Include="public\Object\JObject.h" />
     <ClInclude Include="public\Renderer\RRenderer.h" />
@@ -94,7 +94,7 @@
     <ClCompile Include="private\Graphics\RInputLayout.cpp" />
     <ClCompile Include="private\Helpers\Input.cpp" />
     <ClCompile Include="private\Helpers\Time.cpp" />
-    <ClCompile Include="private\HighLevelInterface\JApplication.cpp" />
+    <ClCompile Include="private\HighLevelInterface\IApplication.cpp" />
     <ClCompile Include="private\Layer\JLayer.cpp" />
     <ClCompile Include="private\Object\JObject.cpp" />
     <ClCompile Include="private\Renderer\RRenderer.cpp" />

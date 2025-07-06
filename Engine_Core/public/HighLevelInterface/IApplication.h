@@ -5,11 +5,11 @@
 #include "Graphics/RGraphicDevice_DX11.h"
 
 
-class JApplication
+class IApplication
 {
 public:
-	JApplication();
-	~JApplication();
+	IApplication();
+	~IApplication();
 		
 
 	void	Initialize(HWND hwnd, UINT width, UINT height);

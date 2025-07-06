@@ -9,7 +9,7 @@ namespace renderer
 {
 	extern JCamera* mainCamera;
 
-	extern RConstantBuffer		constantBuffers[(UINT)ECBType::End];
+	extern RConstantBuffer*	constantBuffers[(UINT)ECBType::End];
 
 	extern Microsoft::WRL::ComPtr<ID3D11SamplerState>		samplerStates[(UINT)ESamplerType::End];
 	extern Microsoft::WRL::ComPtr<ID3D11RasterizerState>	rasterizerStates[(UINT)ERasterizerState::End];

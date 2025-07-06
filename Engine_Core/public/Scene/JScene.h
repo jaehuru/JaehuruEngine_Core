@@ -23,8 +23,8 @@ public:
     void	Serialize(json& jsonObject) const	override;
     void	Deserialize(const json& jsonObject) override;
 
-	void	AddActor(AActor* gameObj, const ELayerType type);
-	void	EraseActor(AActor* gameObj);
+	void	AddActor(AActor* actor, const ELayerType type);
+	void	EraseActor(AActor* actor);
 
 	JLayer*	GetLayer(const ELayerType type) const	{ return mLayers[(UINT)type]; }
 

@@ -13,14 +13,15 @@ public:
 	static JScene* CreateScene(const wstring& name)
 	{
 		T* scene = new T();
+		mScene.insert(make_pair(name, scene));
+
 		scene->SetName(name);
 		scene->Initialize();
-
-		mScene.insert(make_pair(name, scene));
 
 		return scene;
 	}
 
+	static bool		SetActiveScene(const wstring& name);
 	static JScene*	LoadScene(const wstring& name);
 
 	static void		Initialize();

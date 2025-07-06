@@ -1,5 +1,5 @@
 #include "Graphics/RGraphicDevice_DX11.h"
-#include "HighLevelInterface/JApplication.h"
+#include "HighLevelInterface/IApplication.h"
 #include "Renderer/RRenderer.h"
 #include "Resource/RShader.h"
 #include "Resource/RResources.h"
@@ -8,7 +8,7 @@
 #include "Resource/RMaterial.h"
 
 
-extern JApplication application;
+extern IApplication application;
 
 RGraphicDevice_DX11::RGraphicDevice_DX11()
 {
@@ -444,31 +444,9 @@ void RGraphicDevice_DX11::Initialize()
 		assert(NULL && "Create depthstencilview failed!");
 }
 
-void RGraphicDevice_DX11::Draw()
+void RGraphicDevice_DX11::Draw(UINT VertexCount, UINT StartVertexLocation)
 {
-	RMesh* mesh = RResources::Find<RMesh>(L"RectMesh");
-	mesh->Bind();
-
-	FVector4 pos(-0.2f, 0.0f, 0.0f, 1.0f);
-	renderer::constantBuffers[(UINT)ECBType::JTransform].SetData(&pos);
-	renderer::constantBuffers[(UINT)ECBType::JTransform].Bind(EShaderStage::VS);
-
-	RMaterial* material = RResources::Find<RMaterial>(L"SpriteMaterial");
-	material->Bind();
-
-	mContext->DrawIndexed(6, 0, 0);
-
-	mesh = RResources::Find<RMesh>(L"TriangleMesh");
-	mesh->Bind();
-
-	pos = FVector4(0.2f, 0.0f, 0.0f, 1.0f);
-	renderer::constantBuffers[(UINT)ECBType::JTransform].SetData(&pos);
-	renderer::constantBuffers[(UINT)ECBType::JTransform].Bind(EShaderStage::VS);
-
-	material = RResources::Find<RMaterial>(L"TriangleMaterial");
-	material->Bind();
-
-	mContext->DrawIndexed(3, 0, 0);
+	mContext->Draw(VertexCount, StartVertexLocation);
 }
 
 void RGraphicDevice_DX11::DrawIndexed(UINT IndexCount, UINT StartIndexLocation, INT BaseVertexLocation)

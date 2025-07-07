@@ -1,5 +1,5 @@
 {
-  "name": "jaehuru-engine",
+  "name": "jaehuru_engine_core",
   "version-string": "V2.00",
   "dependencies": [
     {

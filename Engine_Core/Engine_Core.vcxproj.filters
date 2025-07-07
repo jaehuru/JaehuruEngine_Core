@@ -309,6 +309,9 @@
     <Filter Include="private\Actor">
       <UniqueIdentifier>{12ec4236-3e82-443c-8313-c672def504a3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Vendor">
+      <UniqueIdentifier>{0b48eb4b-774f-421c-a73b-2567c0e97140}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="private\Collision\JCollisionManager.cpp">

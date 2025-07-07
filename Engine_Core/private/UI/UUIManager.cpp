@@ -89,13 +89,11 @@ void UUIManager::Release()
 	}
 	mUIs.clear();
 
-	// Clear mUIBases stack
 	while (!mUIBases.empty())
 	{
 		mUIBases.pop();
 	}
 
-	// Clear mRequestUIQueue
 	while (!mRequestUIQueue.empty())
 	{
 		mRequestUIQueue.pop();
@@ -223,8 +221,6 @@ void UUIManager::OnComplete(UUIBase* addUI)
 	addUI->Active();
 	addUI->Update();
 
-	// 만약에 현재 추가된 ui가 전체화면이라면
-	// 전체화면인 ui 말고 나머지를 전부 비활성화
 	if (addUI->IsFullScreen())
 	{
 		stack<UUIBase*> uiBases = mUIBases;

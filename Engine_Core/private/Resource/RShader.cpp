@@ -3,7 +3,7 @@
 #include "Resource/RResources.h"
 
 
-bool RShader::bWireframe = true;
+bool RShader::bWireframe = false;
 
 RShader::RShader() : 
 	RResource(EResourceType::RShader),

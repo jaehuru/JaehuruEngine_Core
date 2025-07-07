@@ -104,6 +104,11 @@ void IApplication::Render()
 	GetDevice()->Present();
 }
 
+void IApplication::Present()
+{
+	GetDevice()->Present();
+}
+
 void IApplication::Destroy()
 {
 	JSceneManager::Destroy();

@@ -1,9 +1,10 @@
 #pragma once
 
 #include "Common/FEntity.h"
-#include "Actor/AActor.h"
-#include "Layer/JLayer.h"
 
+
+class AActor;
+class JLayer;
 
 class JScene : public FEntity
 {

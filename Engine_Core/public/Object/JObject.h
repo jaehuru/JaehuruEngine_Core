@@ -7,7 +7,6 @@
 #include "Scene/JScene.h"
 #include "Component/Transform/JTransform.h"
 
-
 template<typename T>
 static T* Instantiate(ELayerType type)
 {

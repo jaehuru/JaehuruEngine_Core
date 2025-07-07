@@ -1,9 +1,10 @@
 #pragma once
 
+//DirectXTex
 #include <DirectXTex.h>
 #include <DirectXTex.inl>
 #include <DirectXTexEXR.h>
-
+//Engine
 #include "Resource/RResource.h"
 #include "Graphics/RGraphicDevice_DX11.h"
 

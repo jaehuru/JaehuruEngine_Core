@@ -22,7 +22,7 @@ public:
     void	Deserialize(const json& jsonObject) override;
 
 	void	SetSprite(RTexture* sprite)				{ mSprite = sprite; }
-	void	SetMaterial(RMaterial* material)			{ mMaterial = material; }
+	void	SetMaterial(RMaterial* material)		{ mMaterial = material; }
 
 private:
 	RTexture*		mSprite;

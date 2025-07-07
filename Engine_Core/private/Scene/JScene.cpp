@@ -1,4 +1,6 @@
 #include "Scene/JScene.h"
+#include "Layer/JLayer.h"
+#include "Actor/AActor.h"
 #include "Collision/JCollisionManager.h"
 #include "Component/Camera/JCamera.h"
 #include "Scene/JSceneManager.h"

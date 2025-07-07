@@ -1,9 +1,9 @@
 #include "Scene/JSceneManager.h"
 #include "Scene/JDontDestroyOnLoad.h"
 #include "Component/Camera/JCamera.h"
-#include <string>
-#include <locale>
-#include <codecvt>
+#include "Layer/JLayer.h"
+#include "Actor/AActor.h"
+
 
 
 map<wstring, JScene*> JSceneManager::mScene = {};

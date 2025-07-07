@@ -1,8 +1,8 @@
 #pragma once
 
 #include "Common/FEntity.h"
-#include "Actor/AActor.h"
 
+class AActor;
 
 class JLayer : public FEntity
 {

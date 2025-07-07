@@ -33,6 +33,9 @@ public:
 	void	CreateViewMatrix();
 	void	CreateProjectionMatrix(EProjectionType type);
 
+	FMatrix GetViewMatrix()	const		{ return mViewMatrix; }
+	FMatrix GetProjectionMatrix() const	{ return mProjectionMatrix; }
+
 	void	SetProjectionType(EProjectionType type) { mProjectionType = type; }
 	void	SetSize(float size) { mSize = size; }
 

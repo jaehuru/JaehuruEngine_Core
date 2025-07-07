@@ -9,7 +9,7 @@
 namespace renderer
 {
 	JCamera* mainCamera = nullptr;
-
+	AActor* selectedActor = nullptr;
 	RConstantBuffer* constantBuffers[(UINT)ECBType::End] = {};
 	Microsoft::WRL::ComPtr<ID3D11SamplerState> samplerStates[(UINT)ESamplerType::End] = {};
 	Microsoft::WRL::ComPtr<ID3D11RasterizerState> rasterizerStates[(UINT)ERasterizerState::End] = {};
@@ -283,7 +283,7 @@ namespace renderer
 		spriteMaterial->SetAlbedoTexture(texture);
 		spriteMaterial->SetShader(RResources::Find<RShader>(L"SpriteDefaultShader"));
 
-		RResources::Insert(L"SpriteMaterial", spriteMaterial);
+		RResources::Insert(L"SpriteDefaultMaterial", spriteMaterial);
 	}
 
 	void LoadConstantBuffers()

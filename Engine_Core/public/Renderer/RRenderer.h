@@ -2,12 +2,12 @@
 
 #include "Component/Camera/JCamera.h"
 #include "Graphics/RGraphicDevice_DX11.h"
-#include "Resource/RMesh.h"
 #include "Graphics/GPUBuffer/RConstantBuffer.h"
 
 namespace renderer
 {
 	extern JCamera* mainCamera;
+	extern AActor*	selectedActor;
 
 	extern RConstantBuffer*	constantBuffers[(UINT)ECBType::End];
 

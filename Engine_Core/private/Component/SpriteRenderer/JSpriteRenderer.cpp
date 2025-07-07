@@ -25,6 +25,7 @@ JSpriteRenderer::~JSpriteRenderer()
 void JSpriteRenderer::Initialize()
 {
 	mMesh = RResources::Find<RMesh>(L"RectMesh");
+    mMaterial = RResources::Find<RMaterial>(L"SpriteDefaultMaterial");
 }
 
 void JSpriteRenderer::Update()

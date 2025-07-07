@@ -33,6 +33,7 @@ void IApplication::Initialize(HWND hwnd, UINT width, UINT height)
 
 	mGraphicDevice = make_unique<RGraphicDevice_DX11>();
 	mGraphicDevice->Initialize();
+	renderer::Initialize();
 
 	JFmod::Initialize();
 	JCollisionManager::Initialize();

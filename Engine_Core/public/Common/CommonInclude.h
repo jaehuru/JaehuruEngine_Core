@@ -23,10 +23,6 @@
 #include <nlohmann/json.hpp>
 #include <locale>
 #include <codecvt>
-#pragma comment(lib, "Msimg32.lib")
-#pragma comment(lib, "winmm.lib")
-#include <gdiplus.h>
-#pragma comment(lib, "gdiplus.lib")
 #include "Math.h"
 #include "Enums.h"
 #include "Graphics/RGraphics.h"

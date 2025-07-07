@@ -279,8 +279,6 @@ namespace renderer
 		RResources::Insert(L"TriangleMaterial", triangleMaterial);
 
 		RMaterial* spriteMaterial = new RMaterial();
-		RTexture* texture = RResources::Find<RTexture>(L"Player");
-		spriteMaterial->SetAlbedoTexture(texture);
 		spriteMaterial->SetShader(RResources::Find<RShader>(L"SpriteDefaultShader"));
 
 		RResources::Insert(L"SpriteDefaultMaterial", spriteMaterial);

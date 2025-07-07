@@ -1,6 +1,6 @@
 #include "Resource/RMesh.h"
 
-RMesh::Data::Data()
+RMesh::FMeshData::FMeshData()
 	: mTopology(D3D11_PRIMITIVE_TOPOLOGY::D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST)
 	, vertices{}
 	, indices{}
@@ -8,7 +8,7 @@ RMesh::Data::Data()
 
 }
 
-RMesh::Data::~Data()
+RMesh::FMeshData::~FMeshData()
 {
 
 }

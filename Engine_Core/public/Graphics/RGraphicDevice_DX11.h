@@ -82,7 +82,7 @@ public:
 	void	DrawIndexed(UINT IndexCount, UINT StartIndexLocation, INT BaseVertexLocation);
 	void	Present();
 
-	Microsoft::WRL::ComPtr<ID3D11Device> GetID3D11Device() { return mDevice; }
+	[[nodiscard]] Microsoft::WRL::ComPtr<ID3D11Device> GetID3D11Device() { return mDevice; }
 
 private:
 	Microsoft::WRL::ComPtr<ID3D11Device>			mDevice;

@@ -93,7 +93,7 @@ namespace renderer
 
 		rsDesc.FillMode = D3D11_FILL_MODE::D3D11_FILL_WIREFRAME;
 		rsDesc.CullMode = D3D11_CULL_MODE::D3D11_CULL_NONE;
-		GetDevice()->CreateRasterizerState(&rsDesc, rasterizerStates[(UINT)ERasterizerState::WireFrame].GetAddressOf());
+		GetDevice()->CreateRasterizerState(&rsDesc, rasterizerStates[(UINT)ERasterizerState::Wireframe].GetAddressOf());
 #pragma endregion
 #pragma region blend state
 		D3D11_BLEND_DESC bsDesc = {};
@@ -190,7 +190,6 @@ namespace renderer
 		vertexes[1].color = FVector4(1.0f, 0.0f, 0.0f, 1.0f);
 		vertexes[1].uv = FVector2(1.0f, 0.0f);
 
-		vertexes[2].pos = FVector3(-0.5f, -0.5f, 0.0f);
 		vertexes[2].pos = FVector3(0.5f, -0.5f, 0.0f);
 		vertexes[2].color = FVector4(0.0f, 0.0f, 1.0f, 1.0f);
 		vertexes[2].uv = FVector2(1.0f, 1.0f);
@@ -229,8 +228,12 @@ namespace renderer
 		inputLayoutDesces[2].SemanticName = "TEXCOORD";
 		inputLayoutDesces[2].SemanticIndex = 0;
 
-		RShader* spriteShader = RResources::Find<RShader>(L"SpriteShader");
-		mesh->SetVertexBufferParams(3, inputLayoutDesces, spriteShader->GetVSBlob()->GetBufferPointer(), spriteShader->GetVSBlob()->GetBufferSize());
+		RShader* spriteShader = RResources::Find<RShader>(L"SpriteDefaultShader");
+		mesh->SetVertexBufferParams(
+			3,
+			inputLayoutDesces,
+			spriteShader->GetVSBlob()->GetBufferPointer(),
+			spriteShader->GetVSBlob()->GetBufferSize());
 
 		mesh->CreateVB(vertexes);
 		mesh->CreateIB(indices);
@@ -246,18 +249,27 @@ namespace renderer
 
 	void LoadShaders()
 	{
-		map<EShaderStage, wstring> triangleShaderPaths = {
+		map<EShaderStage, wstring> triangleShaderPaths = 
+		{
 			{ EShaderStage::VS, L"../JaehuruEngine_Core/Engine_Core/Shaders/VS/TriangleVS.hlsl" },
 			{ EShaderStage::PS, L"../JaehuruEngine_Core/Engine_Core/Shaders/PS/TrianglePS.hlsl" },
 		};
 
-		map<EShaderStage, wstring> spriteShaderPaths = {
-			{ EShaderStage::VS, L"../JaehuruEngine_Core/Engine_Core/Shaders/VS/Sprite-DefaultVS.hlsl" },
-			{ EShaderStage::PS, L"../JaehuruEngine_Core/Engine_Core/Shaders/PS/Sprite-DefaultPS.hlsl" },
+		map<EShaderStage, wstring> spriteShaderPaths = 
+		{
+			{ EShaderStage::VS, L"../JaehuruEngine_Core/Engine_Core/Shaders/VS/SpriteDefaultVS.hlsl" },
+			{ EShaderStage::PS, L"../JaehuruEngine_Core/Engine_Core/Shaders/PS/SpriteDefaultPS.hlsl" },
+		};
+
+		map<EShaderStage, wstring> wireframeShaderPaths =
+		{
+			{ EShaderStage::VS, L"../JaehuruEngine_Core/Engine_Core/Shaders/VS/WireframeVS.hlsl" },
+			{ EShaderStage::PS, L"../JaehuruEngine_Core/Engine_Core/Shaders/PS/WireframePS.hlsl" },
 		};
 
 		RResources::Load<RShader>(L"TriangleShader", triangleShaderPaths);
-		RResources::Load<RShader>(L"SpriteShader", spriteShaderPaths);
+		RResources::Load<RShader>(L"SpriteDefaultShader", spriteShaderPaths);
+		RResources::Load<RShader>(L"WireframeShader", wireframeShaderPaths);
 	}
 
 	void LoadMeterails()
@@ -269,7 +281,7 @@ namespace renderer
 		RMaterial* spriteMaterial = new RMaterial();
 		RTexture* texture = RResources::Find<RTexture>(L"Player");
 		spriteMaterial->SetAlbedoTexture(texture);
-		spriteMaterial->SetShader(RResources::Find<RShader>(L"SpriteShader"));
+		spriteMaterial->SetShader(RResources::Find<RShader>(L"SpriteDefaultShader"));
 
 		RResources::Insert(L"SpriteMaterial", spriteMaterial);
 	}

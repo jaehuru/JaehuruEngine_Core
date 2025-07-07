@@ -1,9 +1,9 @@
 #include "Resource/RShader.h"
 #include "Renderer/RRenderer.h"
-#include <string>
-#include <locale>
-#include <codecvt>
+#include "Resource/RResources.h"
 
+
+bool RShader::bWireframe = true;
 
 RShader::RShader() : 
 	RResource(EResourceType::RShader),
@@ -103,6 +103,23 @@ bool RShader::CreatePixelShader(const wstring& fullPath)
 
 void RShader::Bind()
 {
+	if (bWireframe)
+	{
+		RShader* wireframeShader = RResources::Find<RShader>(L"WireframeShader");
+		Microsoft::WRL::ComPtr<ID3D11VertexShader> wireframeShaderVS = wireframeShader->GetVS();
+		Microsoft::WRL::ComPtr<ID3D11PixelShader> wireframeShaderPS = wireframeShader->GetPS();
+		Microsoft::WRL::ComPtr<ID3D11RasterizerState> wireframeRasterizerState
+			= renderer::rasterizerStates[static_cast<UINT>(ERasterizerState::Wireframe)];
+
+		GetDevice()->BindVS(wireframeShaderVS.Get());
+		GetDevice()->BindPS(wireframeShaderPS.Get());
+		GetDevice()->BindRasterizerState(wireframeRasterizerState.Get());
+		GetDevice()->BindBlendState(renderer::blendStates[static_cast<UINT>(mBlendState)].Get(), nullptr, 0xffffff);
+		GetDevice()->BindDepthStencilState(renderer::depthStencilStates[static_cast<UINT>(mDepthStencilState)].Get(), 0);
+
+		return;
+	}
+
 	if (mVS)
 		GetDevice()->BindVS(mVS.Get());
 	if (mPS)
@@ -110,5 +127,5 @@ void RShader::Bind()
 
 	GetDevice()->BindRasterizerState(renderer::rasterizerStates[(UINT)mRasterizerState].Get());
 	GetDevice()->BindBlendState(renderer::blendStates[(UINT)mBlendState].Get(), nullptr, 0xffffff);
-	GetDevice()->BindDepthStencilState(renderer::depthStencilStates[(UINT)mDepthStencilState].Get(), 0);
+	GetDevice()->BindDepthStencilState(renderer::depthStencilStates[static_cast<UINT>(mDepthStencilState)].Get(), 0);
 }

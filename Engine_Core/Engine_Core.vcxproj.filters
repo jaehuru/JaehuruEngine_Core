@@ -451,10 +451,16 @@
     <FxCompile Include="Shaders\PS\TrianglePS.hlsl">
       <Filter>Shaders\PS</Filter>
     </FxCompile>
-    <FxCompile Include="Shaders\VS\Sprite-DefaultVS.hlsl">
+    <FxCompile Include="Shaders\VS\SpriteDefaultVS.hlsl">
       <Filter>Shaders\VS</Filter>
     </FxCompile>
-    <FxCompile Include="Shaders\PS\Sprite-DefaultPS.hlsl">
+    <FxCompile Include="Shaders\PS\SpriteDefaultPS.hlsl">
+      <Filter>Shaders\PS</Filter>
+    </FxCompile>
+    <FxCompile Include="Shaders\VS\WireframeVS.hlsl">
+      <Filter>Shaders\VS</Filter>
+    </FxCompile>
+    <FxCompile Include="Shaders\PS\WireframePS.hlsl">
       <Filter>Shaders\PS</Filter>
     </FxCompile>
   </ItemGroup>

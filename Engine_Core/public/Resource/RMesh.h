@@ -9,10 +9,10 @@
 class RMesh : public RResource
 {
 public:
-	struct Data
+	struct FMeshData
 	{
-		Data();
-		~Data();
+		FMeshData();
+		~FMeshData();
 
 		D3D11_PRIMITIVE_TOPOLOGY mTopology;
 		vector<FVertex> vertices;
@@ -41,10 +41,9 @@ public:
 	UINT	GetIndexCount() const	{ return mIB.GetIndexCount(); }
 
 private:
-	RInputLayout			mInputLayout;
-	RVertexBuffer			mVB;
-	RIndexBuffer			mIB;
+	RInputLayout		mInputLayout;
+	RVertexBuffer		mVB;
+	RIndexBuffer		mIB;
 
-	Data					mData;
-
+	FMeshData			mData;
 };

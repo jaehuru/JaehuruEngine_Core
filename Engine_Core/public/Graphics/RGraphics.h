@@ -72,7 +72,7 @@ enum class ERasterizerState
 	SolidBack,
 	SolidFront,
 	SolidNone,
-	WireFrame,
+	Wireframe,
 	End,
 };
 

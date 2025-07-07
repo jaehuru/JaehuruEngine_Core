@@ -1,4 +1,4 @@
-#include "Graphics/RGraphicDevice_DX11.h"
+ #include "Graphics/RGraphicDevice_DX11.h"
 #include "HighLevelInterface/IApplication.h"
 #include "Renderer/RRenderer.h"
 #include "Resource/RShader.h"
@@ -219,6 +219,59 @@ bool RGraphicDevice_DX11::CreateDepthStencilState(const D3D11_DEPTH_STENCIL_DESC
 {
 	if (FAILED(mDevice->CreateDepthStencilState(pDepthStencilDesc, ppDepthStencilState)))
 		return false;
+
+	return true;
+}
+
+bool RGraphicDevice_DX11::Resize(D3D11_VIEWPORT viewport)
+{
+	mRenderTargetView.Reset();
+	mRenderTarget.Reset();
+
+	mDepthStencilView.Reset();
+	mDepthStencil.Reset();
+
+	HRESULT hr = mSwapChain->ResizeBuffers(
+									0, // 현재 개수 유지
+									(UINT)viewport.Width, // 해상도 변경
+									(UINT)viewport.Height,
+									DXGI_FORMAT_UNKNOWN, // 현재 포맷 유지
+									0);
+
+	// Get render target by Swapchain
+	Microsoft::WRL::ComPtr<ID3D11Texture2D> renderTarget = nullptr;
+	hr = mSwapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (void**)(renderTarget.GetAddressOf()));
+
+	D3D11_TEXTURE2D_DESC desc = {};
+	renderTarget->GetDesc(&desc);
+	mRenderTarget = renderTarget;
+
+	// Create RenderTargetView
+	hr = mDevice->CreateRenderTargetView(mRenderTarget.Get(), nullptr, mRenderTargetView.GetAddressOf());
+
+	// Create DepthStencil
+	D3D11_TEXTURE2D_DESC depthStencilDesc = {};
+	depthStencilDesc.BindFlags = D3D11_BIND_DEPTH_STENCIL;
+	depthStencilDesc.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
+	depthStencilDesc.Usage = D3D11_USAGE_DEFAULT;
+	depthStencilDesc.Width = (UINT)viewport.Width;
+	depthStencilDesc.Height = (UINT)viewport.Height;
+	depthStencilDesc.ArraySize = 1;
+	depthStencilDesc.SampleDesc.Count = 1;
+	depthStencilDesc.SampleDesc.Quality = 0;
+	depthStencilDesc.MipLevels = 1;
+	depthStencilDesc.MiscFlags = 0;
+
+	hr = mDevice->CreateTexture2D(&depthStencilDesc, nullptr, mDepthStencil.GetAddressOf());
+
+	// Create DepthStencilView
+	hr = mDevice->CreateDepthStencilView(mDepthStencil.Get(), nullptr, mDepthStencilView.GetAddressOf());
+
+	// Set Viewport
+	BindViewPort();
+
+	// Bind RenderTarget
+	BindRenderTargets(1, mRenderTargetView.GetAddressOf(), mDepthStencilView.Get());
 
 	return true;
 }

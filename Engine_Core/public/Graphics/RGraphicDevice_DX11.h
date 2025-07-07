@@ -49,6 +49,8 @@ public:
 	bool	CreateDepthStencilState(const D3D11_DEPTH_STENCIL_DESC* pDepthStencilDesc,
 									ID3D11DepthStencilState** ppDepthStencilState);
 
+	bool	Resize(D3D11_VIEWPORT viewport);
+
 	void	SetDataGpuBuffer(ID3D11Buffer* buffer, void* data, UINT size);
 	void	SetShaderResource(EShaderStage stage, UINT startSlot, ID3D11ShaderResourceView** ppSRV);
 

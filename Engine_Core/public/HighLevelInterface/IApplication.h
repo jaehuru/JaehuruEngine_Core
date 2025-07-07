@@ -12,11 +12,13 @@ public:
 	~IApplication();
 		
 
-	void	Initialize(HWND hwnd, UINT width, UINT height);
-	void	AdjustWindowRect(HWND hwnd, UINT width, UINT height);
+	void	Initialize(HWND hwnd, int width, int height);
+	void	AdjustWindowRect(HWND hwnd, int width, int height);
+	void	ReszieGraphicDevice();
 	void	InitializeEtc();
 
 	void	Run();
+	void	Close();
 
 	void	Update();
 	void	LateUpdate();
@@ -26,23 +28,25 @@ public:
 	void	Release();
 
 	HWND	GetHwnd() const		{ return mHwnd; }
-	HDC		GetHdc() const		{ return mHdc; }
 	UINT	GetWidth() const	{ return mWidth; }
 	UINT	GetHeight() const	{ return mHeight; }
 
 	bool	IsLoaded() const	{ return mbLoaded; }
+	bool	IsRunning() const	{ return mbRunning; }
+	bool	IsMinimized() const { return mbMinimized; }
 
-	void	IsLoaded(bool load)	{ mbLoaded = load; }
+	void	IsLoaded(bool load)				{ mbLoaded = load; }
+
+	void	SetMinimized(bool minimized)	{ mbMinimized = minimized; }
 
 private:
-	bool			mbLoaded;
 	unique_ptr<RGraphicDevice_DX11>	mGraphicDevice;
 
-	HWND			mHwnd;
-	HDC				mHdc;
+	bool			mbLoaded;
+	bool			mbRunning;
+	bool			mbMinimized;
 
-	HDC				mBackHdc;
-	HBITMAP			mBackBitmap;
+	HWND			mHwnd;
 
 	UINT			mWidth;
 	UINT			mHeight;

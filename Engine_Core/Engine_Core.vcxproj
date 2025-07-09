@@ -46,6 +46,7 @@
     <ClInclude Include="public\Graphics\RGraphicDevice_DX11.h" />
     <ClInclude Include="public\Graphics\RGraphics.h" />
     <ClInclude Include="public\Graphics\RInputLayout.h" />
+    <ClInclude Include="public\Graphics\RRenderTarget.h" />
     <ClInclude Include="public\Helpers\Input.h" />
     <ClInclude Include="public\Helpers\Time.h" />
     <ClInclude Include="public\HighLevelInterface\IApplication.h" />
@@ -92,6 +93,7 @@
     <ClCompile Include="private\Graphics\GPUBuffer\RVertexBuffer.cpp" />
     <ClCompile Include="private\Graphics\RGraphicDevice_DX11.cpp" />
     <ClCompile Include="private\Graphics\RInputLayout.cpp" />
+    <ClCompile Include="private\Graphics\RRenderTarget.cpp" />
     <ClCompile Include="private\Helpers\Input.cpp" />
     <ClCompile Include="private\Helpers\Time.cpp" />
     <ClCompile Include="private\HighLevelInterface\IApplication.cpp" />

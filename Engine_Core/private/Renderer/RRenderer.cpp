@@ -5,6 +5,12 @@
 #include "Resource/RMesh.h"
 #include "Resource/RMaterial.h"
 #include "Resource/RTexture.h"
+#include "Component/Camera/JCamera.h"
+#include "Graphics/GPUBuffer/RConstantBuffer.h"
+#include "HighLevelInterface/IApplication.h"
+#include "Graphics/RRenderTarget.h"
+
+extern IApplication application;
 
 namespace renderer
 {
@@ -15,6 +21,7 @@ namespace renderer
 	Microsoft::WRL::ComPtr<ID3D11RasterizerState> rasterizerStates[(UINT)ERasterizerState::End] = {};
 	Microsoft::WRL::ComPtr<ID3D11BlendState> blendStates[(UINT)EBlendState::End] = {};
 	Microsoft::WRL::ComPtr<ID3D11DepthStencilState> depthStencilStates[(UINT)EDepthStencilState::End] = {};
+	RRenderTarget* FrameBuffer = nullptr;
 
 	void LoadStates()
 	{
@@ -290,6 +297,16 @@ namespace renderer
 		constantBuffers[CBSLOT_TRANSFORM]->Create(sizeof(JTransformCB));
 	}
 
+	void LoadFrameBuffer()
+	{
+		FRenderTargetSpecification spec;
+		spec.Attachments = { ERenderTragetFormat::RGBA8, ERenderTragetFormat::Depth };
+		spec.Width = application.GetWidth();
+		spec.Height = application.GetHeight();
+
+		FrameBuffer = RRenderTarget::Create(spec);
+	}
+
 	void Initialize()
 	{
 		LoadStates();
@@ -297,6 +314,7 @@ namespace renderer
 		LoadMeshes();
 		LoadMeterails();
 		LoadConstantBuffers();
+		LoadFrameBuffer();
 	}
 
 	void Release()

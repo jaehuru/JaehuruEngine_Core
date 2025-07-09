@@ -1,8 +1,13 @@
 #pragma once
 
-#include "Component/Camera/JCamera.h"
 #include "Graphics/RGraphicDevice_DX11.h"
-#include "Graphics/GPUBuffer/RConstantBuffer.h"
+
+
+class JCamera;
+class AActor;
+class RConstantBuffer;
+class RRenderTarget;
+
 
 namespace renderer
 {
@@ -15,6 +20,8 @@ namespace renderer
 	extern Microsoft::WRL::ComPtr<ID3D11RasterizerState>	rasterizerStates[(UINT)ERasterizerState::End];
 	extern Microsoft::WRL::ComPtr<ID3D11BlendState>			blendStates[(UINT)EBlendState::End];
 	extern Microsoft::WRL::ComPtr<ID3D11DepthStencilState>	depthStencilStates[(UINT)EDepthStencilState::End];
+
+	extern RRenderTarget* FrameBuffer;
 
 	void	Initialize();
 	void	Release();

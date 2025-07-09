@@ -13,6 +13,7 @@ public:
 		
 
 	void	Initialize(HWND hwnd, int width, int height);
+	void	InitializeWindow(HWND hwnd);
 	void	AdjustWindowRect(HWND hwnd, int width, int height);
 	void	ReszieGraphicDevice();
 	void	InitializeEtc();
@@ -31,24 +32,27 @@ public:
 	UINT	GetWidth() const	{ return mWidth; }
 	UINT	GetHeight() const	{ return mHeight; }
 
-	bool	IsLoaded() const	{ return mbLoaded; }
-	bool	IsRunning() const	{ return mbRunning; }
-	bool	IsMinimized() const { return mbMinimized; }
+	bool	IsLoaded() const	{ return bLoaded; }
+	bool	IsRunning() const	{ return bRunning; }
+	bool	IsMinimized() const { return bMinimized; }
 
-	void	IsLoaded(bool load)				{ mbLoaded = load; }
+	void	IsLoaded(bool load)				{ bLoaded = load; }
 
-	void	SetMinimized(bool minimized)	{ mbMinimized = minimized; }
+	void	SetMinimized(bool minimized)	{ bMinimized = minimized; }
 
 private:
 	unique_ptr<RGraphicDevice_DX11>	mGraphicDevice;
 
-	bool			mbLoaded;
-	bool			mbRunning;
-	bool			mbMinimized;
+	bool		bLoaded;
+	bool		bRunning;
+	bool		bMinimized;
 
-	HWND			mHwnd;
+	HWND		mHwnd;
 
-	UINT			mWidth;
-	UINT			mHeight;
+	UINT		mWindowWidth;
+	UINT		mWindowHeight;
+	UINT		mWidth;
+	UINT		mHeight;
+	UINT		mX, mY;
 };
 

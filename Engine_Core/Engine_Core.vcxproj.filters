@@ -145,6 +145,9 @@
     <ClInclude Include="public\Actor\AActor.h">
       <Filter>public\Actor</Filter>
     </ClInclude>
+    <ClInclude Include="public\Graphics\RRenderTarget.h">
+      <Filter>public\Graphics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="public">
@@ -445,6 +448,9 @@
     </ClCompile>
     <ClCompile Include="private\Actor\AActor.cpp">
       <Filter>private\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="private\Graphics\RRenderTarget.cpp">
+      <Filter>private\Graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

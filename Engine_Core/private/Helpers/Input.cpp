@@ -14,7 +14,8 @@ int ASCII[(int)EKeyCode::End] =
 	'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L',
 	'Z', 'X', 'C', 'V', 'B', 'N', 'M',
 	VK_LEFT, VK_RIGHT, VK_UP, VK_DOWN,
-	VK_LBUTTON, VK_MBUTTON ,VK_RBUTTON
+	VK_LBUTTON, VK_MBUTTON ,VK_RBUTTON,
+	VK_LCONTROL,
 };
 
 void Input::Initialize()

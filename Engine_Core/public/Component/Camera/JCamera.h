@@ -33,11 +33,11 @@ public:
 	void	CreateViewMatrix();
 	void	CreateProjectionMatrix(EProjectionType type);
 
-	FMatrix GetViewMatrix()	const		{ return mViewMatrix; }
-	FMatrix GetProjectionMatrix() const	{ return mProjectionMatrix; }
+	const FMatrix& GetViewMatrix() const		{ return mViewMatrix; }
+	const FMatrix& GetProjectionMatrix() const	{ return mProjectionMatrix; }
 
 	void	SetProjectionType(EProjectionType type) { mProjectionType = type; }
-	void	SetSize(float size) { mSize = size; }
+	void	SetSize(float size)						{ mSize = size; }
 
 private:
 	static FMatrix	ViewMatrix;

@@ -15,12 +15,12 @@
 
 1. **C/C++ → 일반 → 추가 포함 디렉터리**
 ```
-$(SolutionDir)..\JaehuruEngine_Core\External\FMOD\lib\x64
-$(SolutionDir)JaehuruEngine_Core\Engine_Core\public
+$(SolutionDir)\JaehuruEngine_Core\External\FMOD\lib\x64
+$(SolutionDir)\JaehuruEngine_Core\Engine_Core\public
 ```
 3. **링커 → 일반 → 추가 라이브러리 디렉터리**
 ```
-$(SolutionDir)..\JaehuruEngine_Core\External\FMOD\lib\x64
+$(SolutionDir)\JaehuruEngine_Core\External\FMOD\lib\x64
 ```
 4. **링커 → 입력 → 추가 종속성**
 ```
@@ -32,11 +32,11 @@ fmodstudioL_vc.lib
 5. **빌드 이벤트 → 빌드 후 이벤트**
 ```
 IF "$(Configuration)"=="Debug" (
-    xcopy /Y /D "$(SolutionDir)..\JaehuruEngine_Core\External\FMOD\lib\x64\fmodL.dll" "$(OutDir)"
-    xcopy /Y /D "$(SolutionDir)..\JaehuruEngine_Core\External\FMOD\lib\x64\fmodstudioL.dll" "$(OutDir)"
+    xcopy /Y /D "$(SolutionDir)\JaehuruEngine_Core\External\FMOD\lib\x64\fmodL.dll" "$(OutDir)"
+    xcopy /Y /D "$(SolutionDir)\JaehuruEngine_Core\External\FMOD\lib\x64\fmodstudioL.dll" "$(OutDir)"
 ) ELSE (
-    xcopy /Y /D "$(SolutionDir)..\JaehuruEngine_Core\External\FMOD\lib\x64\fmod.dll" "$(OutDir)"
-    xcopy /Y /D "$(SolutionDir)..\JaehuruEngine_Core\External\FMOD\lib\x64\fmodstudio.dll" "$(OutDir)"
+    xcopy /Y /D "$(SolutionDir)\JaehuruEngine_Core\External\FMOD\lib\x64\fmod.dll" "$(OutDir)"
+    xcopy /Y /D "$(SolutionDir)\JaehuruEngine_Core\External\FMOD\lib\x64\fmodstudio.dll" "$(OutDir)"
 )
 ```
 ## vcpkg 라이브러리 관리 안내 

@@ -8,6 +8,11 @@
 class IApplication
 {
 public:
+	struct FWindowData
+	{
+		wstring Title;
+	};
+
 	IApplication();
 	~IApplication();
 		

@@ -18,6 +18,7 @@ enum class EKeyCode
 	Z, X, C, V, B, N, M,
 	Left, Right, Up, Down,
 	LButton, MButton ,RButton,
+	Leftcontrol,
 	End,
 };
 

@@ -16,7 +16,7 @@
 1. **C/C++ → 일반 → 추가 포함 디렉터리**
 ```
 $(SolutionDir)\JaehuruEngine_Core\External\FMOD\lib\x64
-$(SolutionDir)\JaehuruEngine_Core\Engine_Core\public
+$(SolutionDir)\JaehuruEngine_Core\Engine_Core\Core_SOURCE\public
 ```
 3. **링커 → 일반 → 추가 라이브러리 디렉터리**
 ```

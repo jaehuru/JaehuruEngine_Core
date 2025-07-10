@@ -19,135 +19,140 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="public\Actor\AActor.h" />
-    <ClInclude Include="public\Collision\JCollisionManager.h" />
-    <ClInclude Include="public\Common\CommonInclude.h" />
-    <ClInclude Include="public\Common\FEntity.h" />
-    <ClInclude Include="public\Common\Enums.h" />
-    <ClInclude Include="public\Common\ISerializable.h" />
-    <ClInclude Include="public\Common\Math.h" />
-    <ClInclude Include="public\Component\Animator\JAnimator.h" />
-    <ClInclude Include="public\Component\Audio\JAudioListener.h" />
-    <ClInclude Include="public\Component\Audio\JAudioSource.h" />
-    <ClInclude Include="public\Component\Camera\JCamera.h" />
-    <ClInclude Include="public\Component\Collider\JBoxCollider2D.h" />
-    <ClInclude Include="public\Component\Collider\JCircleCollider2D.h" />
-    <ClInclude Include="public\Component\Collider\JCollider.h" />
-    <ClInclude Include="public\Component\JComponent.h" />
-    <ClInclude Include="public\Component\Rigidbody\JRigidbody.h" />
-    <ClInclude Include="public\Component\Script\JScript.h" />
-    <ClInclude Include="public\Component\SpriteRenderer\JSpriteRenderer.h" />
-    <ClInclude Include="public\Component\TileMapRenderer\JTileMapRenderer.h" />
-    <ClInclude Include="public\Component\Transform\JTransform.h" />
-    <ClInclude Include="public\FMOD\JFmod.h" />
-    <ClInclude Include="public\Graphics\GPUBuffer\RConstantBuffer.h" />
-    <ClInclude Include="public\Graphics\GPUBuffer\RIndexBuffer.h" />
-    <ClInclude Include="public\Graphics\GPUBuffer\RVertexBuffer.h" />
-    <ClInclude Include="public\Graphics\RGraphicDevice_DX11.h" />
-    <ClInclude Include="public\Graphics\RGraphics.h" />
-    <ClInclude Include="public\Graphics\RInputLayout.h" />
-    <ClInclude Include="public\Graphics\RRenderTarget.h" />
-    <ClInclude Include="public\Helpers\Input.h" />
-    <ClInclude Include="public\Helpers\Time.h" />
-    <ClInclude Include="public\HighLevelInterface\IApplication.h" />
-    <ClInclude Include="public\Layer\JLayer.h" />
-    <ClInclude Include="public\Object\JObject.h" />
-    <ClInclude Include="public\Renderer\RRenderer.h" />
-    <ClInclude Include="public\Resource\RAnimation.h" />
-    <ClInclude Include="public\Resource\RAudioClip.h" />
-    <ClInclude Include="public\Resource\RMaterial.h" />
-    <ClInclude Include="public\Resource\RMesh.h" />
-    <ClInclude Include="public\Resource\RResource.h" />
-    <ClInclude Include="public\Resource\RResources.h" />
-    <ClInclude Include="public\Resource\RShader.h" />
-    <ClInclude Include="public\Resource\RTexture.h" />
-    <ClInclude Include="public\Scene\JDontDestroyOnLoad.h" />
-    <ClInclude Include="public\Scene\JScene.h" />
-    <ClInclude Include="public\Scene\JSceneManager.h" />
-    <ClInclude Include="public\UI\UUIBase.h" />
-    <ClInclude Include="public\UI\UButton.h" />
-    <ClInclude Include="public\UI\UHUD.h" />
-    <ClInclude Include="public\UI\UUIManager.h" />
+    <ClInclude Include="Core_SOURCE\public\Actor\AActor.h" />
+    <ClInclude Include="Core_SOURCE\public\Collision\JCollisionManager.h" />
+    <ClInclude Include="Core_SOURCE\public\Common\CommonInclude.h" />
+    <ClInclude Include="Core_SOURCE\public\Common\IEntity.h" />
+    <ClInclude Include="Core_SOURCE\public\Common\Enums.h" />
+    <ClInclude Include="Core_SOURCE\public\Common\ISerializable.h" />
+    <ClInclude Include="Core_SOURCE\public\Common\Math.h" />
+    <ClInclude Include="Core_SOURCE\public\Component\Animator\JAnimator.h" />
+    <ClInclude Include="Core_SOURCE\public\Component\Audio\JAudioListener.h" />
+    <ClInclude Include="Core_SOURCE\public\Component\Audio\JAudioSource.h" />
+    <ClInclude Include="Core_SOURCE\public\Component\Camera\JCamera.h" />
+    <ClInclude Include="Core_SOURCE\public\Component\Collider\JBoxCollider2D.h" />
+    <ClInclude Include="Core_SOURCE\public\Component\Collider\JCircleCollider2D.h" />
+    <ClInclude Include="Core_SOURCE\public\Component\Collider\JCollider.h" />
+    <ClInclude Include="Core_SOURCE\public\Component\JComponent.h" />
+    <ClInclude Include="Core_SOURCE\public\Component\Rigidbody\JRigidbody.h" />
+    <ClInclude Include="Core_SOURCE\public\Component\Script\JScript.h" />
+    <ClInclude Include="Core_SOURCE\public\Component\SpriteRenderer\JSpriteRenderer.h" />
+    <ClInclude Include="Core_SOURCE\public\Component\TileMapRenderer\JTileMapRenderer.h" />
+    <ClInclude Include="Core_SOURCE\public\Component\Transform\JTransform.h" />
+    <ClInclude Include="Core_SOURCE\public\Event\IEvent.h" />
+    <ClInclude Include="Core_SOURCE\public\Event\JApplicationEvent.h" />
+    <ClInclude Include="Core_SOURCE\public\Event\JMouseEvent.h" />
+    <ClInclude Include="Core_SOURCE\public\FMOD\JFmod.h" />
+    <ClInclude Include="Core_SOURCE\public\Graphics\GPUBuffer\RConstantBuffer.h" />
+    <ClInclude Include="Core_SOURCE\public\Graphics\GPUBuffer\RIndexBuffer.h" />
+    <ClInclude Include="Core_SOURCE\public\Graphics\GPUBuffer\RVertexBuffer.h" />
+    <ClInclude Include="Core_SOURCE\public\Graphics\RGraphicDevice_DX11.h" />
+    <ClInclude Include="Core_SOURCE\public\Graphics\RGraphics.h" />
+    <ClInclude Include="Core_SOURCE\public\Graphics\RInputLayout.h" />
+    <ClInclude Include="Core_SOURCE\public\Graphics\RRenderTarget.h" />
+    <ClInclude Include="Core_SOURCE\public\Helpers\Input.h" />
+    <ClInclude Include="Core_SOURCE\public\Helpers\Time.h" />
+    <ClInclude Include="Core_SOURCE\public\HighLevelInterface\JApplication.h" />
+    <ClInclude Include="Core_SOURCE\public\HighLevelInterface\JWindow.h" />
+    <ClInclude Include="Core_SOURCE\public\Layer\JLayer.h" />
+    <ClInclude Include="Core_SOURCE\public\Object\JObject.h" />
+    <ClInclude Include="Core_SOURCE\public\Renderer\RRenderer.h" />
+    <ClInclude Include="Core_SOURCE\public\Resource\RAnimation.h" />
+    <ClInclude Include="Core_SOURCE\public\Resource\RAudioClip.h" />
+    <ClInclude Include="Core_SOURCE\public\Resource\RMaterial.h" />
+    <ClInclude Include="Core_SOURCE\public\Resource\RMesh.h" />
+    <ClInclude Include="Core_SOURCE\public\Resource\RResource.h" />
+    <ClInclude Include="Core_SOURCE\public\Resource\RResources.h" />
+    <ClInclude Include="Core_SOURCE\public\Resource\RShader.h" />
+    <ClInclude Include="Core_SOURCE\public\Resource\RTexture.h" />
+    <ClInclude Include="Core_SOURCE\public\Scene\JDontDestroyOnLoad.h" />
+    <ClInclude Include="Core_SOURCE\public\Scene\JScene.h" />
+    <ClInclude Include="Core_SOURCE\public\Scene\JSceneManager.h" />
+    <ClInclude Include="Core_SOURCE\public\UI\UUIBase.h" />
+    <ClInclude Include="Core_SOURCE\public\UI\UButton.h" />
+    <ClInclude Include="Core_SOURCE\public\UI\UHUD.h" />
+    <ClInclude Include="Core_SOURCE\public\UI\UUIManager.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="private\Actor\AActor.cpp" />
-    <ClCompile Include="private\Collision\JCollisionManager.cpp" />
-    <ClCompile Include="private\Common\FEntity.cpp" />
-    <ClCompile Include="private\Common\Math.cpp" />
-    <ClCompile Include="private\Component\Animator\JAnimator.cpp" />
-    <ClCompile Include="private\Component\Audio\JAudioListener.cpp" />
-    <ClCompile Include="private\Component\Audio\JAudioSource.cpp" />
-    <ClCompile Include="private\Component\Camera\JCamera.cpp" />
-    <ClCompile Include="private\Component\Collider\JBoxCollider2D.cpp" />
-    <ClCompile Include="private\Component\Collider\JCircleCollider2D.cpp" />
-    <ClCompile Include="private\Component\Collider\JCollider.cpp" />
-    <ClCompile Include="private\Component\JComponent.cpp" />
-    <ClCompile Include="private\Component\Rigidbody\JRigidbody.cpp" />
-    <ClCompile Include="private\Component\Script\JScript.cpp" />
-    <ClCompile Include="private\Component\SpriteRenderer\JSpriteRenderer.cpp" />
-    <ClCompile Include="private\Component\TileMapRenderer\JTileMapRenderer.cpp" />
-    <ClCompile Include="private\Component\Transform\JTransform.cpp" />
-    <ClCompile Include="private\FMOD\JFmod.cpp" />
-    <ClCompile Include="private\Graphics\GPUBuffer\RConstantBuffer.cpp" />
-    <ClCompile Include="private\Graphics\GPUBuffer\RIndexBuffer.cpp" />
-    <ClCompile Include="private\Graphics\GPUBuffer\RVertexBuffer.cpp" />
-    <ClCompile Include="private\Graphics\RGraphicDevice_DX11.cpp" />
-    <ClCompile Include="private\Graphics\RInputLayout.cpp" />
-    <ClCompile Include="private\Graphics\RRenderTarget.cpp" />
-    <ClCompile Include="private\Helpers\Input.cpp" />
-    <ClCompile Include="private\Helpers\Time.cpp" />
-    <ClCompile Include="private\HighLevelInterface\IApplication.cpp" />
-    <ClCompile Include="private\Layer\JLayer.cpp" />
-    <ClCompile Include="private\Object\JObject.cpp" />
-    <ClCompile Include="private\Renderer\RRenderer.cpp" />
-    <ClCompile Include="private\Resource\RAnimation.cpp" />
-    <ClCompile Include="private\Resource\RAudioClip.cpp" />
-    <ClCompile Include="private\Resource\RMaterial.cpp" />
-    <ClCompile Include="private\Resource\RMesh.cpp" />
-    <ClCompile Include="private\Resource\RResource.cpp" />
-    <ClCompile Include="private\Resource\RResources.cpp" />
-    <ClCompile Include="private\Resource\RShader.cpp" />
-    <ClCompile Include="private\Resource\RTexture.cpp" />
-    <ClCompile Include="private\Scene\JDontDestroyOnLoad.cpp" />
-    <ClCompile Include="private\Scene\JScene.cpp" />
-    <ClCompile Include="private\Scene\JSceneManager.cpp" />
-    <ClCompile Include="private\UI\UUIBase.cpp" />
-    <ClCompile Include="private\UI\UButton.cpp" />
-    <ClCompile Include="private\UI\UHUD.cpp" />
-    <ClCompile Include="private\UI\UUIManager.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Actor\AActor.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Collision\JCollisionManager.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Common\IEntity.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Common\Math.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Component\Animator\JAnimator.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Component\Audio\JAudioListener.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Component\Audio\JAudioSource.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Component\Camera\JCamera.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Component\Collider\JBoxCollider2D.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Component\Collider\JCircleCollider2D.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Component\Collider\JCollider.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Component\JComponent.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Component\Rigidbody\JRigidbody.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Component\Script\JScript.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Component\SpriteRenderer\JSpriteRenderer.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Component\TileMapRenderer\JTileMapRenderer.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Component\Transform\JTransform.cpp" />
+    <ClCompile Include="Core_SOURCE\private\FMOD\JFmod.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Graphics\GPUBuffer\RConstantBuffer.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Graphics\GPUBuffer\RIndexBuffer.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Graphics\GPUBuffer\RVertexBuffer.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Graphics\RGraphicDevice_DX11.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Graphics\RInputLayout.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Graphics\RRenderTarget.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Helpers\Input.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Helpers\Time.cpp" />
+    <ClCompile Include="Core_SOURCE\private\HighLevelInterface\JApplication.cpp" />
+    <ClCompile Include="Core_SOURCE\private\HighLevelInterface\JWindow.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Layer\JLayer.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Object\JObject.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Renderer\RRenderer.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Resource\RAnimation.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Resource\RAudioClip.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Resource\RMaterial.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Resource\RMesh.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Resource\RResource.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Resource\RResources.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Resource\RShader.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Resource\RTexture.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Scene\JDontDestroyOnLoad.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Scene\JScene.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Scene\JSceneManager.cpp" />
+    <ClCompile Include="Core_SOURCE\private\UI\UUIBase.cpp" />
+    <ClCompile Include="Core_SOURCE\private\UI\UButton.cpp" />
+    <ClCompile Include="Core_SOURCE\private\UI\UHUD.cpp" />
+    <ClCompile Include="Core_SOURCE\private\UI\UUIManager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="Shaders\PS\SpriteDefaultPS.hlsl">
+    <FxCompile Include="Shaders_SOURCE\PS\SpriteDefaultPS.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
     </FxCompile>
-    <FxCompile Include="Shaders\PS\TrianglePS.hlsl">
+    <FxCompile Include="Shaders_SOURCE\PS\TrianglePS.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
     </FxCompile>
-    <FxCompile Include="Shaders\PS\WireframePS.hlsl">
+    <FxCompile Include="Shaders_SOURCE\PS\WireframePS.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
     </FxCompile>
-    <FxCompile Include="Shaders\VS\SpriteDefaultVS.hlsl">
+    <FxCompile Include="Shaders_SOURCE\VS\SpriteDefaultVS.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
     </FxCompile>
-    <FxCompile Include="Shaders\VS\TriangleVS.hlsl">
+    <FxCompile Include="Shaders_SOURCE\VS\TriangleVS.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
     </FxCompile>
-    <FxCompile Include="Shaders\VS\WireframeVS.hlsl">
+    <FxCompile Include="Shaders_SOURCE\VS\WireframeVS.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
@@ -155,9 +160,10 @@
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Shaders\LIB\ConstantBuffers.hlsli" />
-    <None Include="Shaders\LIB\Samplers.hlsli" />
-    <None Include="Shaders\LIB\Textures.hlsli" />
+    <None Include="cpp.hint" />
+    <None Include="Shaders_SOURCE\LIB\ConstantBuffers.hlsli" />
+    <None Include="Shaders_SOURCE\LIB\Samplers.hlsli" />
+    <None Include="Shaders_SOURCE\LIB\Textures.hlsli" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -219,7 +225,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(ProjectDir)public;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Core_SOURCE\public;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -252,7 +258,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(ProjectDir)public;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Core_SOURCE\public;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -285,7 +291,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(ProjectDir)public;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Core_SOURCE\public;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -318,7 +324,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(ProjectDir)public;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Core_SOURCE\public;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

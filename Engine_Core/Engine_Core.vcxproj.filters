@@ -1,484 +1,506 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="public\Collision\JCollisionManager.h">
-      <Filter>public\Collision</Filter>
+    <ClInclude Include="Core_SOURCE\public\Actor\AActor.h">
+      <Filter>Core_SOURCE\public\Actor</Filter>
     </ClInclude>
-    <ClInclude Include="public\Common\CommonInclude.h">
-      <Filter>public\Common</Filter>
+    <ClInclude Include="Core_SOURCE\public\Common\CommonInclude.h">
+      <Filter>Core_SOURCE\public\Common</Filter>
     </ClInclude>
-    <ClInclude Include="public\Common\FEntity.h">
-      <Filter>public\Common</Filter>
+    <ClInclude Include="Core_SOURCE\public\Common\Enums.h">
+      <Filter>Core_SOURCE\public\Common</Filter>
     </ClInclude>
-    <ClInclude Include="public\Common\Enums.h">
-      <Filter>public\Common</Filter>
+    <ClInclude Include="Core_SOURCE\public\Common\IEntity.h">
+      <Filter>Core_SOURCE\public\Common</Filter>
     </ClInclude>
-    <ClInclude Include="public\Component\Animator\JAnimator.h">
-      <Filter>public\Component\Animator</Filter>
+    <ClInclude Include="Core_SOURCE\public\HighLevelInterface\JApplication.h">
+      <Filter>Core_SOURCE\public\High Level Interface</Filter>
     </ClInclude>
-    <ClInclude Include="public\Component\Audio\JAudioListener.h">
-      <Filter>public\Component\Audio</Filter>
+    <ClInclude Include="Core_SOURCE\public\Helpers\Input.h">
+      <Filter>Core_SOURCE\public\Helpers</Filter>
     </ClInclude>
-    <ClInclude Include="public\Component\Camera\JCamera.h">
-      <Filter>public\Component\Camera</Filter>
+    <ClInclude Include="Core_SOURCE\public\Common\ISerializable.h">
+      <Filter>Core_SOURCE\public\Common</Filter>
     </ClInclude>
-    <ClInclude Include="public\Component\Collider\JBoxCollider2D.h">
-      <Filter>public\Component\Collider</Filter>
+    <ClInclude Include="Core_SOURCE\public\Component\Animator\JAnimator.h">
+      <Filter>Core_SOURCE\public\Component\Animator</Filter>
     </ClInclude>
-    <ClInclude Include="public\Component\Collider\JCircleCollider2D.h">
-      <Filter>public\Component\Collider</Filter>
+    <ClInclude Include="Core_SOURCE\public\Component\Audio\JAudioListener.h">
+      <Filter>Core_SOURCE\public\Component\Audio</Filter>
     </ClInclude>
-    <ClInclude Include="public\Component\Collider\JCollider.h">
-      <Filter>public\Component\Collider</Filter>
+    <ClInclude Include="Core_SOURCE\public\Component\Audio\JAudioSource.h">
+      <Filter>Core_SOURCE\public\Component\Audio</Filter>
     </ClInclude>
-    <ClInclude Include="public\Component\Rigidbody\JRigidbody.h">
-      <Filter>public\Component\Rigidbody</Filter>
+    <ClInclude Include="Core_SOURCE\public\Component\Collider\JBoxCollider2D.h">
+      <Filter>Core_SOURCE\public\Component\Collider</Filter>
     </ClInclude>
-    <ClInclude Include="public\Component\Script\JScript.h">
-      <Filter>public\Component\Script</Filter>
+    <ClInclude Include="Core_SOURCE\public\Component\Camera\JCamera.h">
+      <Filter>Core_SOURCE\public\Component\Camera</Filter>
     </ClInclude>
-    <ClInclude Include="public\Component\SpriteRenderer\JSpriteRenderer.h">
-      <Filter>public\Component\SpriteRenderer</Filter>
+    <ClInclude Include="Core_SOURCE\public\Component\Collider\JCircleCollider2D.h">
+      <Filter>Core_SOURCE\public\Component\Collider</Filter>
     </ClInclude>
-    <ClInclude Include="public\Component\TileMapRenderer\JTileMapRenderer.h">
-      <Filter>public\Component\TileMapRenderer</Filter>
+    <ClInclude Include="Core_SOURCE\public\Component\Collider\JCollider.h">
+      <Filter>Core_SOURCE\public\Component\Collider</Filter>
     </ClInclude>
-    <ClInclude Include="public\Component\Transform\JTransform.h">
-      <Filter>public\Component\Transform</Filter>
+    <ClInclude Include="Core_SOURCE\public\Collision\JCollisionManager.h">
+      <Filter>Core_SOURCE\public\Collision</Filter>
     </ClInclude>
-    <ClInclude Include="public\Component\JComponent.h">
-      <Filter>public\Component</Filter>
+    <ClInclude Include="Core_SOURCE\public\Component\JComponent.h">
+      <Filter>Core_SOURCE\public\Component</Filter>
     </ClInclude>
-    <ClInclude Include="public\FMOD\JFmod.h">
-      <Filter>public\FMOD</Filter>
+    <ClInclude Include="Core_SOURCE\public\Scene\JDontDestroyOnLoad.h">
+      <Filter>Core_SOURCE\public\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="public\Helpers\Input.h">
-      <Filter>public\Helpers</Filter>
+    <ClInclude Include="Core_SOURCE\public\FMOD\JFmod.h">
+      <Filter>Core_SOURCE\public\FMOD</Filter>
     </ClInclude>
-    <ClInclude Include="public\Helpers\Time.h">
-      <Filter>public\Helpers</Filter>
+    <ClInclude Include="Core_SOURCE\public\Layer\JLayer.h">
+      <Filter>Core_SOURCE\public\Layer</Filter>
     </ClInclude>
-    <ClInclude Include="public\Layer\JLayer.h">
-      <Filter>public\Layer</Filter>
+    <ClInclude Include="Core_SOURCE\public\Object\JObject.h">
+      <Filter>Core_SOURCE\public\Object</Filter>
     </ClInclude>
-    <ClInclude Include="public\Object\JObject.h">
-      <Filter>public\Object</Filter>
+    <ClInclude Include="Core_SOURCE\public\Component\Rigidbody\JRigidbody.h">
+      <Filter>Core_SOURCE\public\Component\Rigidbody</Filter>
     </ClInclude>
-    <ClInclude Include="public\Renderer\RRenderer.h">
-      <Filter>public\Renderer</Filter>
+    <ClInclude Include="Core_SOURCE\public\Scene\JScene.h">
+      <Filter>Core_SOURCE\public\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="public\Resource\RAnimation.h">
-      <Filter>public\Resource</Filter>
+    <ClInclude Include="Core_SOURCE\public\Scene\JSceneManager.h">
+      <Filter>Core_SOURCE\public\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="public\Resource\RResource.h">
-      <Filter>public\Resource</Filter>
+    <ClInclude Include="Core_SOURCE\public\Component\Script\JScript.h">
+      <Filter>Core_SOURCE\public\Component\Script</Filter>
     </ClInclude>
-    <ClInclude Include="public\Resource\RResources.h">
-      <Filter>public\Resource</Filter>
+    <ClInclude Include="Core_SOURCE\public\Component\SpriteRenderer\JSpriteRenderer.h">
+      <Filter>Core_SOURCE\public\Component\SpriteRenderer</Filter>
     </ClInclude>
-    <ClInclude Include="public\Resource\RTexture.h">
-      <Filter>public\Resource</Filter>
+    <ClInclude Include="Core_SOURCE\public\Component\TileMapRenderer\JTileMapRenderer.h">
+      <Filter>Core_SOURCE\public\Component\TileMapRenderer</Filter>
     </ClInclude>
-    <ClInclude Include="public\Scene\JDontDestroyOnLoad.h">
-      <Filter>public\Scene</Filter>
+    <ClInclude Include="Core_SOURCE\public\Component\Transform\JTransform.h">
+      <Filter>Core_SOURCE\public\Component\Transform</Filter>
     </ClInclude>
-    <ClInclude Include="public\Scene\JScene.h">
-      <Filter>public\Scene</Filter>
+    <ClInclude Include="Core_SOURCE\public\Common\Math.h">
+      <Filter>Core_SOURCE\public\Common</Filter>
     </ClInclude>
-    <ClInclude Include="public\Scene\JSceneManager.h">
-      <Filter>public\Scene</Filter>
+    <ClInclude Include="Core_SOURCE\public\Resource\RAnimation.h">
+      <Filter>Core_SOURCE\public\Resource</Filter>
     </ClInclude>
-    <ClInclude Include="public\UI\UUIBase.h">
-      <Filter>public\UI</Filter>
+    <ClInclude Include="Core_SOURCE\public\Resource\RAudioClip.h">
+      <Filter>Core_SOURCE\public\Resource</Filter>
     </ClInclude>
-    <ClInclude Include="public\UI\UButton.h">
-      <Filter>public\UI</Filter>
+    <ClInclude Include="Core_SOURCE\public\Graphics\GPUBuffer\RConstantBuffer.h">
+      <Filter>Core_SOURCE\public\Graphics\GPU Buffer</Filter>
     </ClInclude>
-    <ClInclude Include="public\UI\UUIManager.h">
-      <Filter>public\UI</Filter>
+    <ClInclude Include="Core_SOURCE\public\Graphics\RGraphicDevice_DX11.h">
+      <Filter>Core_SOURCE\public\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="public\HighLevelInterface\IApplication.h">
-      <Filter>public\High Level Interface</Filter>
+    <ClInclude Include="Core_SOURCE\public\Graphics\RGraphics.h">
+      <Filter>Core_SOURCE\public\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="public\UI\UHUD.h">
-      <Filter>public\UI</Filter>
+    <ClInclude Include="Core_SOURCE\public\Graphics\GPUBuffer\RIndexBuffer.h">
+      <Filter>Core_SOURCE\public\Graphics\GPU Buffer</Filter>
     </ClInclude>
-    <ClInclude Include="public\Common\Math.h">
-      <Filter>public\Common</Filter>
+    <ClInclude Include="Core_SOURCE\public\Graphics\RInputLayout.h">
+      <Filter>Core_SOURCE\public\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="public\Resource\RMesh.h">
-      <Filter>public\Resource</Filter>
+    <ClInclude Include="Core_SOURCE\public\Resource\RMaterial.h">
+      <Filter>Core_SOURCE\public\Resource</Filter>
     </ClInclude>
-    <ClInclude Include="public\Resource\RMaterial.h">
-      <Filter>public\Resource</Filter>
+    <ClInclude Include="Core_SOURCE\public\Resource\RMesh.h">
+      <Filter>Core_SOURCE\public\Resource</Filter>
     </ClInclude>
-    <ClInclude Include="public\Resource\RAudioClip.h">
-      <Filter>public\Resource</Filter>
+    <ClInclude Include="Core_SOURCE\public\Renderer\RRenderer.h">
+      <Filter>Core_SOURCE\public\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="public\Component\Audio\JAudioSource.h">
-      <Filter>public\Component\Audio</Filter>
+    <ClInclude Include="Core_SOURCE\public\Graphics\RRenderTarget.h">
+      <Filter>Core_SOURCE\public\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="public\Graphics\RGraphics.h">
-      <Filter>public\Graphics</Filter>
+    <ClInclude Include="Core_SOURCE\public\Resource\RResource.h">
+      <Filter>Core_SOURCE\public\Resource</Filter>
     </ClInclude>
-    <ClInclude Include="public\Resource\RShader.h">
-      <Filter>public\Resource</Filter>
+    <ClInclude Include="Core_SOURCE\public\Resource\RResources.h">
+      <Filter>Core_SOURCE\public\Resource</Filter>
     </ClInclude>
-    <ClInclude Include="public\Graphics\RGraphicDevice_DX11.h">
-      <Filter>public\Graphics</Filter>
+    <ClInclude Include="Core_SOURCE\public\Resource\RShader.h">
+      <Filter>Core_SOURCE\public\Resource</Filter>
     </ClInclude>
-    <ClInclude Include="public\Graphics\GPUBuffer\RConstantBuffer.h">
-      <Filter>public\Graphics\GPU Buffer</Filter>
+    <ClInclude Include="Core_SOURCE\public\Resource\RTexture.h">
+      <Filter>Core_SOURCE\public\Resource</Filter>
     </ClInclude>
-    <ClInclude Include="public\Graphics\GPUBuffer\RIndexBuffer.h">
-      <Filter>public\Graphics\GPU Buffer</Filter>
+    <ClInclude Include="Core_SOURCE\public\Graphics\GPUBuffer\RVertexBuffer.h">
+      <Filter>Core_SOURCE\public\Graphics\GPU Buffer</Filter>
     </ClInclude>
-    <ClInclude Include="public\Graphics\GPUBuffer\RVertexBuffer.h">
-      <Filter>public\Graphics\GPU Buffer</Filter>
+    <ClInclude Include="Core_SOURCE\public\Helpers\Time.h">
+      <Filter>Core_SOURCE\public\Helpers</Filter>
     </ClInclude>
-    <ClInclude Include="public\Graphics\RInputLayout.h">
-      <Filter>public\Graphics</Filter>
+    <ClInclude Include="Core_SOURCE\public\UI\UButton.h">
+      <Filter>Core_SOURCE\public\UI</Filter>
     </ClInclude>
-    <ClInclude Include="public\Common\ISerializable.h">
-      <Filter>public\Common</Filter>
+    <ClInclude Include="Core_SOURCE\public\UI\UHUD.h">
+      <Filter>Core_SOURCE\public\UI</Filter>
     </ClInclude>
-    <ClInclude Include="public\Actor\AActor.h">
-      <Filter>public\Actor</Filter>
+    <ClInclude Include="Core_SOURCE\public\UI\UUIBase.h">
+      <Filter>Core_SOURCE\public\UI</Filter>
     </ClInclude>
-    <ClInclude Include="public\Graphics\RRenderTarget.h">
-      <Filter>public\Graphics</Filter>
+    <ClInclude Include="Core_SOURCE\public\UI\UUIManager.h">
+      <Filter>Core_SOURCE\public\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Core_SOURCE\public\Event\IEvent.h">
+      <Filter>Core_SOURCE\public\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Core_SOURCE\public\Event\JApplicationEvent.h">
+      <Filter>Core_SOURCE\public\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Core_SOURCE\public\Event\JMouseEvent.h">
+      <Filter>Core_SOURCE\public\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Core_SOURCE\public\HighLevelInterface\JWindow.h">
+      <Filter>Core_SOURCE\public\High Level Interface</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="public">
+    <Filter Include="Core_SOURCE">
+      <UniqueIdentifier>{2f3badb4-aa6d-4bc6-8717-87db7289b5e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core_SOURCE\public">
       <UniqueIdentifier>{8f8b0bd4-d086-4b36-99cc-d4f7046a6ca9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="public\Collision">
+    <Filter Include="Core_SOURCE\public\Collision">
       <UniqueIdentifier>{176fe01d-67d1-4efc-bacb-f9c013019f33}</UniqueIdentifier>
     </Filter>
-    <Filter Include="public\Common">
+    <Filter Include="Core_SOURCE\public\Common">
       <UniqueIdentifier>{d524e99f-f4a4-4bde-b0c7-2d612caca32b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="private">
-      <UniqueIdentifier>{bf1cc1a5-93b0-48e0-abe8-ee3f883cf2bb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="public\FMOD">
+    <Filter Include="Core_SOURCE\public\FMOD">
       <UniqueIdentifier>{db57a0b9-ef3a-4979-9c19-38039e387f75}</UniqueIdentifier>
     </Filter>
-    <Filter Include="public\Helpers">
+    <Filter Include="Core_SOURCE\public\Helpers">
       <UniqueIdentifier>{e82e24cc-22b1-40a6-b5e0-7d0988115d94}</UniqueIdentifier>
     </Filter>
-    <Filter Include="public\Layer">
+    <Filter Include="Core_SOURCE\public\Layer">
       <UniqueIdentifier>{e208e813-16cf-4a65-9f18-f047fda3b8dc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="public\Object">
+    <Filter Include="Core_SOURCE\public\Object">
       <UniqueIdentifier>{3d96df0b-38a9-4496-a04d-1158d61f49c5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="public\Renderer">
+    <Filter Include="Core_SOURCE\public\Renderer">
       <UniqueIdentifier>{8e6dfc08-66e3-4686-9342-b10c90e15b5e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="public\Resource">
+    <Filter Include="Core_SOURCE\public\Resource">
       <UniqueIdentifier>{c60f273e-b3e3-49e7-8e96-453678218a1a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="public\Scene">
+    <Filter Include="Core_SOURCE\public\Scene">
       <UniqueIdentifier>{9e06376f-287a-4dff-b802-ab248c2fb331}</UniqueIdentifier>
     </Filter>
-    <Filter Include="public\UI">
+    <Filter Include="Core_SOURCE\public\UI">
       <UniqueIdentifier>{5d465437-af7d-4482-af8e-ef1819e3ed63}</UniqueIdentifier>
     </Filter>
-    <Filter Include="private\Collision">
-      <UniqueIdentifier>{852aba44-5904-4fa1-ae50-6a02856dba40}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="private\Common">
-      <UniqueIdentifier>{aee65e3b-6d41-429a-9df8-065540fc7eb0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="private\FMOD">
-      <UniqueIdentifier>{8ca130f1-a0b4-4c7b-bffb-9849a5ffa7ed}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="private\Helpers">
-      <UniqueIdentifier>{452e13bc-8d7b-4019-8e33-8e9c5a9c7c9f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="private\High Level Interface">
-      <UniqueIdentifier>{d93e8b6a-8778-4663-b360-3c8faebb6f31}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="private\Layer">
-      <UniqueIdentifier>{7564d97e-36bb-4f80-88d2-03a7c64b8af3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="private\Object">
-      <UniqueIdentifier>{8d585bd0-0f16-4548-80c6-2739cb64a31b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="private\Renderer">
-      <UniqueIdentifier>{65152231-a752-4c3d-8804-84bfab518fce}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="private\Resource">
-      <UniqueIdentifier>{9535b3a6-2c66-4323-9fd2-4efb33f88bd2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="private\Scene">
-      <UniqueIdentifier>{18f10654-7f1b-455a-9687-c86c07c78cf0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="private\UI">
-      <UniqueIdentifier>{c67d60f7-21ae-417e-8106-eae96195a460}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="public\Component">
+    <Filter Include="Core_SOURCE\public\Component">
       <UniqueIdentifier>{c21e2f49-c039-4e41-ba97-7cb0edf930a2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="private\Component">
-      <UniqueIdentifier>{67dcfda1-5a84-4e3b-9789-17438ca70167}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="private\Component\Animator">
-      <UniqueIdentifier>{512d9024-38b1-4806-917d-66026753e281}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="private\Component\Audio">
-      <UniqueIdentifier>{e4cdaa0e-7dca-4fab-8aec-6b1c60ef9f45}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="private\Component\Camera">
-      <UniqueIdentifier>{b05099f8-f6b6-492e-a75c-1c71c7266f7d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="private\Component\Collider">
-      <UniqueIdentifier>{f92b1f32-526c-4ba8-88d6-656669e91ce4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="private\Component\Rigidbody">
-      <UniqueIdentifier>{2aa46952-fa3e-45f3-ae0c-f4b6b6fa1e17}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="private\Component\Script">
-      <UniqueIdentifier>{54efec2d-f43a-4cf6-b196-38fc045b9bc3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="private\Component\SpriteRenderer">
-      <UniqueIdentifier>{a225e784-5fd6-4681-aac1-c8b823817c7c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="private\Component\TileMapRenderer">
-      <UniqueIdentifier>{1638c286-93fe-4546-ade8-352edc4c3049}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="private\Component\Transform">
-      <UniqueIdentifier>{ead61654-0fb6-4ec6-a20c-5048668f1e2f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="public\Component\Animator">
+    <Filter Include="Core_SOURCE\public\Component\Animator">
       <UniqueIdentifier>{d4863fae-7fb1-46b5-8387-b3b5f1f8abc6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="public\Component\Audio">
+    <Filter Include="Core_SOURCE\public\Component\Audio">
       <UniqueIdentifier>{003bf3e1-cba3-4241-9999-8e336392a8aa}</UniqueIdentifier>
     </Filter>
-    <Filter Include="public\Component\Camera">
+    <Filter Include="Core_SOURCE\public\Component\Camera">
       <UniqueIdentifier>{c492c47a-2631-489e-b37d-c887a859de78}</UniqueIdentifier>
     </Filter>
-    <Filter Include="public\Component\Collider">
+    <Filter Include="Core_SOURCE\public\Component\Collider">
       <UniqueIdentifier>{56704511-e564-4a2e-83a7-983089fd9f7a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="public\Component\Rigidbody">
+    <Filter Include="Core_SOURCE\public\Component\Rigidbody">
       <UniqueIdentifier>{8d1aaddc-e3c9-44b0-bf07-fe65e84f0fd0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="public\Component\Script">
+    <Filter Include="Core_SOURCE\public\Component\Script">
       <UniqueIdentifier>{8d204114-fb2a-4553-b8af-b2c3c31ae1b9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="public\Component\SpriteRenderer">
+    <Filter Include="Core_SOURCE\public\Component\SpriteRenderer">
       <UniqueIdentifier>{7318cfee-ab46-4ec4-8a0b-a99e4b5ea7d4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="public\Component\TileMapRenderer">
+    <Filter Include="Core_SOURCE\public\Component\TileMapRenderer">
       <UniqueIdentifier>{7b46373a-d3e7-487c-9507-f2dccc763743}</UniqueIdentifier>
     </Filter>
-    <Filter Include="public\Component\Transform">
+    <Filter Include="Core_SOURCE\public\Component\Transform">
       <UniqueIdentifier>{533606bd-fa2c-453b-9fb9-f0fe1436ddab}</UniqueIdentifier>
     </Filter>
-    <Filter Include="public\High Level Interface">
+    <Filter Include="Core_SOURCE\public\High Level Interface">
       <UniqueIdentifier>{d56f4d9b-952a-4c00-8941-071baec9db30}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Shaders">
-      <UniqueIdentifier>{df3363d4-ddad-4962-bc41-4b43d79f410e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Shaders\VS">
-      <UniqueIdentifier>{2201d850-67ca-4a77-90ae-5aee2efde693}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Shaders\PS">
-      <UniqueIdentifier>{3ad297c8-c25f-43b7-8380-5c473645cca0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Shaders\LIB">
-      <UniqueIdentifier>{63a6b13d-0e9c-4af5-bedd-2dd66e7a68ee}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="public\Graphics">
+    <Filter Include="Core_SOURCE\public\Graphics">
       <UniqueIdentifier>{cd5e9e1a-9428-4127-b21d-210fafda8a75}</UniqueIdentifier>
     </Filter>
-    <Filter Include="public\Graphics\GPU Buffer">
+    <Filter Include="Core_SOURCE\public\Graphics\GPU Buffer">
       <UniqueIdentifier>{d9bb1d26-0482-4ecc-8035-198f0a95ab70}</UniqueIdentifier>
     </Filter>
-    <Filter Include="private\Graphics">
-      <UniqueIdentifier>{e90158e6-d361-4217-baed-75593003ae9f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="private\Graphics\GPU Buffer">
-      <UniqueIdentifier>{4cc65141-46d8-41fb-b722-b7d42a9958a3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="public\Actor">
+    <Filter Include="Core_SOURCE\public\Actor">
       <UniqueIdentifier>{43ec8ab2-c649-4d26-a443-a67cfee88d06}</UniqueIdentifier>
     </Filter>
-    <Filter Include="private\Actor">
+    <Filter Include="Core_SOURCE\private">
+      <UniqueIdentifier>{bf1cc1a5-93b0-48e0-abe8-ee3f883cf2bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core_SOURCE\private\Collision">
+      <UniqueIdentifier>{852aba44-5904-4fa1-ae50-6a02856dba40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core_SOURCE\private\Common">
+      <UniqueIdentifier>{aee65e3b-6d41-429a-9df8-065540fc7eb0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core_SOURCE\private\FMOD">
+      <UniqueIdentifier>{8ca130f1-a0b4-4c7b-bffb-9849a5ffa7ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core_SOURCE\private\Helpers">
+      <UniqueIdentifier>{452e13bc-8d7b-4019-8e33-8e9c5a9c7c9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core_SOURCE\private\High Level Interface">
+      <UniqueIdentifier>{d93e8b6a-8778-4663-b360-3c8faebb6f31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core_SOURCE\private\Layer">
+      <UniqueIdentifier>{7564d97e-36bb-4f80-88d2-03a7c64b8af3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core_SOURCE\private\Object">
+      <UniqueIdentifier>{8d585bd0-0f16-4548-80c6-2739cb64a31b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core_SOURCE\private\Renderer">
+      <UniqueIdentifier>{65152231-a752-4c3d-8804-84bfab518fce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core_SOURCE\private\Resource">
+      <UniqueIdentifier>{9535b3a6-2c66-4323-9fd2-4efb33f88bd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core_SOURCE\private\Scene">
+      <UniqueIdentifier>{18f10654-7f1b-455a-9687-c86c07c78cf0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core_SOURCE\private\UI">
+      <UniqueIdentifier>{c67d60f7-21ae-417e-8106-eae96195a460}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core_SOURCE\private\Component">
+      <UniqueIdentifier>{67dcfda1-5a84-4e3b-9789-17438ca70167}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core_SOURCE\private\Component\Animator">
+      <UniqueIdentifier>{512d9024-38b1-4806-917d-66026753e281}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core_SOURCE\private\Component\Audio">
+      <UniqueIdentifier>{e4cdaa0e-7dca-4fab-8aec-6b1c60ef9f45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core_SOURCE\private\Component\Camera">
+      <UniqueIdentifier>{b05099f8-f6b6-492e-a75c-1c71c7266f7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core_SOURCE\private\Component\Collider">
+      <UniqueIdentifier>{f92b1f32-526c-4ba8-88d6-656669e91ce4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core_SOURCE\private\Component\Rigidbody">
+      <UniqueIdentifier>{2aa46952-fa3e-45f3-ae0c-f4b6b6fa1e17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core_SOURCE\private\Component\Script">
+      <UniqueIdentifier>{54efec2d-f43a-4cf6-b196-38fc045b9bc3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core_SOURCE\private\Component\SpriteRenderer">
+      <UniqueIdentifier>{a225e784-5fd6-4681-aac1-c8b823817c7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core_SOURCE\private\Component\TileMapRenderer">
+      <UniqueIdentifier>{1638c286-93fe-4546-ade8-352edc4c3049}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core_SOURCE\private\Component\Transform">
+      <UniqueIdentifier>{ead61654-0fb6-4ec6-a20c-5048668f1e2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core_SOURCE\private\Graphics">
+      <UniqueIdentifier>{e90158e6-d361-4217-baed-75593003ae9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core_SOURCE\private\Graphics\GPU Buffer">
+      <UniqueIdentifier>{4cc65141-46d8-41fb-b722-b7d42a9958a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core_SOURCE\private\Actor">
       <UniqueIdentifier>{12ec4236-3e82-443c-8313-c672def504a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders_SOURCE">
+      <UniqueIdentifier>{df3363d4-ddad-4962-bc41-4b43d79f410e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders_SOURCE\VS">
+      <UniqueIdentifier>{2201d850-67ca-4a77-90ae-5aee2efde693}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders_SOURCE\PS">
+      <UniqueIdentifier>{3ad297c8-c25f-43b7-8380-5c473645cca0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders_SOURCE\LIB">
+      <UniqueIdentifier>{63a6b13d-0e9c-4af5-bedd-2dd66e7a68ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core_SOURCE\public\Event">
+      <UniqueIdentifier>{4146ebbb-9853-4ff9-80bb-27c71fef5a47}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="private\Collision\JCollisionManager.cpp">
-      <Filter>private\Collision</Filter>
+    <ClCompile Include="Core_SOURCE\private\Actor\AActor.cpp">
+      <Filter>Core_SOURCE\private\Actor</Filter>
     </ClCompile>
-    <ClCompile Include="private\Common\FEntity.cpp">
-      <Filter>private\Common</Filter>
+    <ClCompile Include="Core_SOURCE\private\Common\IEntity.cpp">
+      <Filter>Core_SOURCE\private\Common</Filter>
     </ClCompile>
-    <ClCompile Include="private\FMOD\JFmod.cpp">
-      <Filter>private\FMOD</Filter>
+    <ClCompile Include="Core_SOURCE\private\HighLevelInterface\JApplication.cpp">
+      <Filter>Core_SOURCE\private\High Level Interface</Filter>
     </ClCompile>
-    <ClCompile Include="private\Helpers\Input.cpp">
-      <Filter>private\Helpers</Filter>
+    <ClCompile Include="Core_SOURCE\private\Helpers\Input.cpp">
+      <Filter>Core_SOURCE\private\Helpers</Filter>
     </ClCompile>
-    <ClCompile Include="private\Helpers\Time.cpp">
-      <Filter>private\Helpers</Filter>
+    <ClCompile Include="Core_SOURCE\private\Component\Animator\JAnimator.cpp">
+      <Filter>Core_SOURCE\private\Component\Animator</Filter>
     </ClCompile>
-    <ClCompile Include="private\Layer\JLayer.cpp">
-      <Filter>private\Layer</Filter>
+    <ClCompile Include="Core_SOURCE\private\Component\Audio\JAudioListener.cpp">
+      <Filter>Core_SOURCE\private\Component\Audio</Filter>
     </ClCompile>
-    <ClCompile Include="private\Object\JObject.cpp">
-      <Filter>private\Object</Filter>
+    <ClCompile Include="Core_SOURCE\private\Component\Audio\JAudioSource.cpp">
+      <Filter>Core_SOURCE\private\Component\Audio</Filter>
     </ClCompile>
-    <ClCompile Include="private\Renderer\RRenderer.cpp">
-      <Filter>private\Renderer</Filter>
+    <ClCompile Include="Core_SOURCE\private\Component\Collider\JBoxCollider2D.cpp">
+      <Filter>Core_SOURCE\private\Component\Collider</Filter>
     </ClCompile>
-    <ClCompile Include="private\Resource\RAnimation.cpp">
-      <Filter>private\Resource</Filter>
+    <ClCompile Include="Core_SOURCE\private\Component\Collider\JCircleCollider2D.cpp">
+      <Filter>Core_SOURCE\private\Component\Collider</Filter>
     </ClCompile>
-    <ClCompile Include="private\Resource\RResource.cpp">
-      <Filter>private\Resource</Filter>
+    <ClCompile Include="Core_SOURCE\private\Component\Collider\JCollider.cpp">
+      <Filter>Core_SOURCE\private\Component\Collider</Filter>
     </ClCompile>
-    <ClCompile Include="private\Resource\RResources.cpp">
-      <Filter>private\Resource</Filter>
+    <ClCompile Include="Core_SOURCE\private\Component\Camera\JCamera.cpp">
+      <Filter>Core_SOURCE\private\Component\Camera</Filter>
     </ClCompile>
-    <ClCompile Include="private\Resource\RTexture.cpp">
-      <Filter>private\Resource</Filter>
+    <ClCompile Include="Core_SOURCE\private\Collision\JCollisionManager.cpp">
+      <Filter>Core_SOURCE\private\Collision</Filter>
     </ClCompile>
-    <ClCompile Include="private\Scene\JDontDestroyOnLoad.cpp">
-      <Filter>private\Scene</Filter>
+    <ClCompile Include="Core_SOURCE\private\Component\JComponent.cpp">
+      <Filter>Core_SOURCE\private\Component</Filter>
     </ClCompile>
-    <ClCompile Include="private\Scene\JScene.cpp">
-      <Filter>private\Scene</Filter>
+    <ClCompile Include="Core_SOURCE\private\Scene\JDontDestroyOnLoad.cpp">
+      <Filter>Core_SOURCE\private\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="private\Scene\JSceneManager.cpp">
-      <Filter>private\Scene</Filter>
+    <ClCompile Include="Core_SOURCE\private\FMOD\JFmod.cpp">
+      <Filter>Core_SOURCE\private\FMOD</Filter>
     </ClCompile>
-    <ClCompile Include="private\UI\UUIBase.cpp">
-      <Filter>private\UI</Filter>
+    <ClCompile Include="Core_SOURCE\private\Layer\JLayer.cpp">
+      <Filter>Core_SOURCE\private\Layer</Filter>
     </ClCompile>
-    <ClCompile Include="private\UI\UButton.cpp">
-      <Filter>private\UI</Filter>
+    <ClCompile Include="Core_SOURCE\private\Object\JObject.cpp">
+      <Filter>Core_SOURCE\private\Object</Filter>
     </ClCompile>
-    <ClCompile Include="private\UI\UUIManager.cpp">
-      <Filter>private\UI</Filter>
+    <ClCompile Include="Core_SOURCE\private\Scene\JScene.cpp">
+      <Filter>Core_SOURCE\private\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="private\Component\JComponent.cpp">
-      <Filter>private\Component</Filter>
+    <ClCompile Include="Core_SOURCE\private\Scene\JSceneManager.cpp">
+      <Filter>Core_SOURCE\private\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="private\Component\Animator\JAnimator.cpp">
-      <Filter>private\Component\Animator</Filter>
+    <ClCompile Include="Core_SOURCE\private\Component\Rigidbody\JRigidbody.cpp">
+      <Filter>Core_SOURCE\private\Component\Rigidbody</Filter>
     </ClCompile>
-    <ClCompile Include="private\Component\Audio\JAudioListener.cpp">
-      <Filter>private\Component\Audio</Filter>
+    <ClCompile Include="Core_SOURCE\private\Component\Script\JScript.cpp">
+      <Filter>Core_SOURCE\private\Component\Script</Filter>
     </ClCompile>
-    <ClCompile Include="private\Component\Camera\JCamera.cpp">
-      <Filter>private\Component\Camera</Filter>
+    <ClCompile Include="Core_SOURCE\private\Component\SpriteRenderer\JSpriteRenderer.cpp">
+      <Filter>Core_SOURCE\private\Component\SpriteRenderer</Filter>
     </ClCompile>
-    <ClCompile Include="private\Component\Collider\JBoxCollider2D.cpp">
-      <Filter>private\Component\Collider</Filter>
+    <ClCompile Include="Core_SOURCE\private\Component\TileMapRenderer\JTileMapRenderer.cpp">
+      <Filter>Core_SOURCE\private\Component\TileMapRenderer</Filter>
     </ClCompile>
-    <ClCompile Include="private\Component\Collider\JCircleCollider2D.cpp">
-      <Filter>private\Component\Collider</Filter>
+    <ClCompile Include="Core_SOURCE\private\Component\Transform\JTransform.cpp">
+      <Filter>Core_SOURCE\private\Component\Transform</Filter>
     </ClCompile>
-    <ClCompile Include="private\Component\Collider\JCollider.cpp">
-      <Filter>private\Component\Collider</Filter>
+    <ClCompile Include="Core_SOURCE\private\Common\Math.cpp">
+      <Filter>Core_SOURCE\private\Common</Filter>
     </ClCompile>
-    <ClCompile Include="private\Component\Rigidbody\JRigidbody.cpp">
-      <Filter>private\Component\Rigidbody</Filter>
+    <ClCompile Include="Core_SOURCE\private\Resource\RAnimation.cpp">
+      <Filter>Core_SOURCE\private\Resource</Filter>
     </ClCompile>
-    <ClCompile Include="private\Component\Script\JScript.cpp">
-      <Filter>private\Component\Script</Filter>
+    <ClCompile Include="Core_SOURCE\private\Resource\RAudioClip.cpp">
+      <Filter>Core_SOURCE\private\Resource</Filter>
     </ClCompile>
-    <ClCompile Include="private\Component\SpriteRenderer\JSpriteRenderer.cpp">
-      <Filter>private\Component\SpriteRenderer</Filter>
+    <ClCompile Include="Core_SOURCE\private\Graphics\GPUBuffer\RConstantBuffer.cpp">
+      <Filter>Core_SOURCE\private\Graphics\GPU Buffer</Filter>
     </ClCompile>
-    <ClCompile Include="private\Component\TileMapRenderer\JTileMapRenderer.cpp">
-      <Filter>private\Component\TileMapRenderer</Filter>
+    <ClCompile Include="Core_SOURCE\private\Graphics\GPUBuffer\RIndexBuffer.cpp">
+      <Filter>Core_SOURCE\private\Graphics\GPU Buffer</Filter>
     </ClCompile>
-    <ClCompile Include="private\Component\Transform\JTransform.cpp">
-      <Filter>private\Component\Transform</Filter>
+    <ClCompile Include="Core_SOURCE\private\Graphics\GPUBuffer\RVertexBuffer.cpp">
+      <Filter>Core_SOURCE\private\Graphics\GPU Buffer</Filter>
     </ClCompile>
-    <ClCompile Include="private\Resource\RAudioClip.cpp">
-      <Filter>private\Resource</Filter>
+    <ClCompile Include="Core_SOURCE\private\Graphics\RGraphicDevice_DX11.cpp">
+      <Filter>Core_SOURCE\private\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="private\Component\Audio\JAudioSource.cpp">
-      <Filter>private\Component\Audio</Filter>
+    <ClCompile Include="Core_SOURCE\private\Graphics\RInputLayout.cpp">
+      <Filter>Core_SOURCE\private\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="private\HighLevelInterface\IApplication.cpp">
-      <Filter>private\High Level Interface</Filter>
+    <ClCompile Include="Core_SOURCE\private\Resource\RMaterial.cpp">
+      <Filter>Core_SOURCE\private\Resource</Filter>
     </ClCompile>
-    <ClCompile Include="private\UI\UHUD.cpp">
-      <Filter>private\UI</Filter>
+    <ClCompile Include="Core_SOURCE\private\Resource\RMesh.cpp">
+      <Filter>Core_SOURCE\private\Resource</Filter>
     </ClCompile>
-    <ClCompile Include="private\Common\Math.cpp">
-      <Filter>private\Common</Filter>
+    <ClCompile Include="Core_SOURCE\private\Renderer\RRenderer.cpp">
+      <Filter>Core_SOURCE\private\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="private\Resource\RMesh.cpp">
-      <Filter>private\Resource</Filter>
+    <ClCompile Include="Core_SOURCE\private\Graphics\RRenderTarget.cpp">
+      <Filter>Core_SOURCE\private\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="private\Resource\RMaterial.cpp">
-      <Filter>private\Resource</Filter>
+    <ClCompile Include="Core_SOURCE\private\Resource\RResource.cpp">
+      <Filter>Core_SOURCE\private\Resource</Filter>
     </ClCompile>
-    <ClCompile Include="private\Resource\RShader.cpp">
-      <Filter>private\Resource</Filter>
+    <ClCompile Include="Core_SOURCE\private\Resource\RResources.cpp">
+      <Filter>Core_SOURCE\private\Resource</Filter>
     </ClCompile>
-    <ClCompile Include="private\Graphics\RGraphicDevice_DX11.cpp">
-      <Filter>private\Graphics</Filter>
+    <ClCompile Include="Core_SOURCE\private\Resource\RShader.cpp">
+      <Filter>Core_SOURCE\private\Resource</Filter>
     </ClCompile>
-    <ClCompile Include="private\Graphics\GPUBuffer\RConstantBuffer.cpp">
-      <Filter>private\Graphics\GPU Buffer</Filter>
+    <ClCompile Include="Core_SOURCE\private\Resource\RTexture.cpp">
+      <Filter>Core_SOURCE\private\Resource</Filter>
     </ClCompile>
-    <ClCompile Include="private\Graphics\GPUBuffer\RIndexBuffer.cpp">
-      <Filter>private\Graphics\GPU Buffer</Filter>
+    <ClCompile Include="Core_SOURCE\private\Helpers\Time.cpp">
+      <Filter>Core_SOURCE\private\Helpers</Filter>
     </ClCompile>
-    <ClCompile Include="private\Graphics\GPUBuffer\RVertexBuffer.cpp">
-      <Filter>private\Graphics\GPU Buffer</Filter>
+    <ClCompile Include="Core_SOURCE\private\UI\UButton.cpp">
+      <Filter>Core_SOURCE\private\UI</Filter>
     </ClCompile>
-    <ClCompile Include="private\Graphics\RInputLayout.cpp">
-      <Filter>private\Graphics</Filter>
+    <ClCompile Include="Core_SOURCE\private\UI\UHUD.cpp">
+      <Filter>Core_SOURCE\private\UI</Filter>
     </ClCompile>
-    <ClCompile Include="private\Actor\AActor.cpp">
-      <Filter>private\Actor</Filter>
+    <ClCompile Include="Core_SOURCE\private\UI\UUIBase.cpp">
+      <Filter>Core_SOURCE\private\UI</Filter>
     </ClCompile>
-    <ClCompile Include="private\Graphics\RRenderTarget.cpp">
-      <Filter>private\Graphics</Filter>
+    <ClCompile Include="Core_SOURCE\private\UI\UUIManager.cpp">
+      <Filter>Core_SOURCE\private\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Core_SOURCE\private\HighLevelInterface\JWindow.cpp">
+      <Filter>Core_SOURCE\private\High Level Interface</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="Shaders\VS\TriangleVS.hlsl">
-      <Filter>Shaders\VS</Filter>
+    <FxCompile Include="Shaders_SOURCE\PS\SpriteDefaultPS.hlsl">
+      <Filter>Shaders_SOURCE\PS</Filter>
     </FxCompile>
-    <FxCompile Include="Shaders\PS\TrianglePS.hlsl">
-      <Filter>Shaders\PS</Filter>
+    <FxCompile Include="Shaders_SOURCE\PS\TrianglePS.hlsl">
+      <Filter>Shaders_SOURCE\PS</Filter>
     </FxCompile>
-    <FxCompile Include="Shaders\VS\SpriteDefaultVS.hlsl">
-      <Filter>Shaders\VS</Filter>
+    <FxCompile Include="Shaders_SOURCE\PS\WireframePS.hlsl">
+      <Filter>Shaders_SOURCE\PS</Filter>
     </FxCompile>
-    <FxCompile Include="Shaders\PS\SpriteDefaultPS.hlsl">
-      <Filter>Shaders\PS</Filter>
+    <FxCompile Include="Shaders_SOURCE\VS\SpriteDefaultVS.hlsl">
+      <Filter>Shaders_SOURCE\VS</Filter>
     </FxCompile>
-    <FxCompile Include="Shaders\VS\WireframeVS.hlsl">
-      <Filter>Shaders\VS</Filter>
+    <FxCompile Include="Shaders_SOURCE\VS\TriangleVS.hlsl">
+      <Filter>Shaders_SOURCE\VS</Filter>
     </FxCompile>
-    <FxCompile Include="Shaders\PS\WireframePS.hlsl">
-      <Filter>Shaders\PS</Filter>
+    <FxCompile Include="Shaders_SOURCE\VS\WireframeVS.hlsl">
+      <Filter>Shaders_SOURCE\VS</Filter>
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Shaders\LIB\ConstantBuffers.hlsli">
-      <Filter>Shaders\LIB</Filter>
+    <None Include="Shaders_SOURCE\LIB\ConstantBuffers.hlsli">
+      <Filter>Shaders_SOURCE\LIB</Filter>
     </None>
-    <None Include="Shaders\LIB\Textures.hlsli">
-      <Filter>Shaders\LIB</Filter>
+    <None Include="Shaders_SOURCE\LIB\Textures.hlsli">
+      <Filter>Shaders_SOURCE\LIB</Filter>
     </None>
-    <None Include="Shaders\LIB\Samplers.hlsli">
-      <Filter>Shaders\LIB</Filter>
+    <None Include="Shaders_SOURCE\LIB\Samplers.hlsli">
+      <Filter>Shaders_SOURCE\LIB</Filter>
     </None>
+    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>

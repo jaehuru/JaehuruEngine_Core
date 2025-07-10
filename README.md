@@ -54,7 +54,7 @@ vcpkg install
 # About Development
 
 - **개발 중 주요 버그 및 이슈 기록**  
-  [🐞 Debug Notes & Issues](https://github.com/jaehuru/JaehuruEngine/issues)
+  [🐞 Debug Notes & Issues](https://github.com/jaehuru/JaehuruEngine_Core/issues)
 
 - **Core 엔진 변경 내역 (별도 레포)**  
   [⚙️ CHANGELOG](https://github.com/jaehuru/JaehuruEngine_Core/blob/v2.00/CHANGELOG.md)

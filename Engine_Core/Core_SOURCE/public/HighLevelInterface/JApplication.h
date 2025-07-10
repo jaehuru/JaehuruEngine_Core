@@ -5,6 +5,9 @@
 #include "Graphics/RGraphicDevice_DX11.h"
 #include "Event/IEvent.h"
 #include "HighLevelInterface/JWindow.h"
+#include "Event/FApplicationEvent.h"
+#include "Event/FMouseEvent.h"
+#include "Event/FKeyEvent.h"
 
 class JApplication
 {
@@ -16,7 +19,7 @@ public:
 	void	Initialize(HWND hwnd, int width, int height);
 	void	InitializeWindow(HWND hwnd);
 	void	AdjustWindowRect(HWND hwnd, int width, int height);
-	void	ReszieGraphicDevice(UINT width, UINT height);
+	void	ReszieGraphicDevice(WindowResizeEvent& e);
 	void	InitializeEtc();
 
 	void	OnEvent(IEvent& e);

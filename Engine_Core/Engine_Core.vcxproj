@@ -39,9 +39,10 @@
     <ClInclude Include="Core_SOURCE\public\Component\SpriteRenderer\JSpriteRenderer.h" />
     <ClInclude Include="Core_SOURCE\public\Component\TileMapRenderer\JTileMapRenderer.h" />
     <ClInclude Include="Core_SOURCE\public\Component\Transform\JTransform.h" />
+    <ClInclude Include="Core_SOURCE\public\Event\FKeyEvent.h" />
     <ClInclude Include="Core_SOURCE\public\Event\IEvent.h" />
-    <ClInclude Include="Core_SOURCE\public\Event\JApplicationEvent.h" />
-    <ClInclude Include="Core_SOURCE\public\Event\JMouseEvent.h" />
+    <ClInclude Include="Core_SOURCE\public\Event\FApplicationEvent.h" />
+    <ClInclude Include="Core_SOURCE\public\Event\FMouseEvent.h" />
     <ClInclude Include="Core_SOURCE\public\FMOD\JFmod.h" />
     <ClInclude Include="Core_SOURCE\public\Graphics\GPUBuffer\RConstantBuffer.h" />
     <ClInclude Include="Core_SOURCE\public\Graphics\GPUBuffer\RIndexBuffer.h" />
@@ -160,7 +161,6 @@
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="cpp.hint" />
     <None Include="Shaders_SOURCE\LIB\ConstantBuffers.hlsli" />
     <None Include="Shaders_SOURCE\LIB\Samplers.hlsli" />
     <None Include="Shaders_SOURCE\LIB\Textures.hlsli" />

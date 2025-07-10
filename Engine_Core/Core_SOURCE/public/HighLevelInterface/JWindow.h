@@ -40,20 +40,19 @@ public:
 
 	void	Initialize();
 	void	SetWindowResize(UINT width, UINT height);
-	void	SetCursorPos(double x, double y);
-
+	
 	HWND	GetHwnd() 					{ return mData.Hwnd; }
-	void	SetHwnd(HWND hwnd) 			{ mData.Hwnd = hwnd; }
 	UINT	GetWidth() 					{ return mData.Width; }
-	void	SetWidth(UINT width) 		{ mData.Width = width; }
 	UINT	GetHeight()					{ return mData.Height; }
-	void	SetHeight(UINT height) 		{ mData.Height = height; }
 	UINT	GetWindowWidth() 			{ return mData.WindowWidth; }
-	void	SetWindowWidth(UINT width) 	{ mData.WindowWidth = width; }
 	UINT	GetWindowHeight() 			{ return mData.WindowHeight; }
 	UINT	GetXPos() 					{ return mData.X; }
 	UINT	GetYPos() 					{ return mData.Y; }
 
+	void	SetHwnd(HWND hwnd) 									{ mData.Hwnd = hwnd; }
+	void	SetWidth(UINT width) 								{ mData.Width = width; }
+	void	SetHeight(UINT height) 								{ mData.Height = height; }
+	void	SetWindowWidth(UINT width) 							{ mData.WindowWidth = width; }
 	void	SetEventCallBack(const EventCallbackFn& callback)	{ mData.EventCallback = callback; }
 	void	SetWindowHeight(UINT height)						{ mData.WindowHeight = height; }
 	void	SetPos(UINT x, UINT y)								{ mData.X = x; mData.Y = y; }

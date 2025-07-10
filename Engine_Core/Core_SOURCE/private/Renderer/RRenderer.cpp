@@ -25,7 +25,7 @@ namespace renderer
 
 	void LoadStates()
 	{
-#pragma region sampler state
+#pragma region sampler State
 		D3D11_SAMPLER_DESC samplerDesc = {};
 		samplerDesc.Filter = D3D11_FILTER::D3D11_FILTER_ANISOTROPIC;
 		samplerDesc.AddressU = D3D11_TEXTURE_ADDRESS_MODE::D3D11_TEXTURE_ADDRESS_WRAP;
@@ -76,7 +76,7 @@ namespace renderer
 			samplerStates[(UINT)ESamplerType::PostProcess].GetAddressOf());
 #pragma endregion
 
-#pragma region rasterize state
+#pragma region rasterize State
 		D3D11_RASTERIZER_DESC rsDesc = {};
 		rsDesc.AntialiasedLineEnable = false;
 		rsDesc.CullMode = D3D11_CULL_MODE::D3D11_CULL_BACK;
@@ -102,7 +102,7 @@ namespace renderer
 		rsDesc.CullMode = D3D11_CULL_MODE::D3D11_CULL_NONE;
 		GetDevice()->CreateRasterizerState(&rsDesc, rasterizerStates[(UINT)ERasterizerState::Wireframe].GetAddressOf());
 #pragma endregion
-#pragma region blend state
+#pragma region blend State
 		D3D11_BLEND_DESC bsDesc = {};
 		bsDesc.AlphaToCoverageEnable = false;
 		bsDesc.IndependentBlendEnable = false;
@@ -120,7 +120,7 @@ namespace renderer
 		bsDesc.RenderTarget[0].DestBlend = D3D11_BLEND::D3D11_BLEND_ONE;
 		GetDevice()->CreateBlendState(&bsDesc, blendStates[(UINT)EBlendState::OneOne].GetAddressOf());
 #pragma endregion
-#pragma region depthstencil state
+#pragma region depthstencil State
 		D3D11_DEPTH_STENCIL_DESC dsDesc = {};
 		dsDesc.DepthEnable = true;
 		dsDesc.DepthWriteMask = D3D11_DEPTH_WRITE_MASK::D3D11_DEPTH_WRITE_MASK_ALL;

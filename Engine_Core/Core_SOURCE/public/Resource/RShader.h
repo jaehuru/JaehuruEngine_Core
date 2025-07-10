@@ -34,9 +34,9 @@ class RShader : public RResource
 		Microsoft::WRL::ComPtr<ID3D11GeometryShader>	GetGS() const	{ return mGS; }
 		Microsoft::WRL::ComPtr<ID3D11PixelShader>		GetPS() const	{ return mPS; }
 
-		void SetRasterizerState(const ERasterizerState state)		{ mRasterizerState = state; }
-		void SetBlendState(const EBlendState state)				{ mBlendState = state; }
-		void SetDepthStencilState(const EDepthStencilState state)	{ mDepthStencilState = state; }
+		void SetRasterizerState(const ERasterizerState State)		{ mRasterizerState = State; }
+		void SetBlendState(const EBlendState State)				{ mBlendState = State; }
+		void SetDepthStencilState(const EDepthStencilState State)	{ mDepthStencilState = State; }
 
 	private:
 		static bool bWireframe;

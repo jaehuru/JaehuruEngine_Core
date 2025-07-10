@@ -151,14 +151,17 @@
     <ClInclude Include="Core_SOURCE\public\Event\IEvent.h">
       <Filter>Core_SOURCE\public\Event</Filter>
     </ClInclude>
-    <ClInclude Include="Core_SOURCE\public\Event\JApplicationEvent.h">
+    <ClInclude Include="Core_SOURCE\public\Event\FApplicationEvent.h">
       <Filter>Core_SOURCE\public\Event</Filter>
     </ClInclude>
-    <ClInclude Include="Core_SOURCE\public\Event\JMouseEvent.h">
+    <ClInclude Include="Core_SOURCE\public\Event\FMouseEvent.h">
       <Filter>Core_SOURCE\public\Event</Filter>
     </ClInclude>
     <ClInclude Include="Core_SOURCE\public\HighLevelInterface\JWindow.h">
       <Filter>Core_SOURCE\public\High Level Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="Core_SOURCE\public\Event\FKeyEvent.h">
+      <Filter>Core_SOURCE\public\Event</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -501,6 +504,5 @@
     <None Include="Shaders_SOURCE\LIB\Samplers.hlsli">
       <Filter>Shaders_SOURCE\LIB</Filter>
     </None>
-    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>

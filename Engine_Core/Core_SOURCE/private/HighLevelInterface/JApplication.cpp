@@ -9,8 +9,7 @@
 #include "FMOD/JFmod.h"
 #include "Graphics/RRenderTarget.h"
 #include "Resource/RTexture.h"
-#include "Event/JApplicationEvent.h"
-#include "Event/JMouseEvent.h"
+
 
 JApplication::JApplication() : 
 	bLoaded(false),
@@ -72,7 +71,7 @@ void JApplication::AdjustWindowRect(HWND hwnd, int width, int height)
 	InitializeWindow(hwnd);
 }
 
-void JApplication::ReszieGraphicDevice(UINT width, UINT height)
+void JApplication::ReszieGraphicDevice(WindowResizeEvent& e)
 {
 	if (mGraphicDevice == nullptr)
 		return;
@@ -80,8 +79,8 @@ void JApplication::ReszieGraphicDevice(UINT width, UINT height)
 	D3D11_VIEWPORT viewport = {};
 	viewport.TopLeftX = 0.0f;
 	viewport.TopLeftY = 0.0f;
-	viewport.Width = static_cast<float>(width);
-	viewport.Height = static_cast<float>(height);
+	viewport.Width = static_cast<float>(e.GetWidth());
+	viewport.Height = static_cast<float>(e.GetHeight());
 	viewport.MinDepth = 0.0f;
 	viewport.MaxDepth = 1.0f;
 
@@ -103,13 +102,7 @@ void JApplication::OnEvent(IEvent& e)
 	EventDispatcher dispatcher(e);
 	dispatcher.Dispatch<WindowResizeEvent>([this](WindowResizeEvent& e) -> bool
 		{
-			ReszieGraphicDevice(e.GetWidth(), e.GetHeight());
-			return true;
-		});
-
-	dispatcher.Dispatch<MouseMovedEvent>([this](MouseMovedEvent& e) -> bool
-		{
-			// Todo : MouseMovedEvent
+			ReszieGraphicDevice(e);
 			return true;
 		});
 }

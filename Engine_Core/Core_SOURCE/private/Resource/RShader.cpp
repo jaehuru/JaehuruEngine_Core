@@ -7,7 +7,7 @@ bool RShader::bWireframe = false;
 
 RShader::RShader() : 
 	RResource(EResourceType::RShader),
-	mRasterizerState(ERasterizerState::SolidBack),
+	mRasterizerState(ERasterizerState::SolidNone),
 	mBlendState(EBlendState::AlphaBlend),
 	mDepthStencilState(EDepthStencilState::LessEqual)
 {

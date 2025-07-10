@@ -5,18 +5,8 @@
 extern JApplication application;
 
 
-vector<Input::Key> Input::Keys		= { };
-FVector2 Input::mMousePosition = FVector2::One;
-
-int ASCII[(int)EKeyCode::End] =
-{
-	'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P',
-	'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L',
-	'Z', 'X', 'C', 'V', 'B', 'N', 'M',
-	VK_LEFT, VK_RIGHT, VK_UP, VK_DOWN,
-	VK_LBUTTON, VK_MBUTTON ,VK_RBUTTON,
-	VK_LCONTROL,
-};
+vector<Input::FKey> Input::Keys	= { };
+FVector2 Input::mMousePosition	= FVector2::One;
 
 void Input::Initialize()
 {
@@ -30,12 +20,15 @@ void Input::Update()
 
 void Input::createKeys()
 {
-	for (size_t i = 0; i < (UINT)EKeyCode::End; ++i)
+	for (int vk = 0; vk <= 0xFF; ++vk)
 	{
-		Key key;
-		key.state = EKeyState::None;
-		key.keyCode = (EKeyCode)i;
+		EKeyCode keyCode = static_cast<EKeyCode>(vk);
+
+		FKey key;
 		key.bPressed = false;
+		key.State = EKeyState::None;
+		key.KeyCode = keyCode;
+		key.VK_KeyCode = vk;
 		Keys.push_back(key);
 	}
 }
@@ -43,14 +36,14 @@ void Input::createKeys()
 void Input::updateKeys()
 {
 	for_each(Keys.begin(), Keys.end(),
-		[](Key& key) -> void { updateKey(key); });		
+		[](FKey& key) -> void { updateKey(key); });		
 }
 
-void Input::updateKey(Key& key)
+void Input::updateKey(FKey& key)
 {
 	if (GetFocus())
 	{
-		isKeyDown(key.keyCode) ? updateKeyDown(key) : updateKeyUp(key);
+		isKeyDown(key.KeyCode) ? updateKeyDown(key) : updateKeyUp(key);
 		getMousePositionByWindow();
 	}
 	else
@@ -61,25 +54,25 @@ void Input::updateKey(Key& key)
 
 bool Input::isKeyDown(EKeyCode code)
 {
-	return GetAsyncKeyState(ASCII[(UINT)code]) & 0x8000;
+	return GetAsyncKeyState(static_cast<int>(code)) & 0x8000;
 }
 
-void Input::updateKeyDown(Key& key)
+void Input::updateKeyDown(FKey& key)
 {
 	if (key.bPressed == true)
-		key.state = EKeyState::Pressed;
+		key.State = EKeyState::Pressed;
 	else
-		key.state = EKeyState::Down;
+		key.State = EKeyState::Down;
 
 	key.bPressed = true;
 }
 
-void Input::updateKeyUp(Key& key)
+void Input::updateKeyUp(FKey& key)
 {
 	if (key.bPressed == true)
-		key.state = EKeyState::Up;
+		key.State = EKeyState::Up;
 	else
-		key.state = EKeyState::None;
+		key.State = EKeyState::None;
 
 	key.bPressed = false;
 }
@@ -105,13 +98,13 @@ void Input::getMousePositionByWindow()
 
 void Input::clearKey()
 {
-	for (Key& key : Keys)
+	for (FKey& key : Keys)
 	{
-		if (key.state == EKeyState::Down ||
-			key.state == EKeyState::Pressed)
-			key.state = EKeyState::Up;
-		else if (key.state == EKeyState::Up)
-			key.state = EKeyState::None;
+		if (key.State == EKeyState::Down ||
+			key.State == EKeyState::Pressed)
+			key.State = EKeyState::Up;
+		else if (key.State == EKeyState::Up)
+			key.State = EKeyState::None;
 
 		key.bPressed = false;
 	}

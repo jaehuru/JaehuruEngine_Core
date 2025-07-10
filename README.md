@@ -51,6 +51,16 @@ vcpkg install
 ```
 ---
 
+# About Development
+
+- **개발 중 주요 버그 및 이슈 기록**  
+  [🐞 Debug Notes & Issues](https://github.com/jaehuru/JaehuruEngine/issues)
+
+- **Core 엔진 변경 내역 (별도 레포)**  
+  [⚙️ CHANGELOG](https://github.com/jaehuru/JaehuruEngine_Core/blob/v2.00/CHANGELOG.md)
+  
+---
+
 # 참고한 오픈소스
 
 본 프로젝트는 다음 오픈소스를 참고하여 개발되었습니다.

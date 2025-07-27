@@ -100,8 +100,11 @@ void JScene::AddActor(AActor* actor, const ELayerType type)
 
 void JScene::EraseActor(AActor* actor)
 {
+	if (actor == nullptr)
+		return;
+
 	ELayerType layerType = actor->GetLayerType();
-	mLayers[(UINT)layerType]->EraseActor(actor);
+	mLayers[static_cast<UINT>(layerType)]->EraseActor(actor);
 }
 
 void JScene::createLayers()

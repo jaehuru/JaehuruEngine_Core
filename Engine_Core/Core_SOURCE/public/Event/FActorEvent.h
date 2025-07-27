@@ -26,7 +26,8 @@ class ActorCreatedEvent : public ActorEvent
 public:
 	ActorCreatedEvent(AActor* actor, JScene* scene) :
 		ActorEvent(AActor::EState::Created),
-		mActor(actor)
+		mActor(actor),
+		mScene(scene)
 	{
 
 	}
@@ -37,6 +38,9 @@ public:
 		ss << "ActorCreatedEvent";
 		return ss.str();
 	}
+
+	AActor* GetActor() const { return mActor; }
+	JScene* GetScene() const { return mScene; }
 
 	EVENT_CLASS_TYPE(ActorCreated)
 
@@ -49,7 +53,9 @@ class ActorDestroyedEvent : public ActorEvent
 {
 public:
 	ActorDestroyedEvent(AActor* actor, JScene* scene) :
-		ActorEvent(AActor::EState::Destroyed)
+		ActorEvent(AActor::EState::Destroyed),
+		mActor(actor),
+		mScene(scene)
 	{
 
 	}
@@ -60,6 +66,9 @@ public:
 		ss << "ActorDestroyedEvent";
 		return ss.str();
 	}
+
+	AActor* GetActor() const { return mActor; }
+	JScene* GetScene() const { return mScene; }
 
 	EVENT_CLASS_TYPE(ActorDestroyed)
 

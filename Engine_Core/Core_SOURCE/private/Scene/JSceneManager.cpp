@@ -3,53 +3,19 @@
 #include "Component/Camera/JCamera.h"
 #include "Layer/JLayer.h"
 #include "Actor/AActor.h"
+#include "Event/FActorEvent.h"
 
 
 
 map<wstring, JScene*> JSceneManager::mScene = {};
 JScene* JSceneManager::mActiveScene = nullptr;
 JScene* JSceneManager::mDontDestroyOnLoad = nullptr;
-
-bool JSceneManager::SetActiveScene(const wstring& name)
-{
-    map<wstring, JScene*>::iterator iter
-        = mScene.find(name);
-
-    if (iter == mScene.end())
-        return false;
-
-    mActiveScene = iter->second;
-    return true;
-}
-
-JScene* JSceneManager::LoadScene(const wstring& name)
-{
-	if (mActiveScene)
-		mActiveScene->OnExit();
-
-
-    if (!SetActiveScene(name))
-        return nullptr;
-
-	mActiveScene->OnEnter();
-
-    return mActiveScene;
-}
-
-vector<AActor*> JSceneManager::GetActors(ELayerType layer)
-{
-	vector<AActor*> actors = mActiveScene->GetLayer(layer)->GetActors();
-	vector<AActor*> dontDestroyOnLoad = mDontDestroyOnLoad->GetLayer(layer)->GetActors();
-
-    actors.insert(actors.end(), dontDestroyOnLoad.begin(), dontDestroyOnLoad.end());
-
-	return actors;
-}
+JEventQueue JSceneManager::mEventQueue;
 
 void JSceneManager::Initialize()
 {
-	mDontDestroyOnLoad =
-		CreateScene<JDontDestroyOnLoad>(L"JDontDestroyOnLoad");
+	mDontDestroyOnLoad = CreateScene<JDontDestroyOnLoad>(L"JDontDestroyOnLoad");
+    InitializeEventHandlers();
 }
 
 void JSceneManager::Update()
@@ -68,6 +34,91 @@ void JSceneManager::Render()
 {
 	mActiveScene->Render();
 	mDontDestroyOnLoad->Render();
+}
+
+void JSceneManager::EndOfFrame()
+{
+    mActiveScene->EndOfFrame();
+    mDontDestroyOnLoad->EndOfFrame();
+
+    mEventQueue.Process();
+}
+
+void JSceneManager::Release()
+{
+    for (auto& iter : mScene)
+    {
+        delete iter.second;
+        iter.second = nullptr;
+    }
+}
+
+void JSceneManager::InitializeEventHandlers()
+{
+    // 이벤트 핸들러 등록
+    mEventQueue.RegisterHandler<ActorCreatedEvent>([](ActorCreatedEvent& e) -> bool
+        {
+            JSceneManager::ActorCreated(e.GetActor(), e.GetScene());
+            return true;
+        });
+
+    mEventQueue.RegisterHandler<ActorDestroyedEvent>([](ActorDestroyedEvent& e) -> bool
+        {
+            JSceneManager::ActorDestroyed(e.GetActor(), e.GetScene());
+            return true;
+        });
+
+    // 기본 핸들러 등록
+    mEventQueue.SetCallback([](IEvent& e)
+        {
+            std::cout << "[Application] Unhandled Event: " << e.ToString() << std::endl;
+        });
+}
+
+void JSceneManager::ActorCreated(AActor* actor, JScene* scene)
+{
+    scene->AddActor(actor, actor->GetLayerType());
+}
+
+void JSceneManager::ActorDestroyed(AActor* actor, JScene* scene)
+{
+    scene->EraseActor(actor);
+}
+
+JScene* JSceneManager::LoadScene(const wstring& name)
+{
+    if (mActiveScene)
+        mActiveScene->OnExit();
+
+
+    if (!SetActiveScene(name))
+        return nullptr;
+
+    mActiveScene->OnEnter();
+
+    return mActiveScene;
+}
+
+AActor* JSceneManager::FindActorByName(const wstring& name)
+{
+    for (const auto& scenePair : mScene)
+    {
+        JScene* scene = scenePair.second;
+        for (UINT i = 0; i < (UINT)ELayerType::Max; ++i)
+        {
+            JLayer* layer = scene->GetLayer((ELayerType)i);
+            if (layer == nullptr) continue;
+
+            for (AActor* actor : layer->GetActors())
+            {
+                if (actor->GetName() == name)
+                {
+                    return actor;
+                }
+            }
+        }
+    }
+    return nullptr;
 }
 
 void JSceneManager::Serialize(json& jsonObject)
@@ -129,39 +180,25 @@ void JSceneManager::Deserialize(const json& jsonObject)
     }
 }
 
-AActor* JSceneManager::FindActorByName(const wstring& name)
+vector<AActor*> JSceneManager::GetActors(ELayerType layer)
 {
-    for (const auto& scenePair : mScene)
-    {
-        JScene* scene = scenePair.second;
-        for (UINT i = 0; i < (UINT)ELayerType::Max; ++i)
-        {
-            JLayer* layer = scene->GetLayer((ELayerType)i);
-            if (layer == nullptr) continue;
+    vector<AActor*> actors = mActiveScene->GetLayer(layer)->GetActors();
+    vector<AActor*> dontDestroyOnLoad = mDontDestroyOnLoad->GetLayer(layer)->GetActors();
 
-            for (AActor* actor : layer->GetActors())
-            {
-                if (actor->GetName() == name)
-                {
-                    return actor;
-                }
-            }
-        }
-    }
-    return nullptr;
+    actors.insert(actors.end(), dontDestroyOnLoad.begin(), dontDestroyOnLoad.end());
+
+    return actors;
 }
 
-void JSceneManager::EndOfFrame()
+bool JSceneManager::SetActiveScene(const wstring& name)
 {
-    mActiveScene->EndOfFrame();
-    mDontDestroyOnLoad->EndOfFrame();
+    map<wstring, JScene*>::iterator iter = mScene.find(name);
+
+    if (iter == mScene.end())
+        return false;
+
+    mActiveScene = iter->second;
+    return true;
 }
 
-void JSceneManager::Release()
-{
-	for (auto& iter : mScene)
-	{
-		delete iter.second;
-		iter.second = nullptr;
-	}
-}
+

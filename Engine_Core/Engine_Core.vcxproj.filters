@@ -166,7 +166,7 @@
     <ClInclude Include="Core_SOURCE\public\Event\JEventQueue.h">
       <Filter>Core_SOURCE\public\Event</Filter>
     </ClInclude>
-    <ClInclude Include="FActorEvent.h">
+    <ClInclude Include="Core_SOURCE\public\Event\FActorEvent.h">
       <Filter>Core_SOURCE\public\Event</Filter>
     </ClInclude>
   </ItemGroup>

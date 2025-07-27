@@ -76,10 +76,7 @@ void JLayer::Render()
 
 void JLayer::EndOfFrame()
 {
-	vector<AActor*> deleteObjects = {};
-	findDeadActors(deleteObjects);
-	eraseDeadActor();
-	deleteActors(deleteObjects);
+
 }
 
 void JLayer::Serialize(json& jsonObject) const
@@ -132,11 +129,15 @@ void JLayer::AddActor(AActor* actor)
 
 void JLayer::EraseActor(AActor* eraseActor)
 {
+	AActor* buffer = eraseActor;
 	erase_if(mActors,
 		[=](AActor* actor)
 		{
 			return actor == eraseActor;
 		});
+
+	delete buffer;
+	buffer = nullptr;
 }
 
 void JLayer::findDeadActors(OUT vector<AActor*>& actors)

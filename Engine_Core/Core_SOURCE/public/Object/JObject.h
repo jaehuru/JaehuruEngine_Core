@@ -9,6 +9,7 @@
 #include "HighLevelInterface/JApplication.h"
 #include "Event/FActorEvent.h"
 
+
 extern JApplication application;
 
 template<typename T>
@@ -17,10 +18,8 @@ static T* Instantiate(ELayerType type)
 	T* actor = new T();
 	actor->SetLayerType(type);
 	JScene* activeScene = JSceneManager::GetActiveScene();
-	JLayer* layer = activeScene->GetLayer(type);
-	layer->AddActor(actor);
 
-	application.PushEvent(new ActorCreatedEvent(actor, activeScene));
+	JSceneManager::PushEvent(new ActorCreatedEvent(actor, activeScene));
 
 	return actor;
 }
@@ -30,14 +29,12 @@ static T* Instantiate(ELayerType type, FVector3 position)
 {
 	T* actor = new T();
 	actor->SetLayerType(type);
-	JScene* activeScene = JSceneManager::GetActiveScene();
-	JLayer* layer = activeScene->GetLayer(type);
-	layer->AddActor(actor);
 
 	JTransform* tr = actor->GetComponent<JTransform>();
 	tr->SetPosition(position);
 
-	application.PushEvent(new ActorCreatedEvent(actor, activeScene));
+	JScene* activeScene = JSceneManager::GetActiveScene();
+	JSceneManager::PushEvent(new ActorCreatedEvent(actor, activeScene));
 
 	return actor;
 }
@@ -59,5 +56,5 @@ static void Destroy(AActor* actor)
 		actor->death();
 
 	JScene* activeScene = JSceneManager::GetActiveScene();
-	application.PushEvent(new ActorDestroyedEvent(actor, activeScene));
+	JSceneManager::PushEvent(new ActorDestroyedEvent(actor, activeScene));
 }

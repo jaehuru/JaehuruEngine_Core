@@ -39,6 +39,7 @@
     <ClInclude Include="Core_SOURCE\public\Component\SpriteRenderer\JSpriteRenderer.h" />
     <ClInclude Include="Core_SOURCE\public\Component\TileMapRenderer\JTileMapRenderer.h" />
     <ClInclude Include="Core_SOURCE\public\Component\Transform\JTransform.h" />
+    <ClInclude Include="Core_SOURCE\public\Event\FActorEvent.h" />
     <ClInclude Include="Core_SOURCE\public\Event\FKeyEvent.h" />
     <ClInclude Include="Core_SOURCE\public\Event\IEvent.h" />
     <ClInclude Include="Core_SOURCE\public\Event\FApplicationEvent.h" />
@@ -74,7 +75,6 @@
     <ClInclude Include="Core_SOURCE\public\UI\UButton.h" />
     <ClInclude Include="Core_SOURCE\public\UI\UHUD.h" />
     <ClInclude Include="Core_SOURCE\public\UI\UUIManager.h" />
-    <ClInclude Include="FActorEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core_SOURCE\private\Actor\AActor.cpp" />

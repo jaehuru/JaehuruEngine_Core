@@ -86,43 +86,17 @@ void JApplication::ReszieGraphicDevice(WindowResizeEvent& e)
 	viewport.MinDepth = 0.0f;
 	viewport.MaxDepth = 1.0f;
 
-	mWindow.SetWidth(viewport.Width);
-	mWindow.SetHeight(viewport.Height);
+	mWindow.SetWidth(static_cast<UINT>(viewport.Width));
+	mWindow.SetHeight(static_cast<UINT>(viewport.Height));
 
 	mGraphicDevice->Resize(viewport);
-	renderer::FrameBuffer->Resize(viewport.Width, viewport.Height);
+	renderer::FrameBuffer->Resize(static_cast<UINT>(viewport.Width), static_cast<UINT>(viewport.Height));
 }
 
 void JApplication::InitializeEtc()
 {
 	Input::Initialize();
 	Time::Initialize();
-
-	InitializeEventHandlers();
-}
-
-void JApplication::InitializeEventHandlers()
-{
-	// 이벤트 핸들러 등록
-	mEventQueue.RegisterHandler<ActorCreatedEvent>([this](ActorCreatedEvent& e) -> bool
-		{
-			int a = 0;
-
-			return true;
-		});
-
-	mEventQueue.RegisterHandler<ActorDestroyedEvent>([this](ActorDestroyedEvent& e) -> bool
-		{
-			int a = 0;
-
-			return true;
-		});
-
-	// 기본 핸들러 등록
-	mEventQueue.SetCallback([this](IEvent& e)
-		{
-			cout << "[Application] Unhandled Event: " << e.ToString() << endl;
-		});
 }
 
 void JApplication::OnWindowEvent(IEvent& e)
@@ -199,8 +173,6 @@ void JApplication::Present()
 void JApplication::EndOfFrame()
 {
 	JSceneManager::EndOfFrame();
-
-	mEventQueue.Process();
 }
 
 void JApplication::Release()

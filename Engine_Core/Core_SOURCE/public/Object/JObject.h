@@ -6,6 +6,10 @@
 #include "Scene/JSceneManager.h"
 #include "Scene/JScene.h"
 #include "Component/Transform/JTransform.h"
+#include "HighLevelInterface/JApplication.h"
+#include "Event/FActorEvent.h"
+
+extern JApplication application;
 
 template<typename T>
 static T* Instantiate(ELayerType type)
@@ -15,6 +19,8 @@ static T* Instantiate(ELayerType type)
 	JScene* activeScene = JSceneManager::GetActiveScene();
 	JLayer* layer = activeScene->GetLayer(type);
 	layer->AddActor(actor);
+
+	application.PushEvent(new ActorCreatedEvent(actor, activeScene));
 
 	return actor;
 }
@@ -31,6 +37,8 @@ static T* Instantiate(ELayerType type, FVector3 position)
 	JTransform* tr = actor->GetComponent<JTransform>();
 	tr->SetPosition(position);
 
+	application.PushEvent(new ActorCreatedEvent(actor, activeScene));
+
 	return actor;
 }
 
@@ -43,4 +51,13 @@ static void JDontDestroyOnLoad(AActor* actor)
 		JSceneManager::GetDontDestroyOnLoad();
 	dontDestroyOnLoad->
 		AddActor(actor, actor->GetLayerType());
+}
+
+static void Destroy(AActor* actor)
+{
+	if (actor != nullptr)
+		actor->death();
+
+	JScene* activeScene = JSceneManager::GetActiveScene();
+	application.PushEvent(new ActorDestroyedEvent(actor, activeScene));
 }

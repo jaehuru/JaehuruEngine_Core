@@ -14,7 +14,7 @@ public:
 	virtual void	Update();
 	virtual void	LateUpdate();
 	virtual void	Render();
-	virtual void	Destroy();
+	virtual void	EndOfFrame();
 
     void	Serialize(json& jsonObject) const	override;
     void	Deserialize(const json& jsonObject) override;

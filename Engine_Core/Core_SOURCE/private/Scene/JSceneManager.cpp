@@ -12,7 +12,7 @@ JScene* JSceneManager::mDontDestroyOnLoad = nullptr;
 
 bool JSceneManager::SetActiveScene(const wstring& name)
 {
-    map<std::wstring, JScene*>::iterator iter
+    map<wstring, JScene*>::iterator iter
         = mScene.find(name);
 
     if (iter == mScene.end())
@@ -151,10 +151,10 @@ AActor* JSceneManager::FindActorByName(const wstring& name)
     return nullptr;
 }
 
-void JSceneManager::Destroy()
+void JSceneManager::EndOfFrame()
 {
-	mActiveScene->Destroy();
-	mDontDestroyOnLoad->Destroy();
+    mActiveScene->EndOfFrame();
+    mDontDestroyOnLoad->EndOfFrame();
 }
 
 void JSceneManager::Release()

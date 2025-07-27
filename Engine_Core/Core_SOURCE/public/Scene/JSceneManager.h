@@ -28,7 +28,7 @@ public:
 	static void		Update();
 	static void		LateUpdate();
 	static void		Render();
-	static void		Destroy();
+	static void		EndOfFrame();
 	static void		Release();
 
     static void		Serialize(json& jsonObject);

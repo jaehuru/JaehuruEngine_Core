@@ -64,17 +64,14 @@ public:
 	{ 
 		return Keys[(UINT)code].State == EKeyState::Down; 
 	}
-
 	__forceinline static bool GetKeyUp(EKeyCode code) 
 	{
 		return Keys[(UINT)code].State == EKeyState::Up; 
 	}
-
 	__forceinline static bool GetKey(EKeyCode code) 
 	{
 		return Keys[(UINT)code].State == EKeyState::Pressed; 
 	}
-
 	__forceinline static FVector2 GetMousePosition() 
 	{ 
 		return mMousePosition; 
@@ -89,7 +86,6 @@ private:
 	static void		updateKeyUp(FKey& key);
 	static void		getMousePositionByWindow();
 	static void		clearKey();
-
 
 private:
 	static vector<FKey>	Keys;

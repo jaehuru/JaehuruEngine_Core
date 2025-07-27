@@ -14,9 +14,10 @@ public:
 
 	enum class EState
 	{
+		Created,
 		Active,
 		Paused,
-		Dead,
+		Destroyed,
 		End
 	};
 
@@ -70,11 +71,11 @@ public:
 	void	SetLayerType(ELayerType layerType)	{ mLayerType = layerType; }
 
 	bool	IsActive() const	{ return mState == EState::Active; }
-	bool	IsDead() const		{ return mState == EState::Dead; }
+	bool	IsDead() const		{ return mState == EState::Destroyed; }
 
 private:
 	void	initializeTransform();
-	void	death() { mState = EState::Dead; }
+	void	death() { mState = EState::Destroyed; }
 
 private:
 	EState						mState;

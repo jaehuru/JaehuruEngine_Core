@@ -43,6 +43,7 @@
     <ClInclude Include="Core_SOURCE\public\Event\IEvent.h" />
     <ClInclude Include="Core_SOURCE\public\Event\FApplicationEvent.h" />
     <ClInclude Include="Core_SOURCE\public\Event\FMouseEvent.h" />
+    <ClInclude Include="Core_SOURCE\public\Event\JEventQueue.h" />
     <ClInclude Include="Core_SOURCE\public\FMOD\JFmod.h" />
     <ClInclude Include="Core_SOURCE\public\Graphics\GPUBuffer\RConstantBuffer.h" />
     <ClInclude Include="Core_SOURCE\public\Graphics\GPUBuffer\RIndexBuffer.h" />
@@ -73,6 +74,7 @@
     <ClInclude Include="Core_SOURCE\public\UI\UButton.h" />
     <ClInclude Include="Core_SOURCE\public\UI\UHUD.h" />
     <ClInclude Include="Core_SOURCE\public\UI\UUIManager.h" />
+    <ClInclude Include="FActorEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core_SOURCE\private\Actor\AActor.cpp" />
@@ -92,6 +94,7 @@
     <ClCompile Include="Core_SOURCE\private\Component\SpriteRenderer\JSpriteRenderer.cpp" />
     <ClCompile Include="Core_SOURCE\private\Component\TileMapRenderer\JTileMapRenderer.cpp" />
     <ClCompile Include="Core_SOURCE\private\Component\Transform\JTransform.cpp" />
+    <ClCompile Include="Core_SOURCE\private\Event\JEventQueue.cpp" />
     <ClCompile Include="Core_SOURCE\private\FMOD\JFmod.cpp" />
     <ClCompile Include="Core_SOURCE\private\Graphics\GPUBuffer\RConstantBuffer.cpp" />
     <ClCompile Include="Core_SOURCE\private\Graphics\GPUBuffer\RIndexBuffer.cpp" />

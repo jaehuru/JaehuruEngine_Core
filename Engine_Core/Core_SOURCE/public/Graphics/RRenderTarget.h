@@ -40,8 +40,10 @@ struct FRenderTargetTextureSpecification
 struct FRenderTargetAttachmentSpecification
 {
 	FRenderTargetAttachmentSpecification() = default;
-	FRenderTargetAttachmentSpecification(std::initializer_list<FRenderTargetTextureSpecification> attachments)
-		: Attachments(attachments) {
+	FRenderTargetAttachmentSpecification(initializer_list<FRenderTargetTextureSpecification> attachments) : 
+		Attachments(attachments) 
+	{
+
 	}
 
 	vector<FRenderTargetTextureSpecification> Attachments;

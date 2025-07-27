@@ -15,12 +15,6 @@
 #include "Component/Audio/JAudioSource.h"
 
 
-void Destroy(AActor* actor)
-{
-	if (actor != nullptr)
-		actor->death();
-}
-
 AActor::AActor() :
 	mState(EState::Active),
 	mLayerType(ELayerType::None)

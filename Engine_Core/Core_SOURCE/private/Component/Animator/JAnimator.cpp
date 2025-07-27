@@ -11,7 +11,7 @@ JAnimator::JAnimator() :
 	mAnimations{ },
 	mActiveAnimation(nullptr),
 	mbLoop(false),
-	mEvents{ }
+	mQueue{ }
 {
 
 }
@@ -24,7 +24,7 @@ JAnimator::~JAnimator()
 		iter.second = nullptr;
 	}
 
-	for (auto& iter : mEvents)
+	for (auto& iter : mQueue)
 	{
 		delete iter.second;
 		iter.second = nullptr;
@@ -118,7 +118,7 @@ void JAnimator::CreateAnimation(const wstring& name,
 	animation->SetAnimator(this);
 
 	Events* events = new Events();
-	mEvents.insert(make_pair(name, events));
+	mQueue.insert(make_pair(name, events));
 
 	mAnimations.insert(make_pair(name, animation));
 }
@@ -168,8 +168,8 @@ void JAnimator::PlayAnimation(const wstring& name, bool loop)
 
 JAnimator::Events* JAnimator::FindEvents(const wstring& name)
 {
-	auto iter = mEvents.find(name);
-	if (iter == mEvents.end())
+	auto iter = mQueue.find(name);
+	if (iter == mQueue.end())
 		return nullptr;
 
 	return iter->second;

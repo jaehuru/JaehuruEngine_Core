@@ -27,9 +27,9 @@ public:
 
 	bool IsRepeat() const { return mIsRepeat; }
 
-	std::string ToString() const override
+	string ToString() const override
 	{
-		std::stringstream ss;
+		stringstream ss;
 		ss << "KeyPressedEvent: " << static_cast<int>(mKeyCode) << " (repeat = " << mIsRepeat << ")";
 		return ss.str();
 	}
@@ -46,9 +46,9 @@ public:
 		: KeyEvent(keycode) {
 	}
 
-	std::string ToString() const override
+	string ToString() const override
 	{
-		std::stringstream ss;
+		stringstream ss;
 		ss << "KeyReleasedEvent: " << static_cast<int>(mKeyCode);
 		return ss.str();
 	}
@@ -63,9 +63,9 @@ public:
 		: KeyEvent(keycode) {
 	}
 
-	std::string ToString() const override
+	string ToString() const override
 	{
-		std::stringstream ss;
+		stringstream ss;
 		ss << "KeyTypedEvent: " << static_cast<int>(mKeyCode);
 		return ss.str();
 	}

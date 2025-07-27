@@ -163,6 +163,12 @@
     <ClInclude Include="Core_SOURCE\public\Event\FKeyEvent.h">
       <Filter>Core_SOURCE\public\Event</Filter>
     </ClInclude>
+    <ClInclude Include="Core_SOURCE\public\Event\JEventQueue.h">
+      <Filter>Core_SOURCE\public\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="FActorEvent.h">
+      <Filter>Core_SOURCE\public\Event</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Core_SOURCE">
@@ -333,6 +339,9 @@
     <Filter Include="Core_SOURCE\public\Event">
       <UniqueIdentifier>{4146ebbb-9853-4ff9-80bb-27c71fef5a47}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core_SOURCE\private\Event">
+      <UniqueIdentifier>{eccd3197-305f-45ef-9098-1e3d33734868}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core_SOURCE\private\Actor\AActor.cpp">
@@ -472,6 +481,9 @@
     </ClCompile>
     <ClCompile Include="Core_SOURCE\private\HighLevelInterface\JWindow.cpp">
       <Filter>Core_SOURCE\private\High Level Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="Core_SOURCE\private\Event\JEventQueue.cpp">
+      <Filter>Core_SOURCE\private\Event</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

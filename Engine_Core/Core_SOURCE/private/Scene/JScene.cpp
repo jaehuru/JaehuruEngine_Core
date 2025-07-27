@@ -62,14 +62,14 @@ void JScene::Render()
 	}
 }
 
-void JScene::Destroy()
+void JScene::EndOfFrame()
 {
 	for (JLayer* layer : mLayers)
 	{
 		if (layer == nullptr)
 			continue;
 
-		layer->Destroy();
+		layer->EndOfFrame();
 	}
 }
 

@@ -8,6 +8,7 @@
 #include "Event/FApplicationEvent.h"
 #include "Event/FMouseEvent.h"
 #include "Event/FKeyEvent.h"
+#include "Event/JEventQueue.h"
 
 class JApplication
 {
@@ -21,8 +22,9 @@ public:
 	void	AdjustWindowRect(HWND hwnd, int width, int height);
 	void	ReszieGraphicDevice(WindowResizeEvent& e);
 	void	InitializeEtc();
+	void	InitializeEventHandlers();
 
-	void	OnEvent(IEvent& e);
+	void	OnWindowEvent(IEvent& e);
 
 	void	Run();
 	void	Close();
@@ -31,14 +33,15 @@ public:
 	void	LateUpdate();
 	void	Render();
 	void	Present();
-	void	Destroy();
+	void	EndOfFrame();
 	void	Release();
 
+	void		PushEvent(IEvent* e)	{ mEventQueue.Push(e); }
 
-	JWindow&	GetWindow() 		{ return mWindow; }
-	bool		IsLoaded() const	{ return bLoaded; }
-	bool		IsRunning() const	{ return bRunning; }
-	bool		IsMinimized() const	{ return bMinimized; }
+	JWindow&	GetWindow() 			{ return mWindow; }
+	bool		IsLoaded() const		{ return bLoaded; }
+	bool		IsRunning() const		{ return bRunning; }
+	bool		IsMinimized() const		{ return bMinimized; }
 
 	void	IsLoaded(bool load)				{ bLoaded = load; }
 
@@ -52,5 +55,6 @@ private:
 	bool		bMinimized;
 
 	JWindow		mWindow;
+	JEventQueue mEventQueue;
 };
 

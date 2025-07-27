@@ -9,6 +9,8 @@
 #include "FMOD/JFmod.h"
 #include "Graphics/RRenderTarget.h"
 #include "Resource/RTexture.h"
+#include "Actor/AActor.h"
+#include "Event/FActorEvent.h"
 
 
 JApplication::JApplication() : 
@@ -16,7 +18,7 @@ JApplication::JApplication() :
 	bRunning(false),
 	bMinimized(false)
 {
-	mWindow.SetEventCallBack(J_BIND_EVENT_FN(JApplication::OnEvent));
+	mWindow.SetEventCallBack(J_BIND_EVENT_FN(JApplication::OnWindowEvent));
 }
 
 JApplication::~JApplication()
@@ -95,9 +97,35 @@ void JApplication::InitializeEtc()
 {
 	Input::Initialize();
 	Time::Initialize();
+
+	InitializeEventHandlers();
 }
 
-void JApplication::OnEvent(IEvent& e)
+void JApplication::InitializeEventHandlers()
+{
+	// 이벤트 핸들러 등록
+	mEventQueue.RegisterHandler<ActorCreatedEvent>([this](ActorCreatedEvent& e) -> bool
+		{
+			int a = 0;
+
+			return true;
+		});
+
+	mEventQueue.RegisterHandler<ActorDestroyedEvent>([this](ActorDestroyedEvent& e) -> bool
+		{
+			int a = 0;
+
+			return true;
+		});
+
+	// 기본 핸들러 등록
+	mEventQueue.SetCallback([this](IEvent& e)
+		{
+			cout << "[Application] Unhandled Event: " << e.ToString() << endl;
+		});
+}
+
+void JApplication::OnWindowEvent(IEvent& e)
 {
 	EventDispatcher dispatcher(e);
 	dispatcher.Dispatch<WindowResizeEvent>([this](WindowResizeEvent& e) -> bool
@@ -120,7 +148,7 @@ void JApplication::Run()
 		Render();
 	}
 
-	Destroy();
+	EndOfFrame();
 }
 
 void JApplication::Close()
@@ -168,9 +196,11 @@ void JApplication::Present()
 	GetDevice()->Present();
 }
 
-void JApplication::Destroy()
+void JApplication::EndOfFrame()
 {
-	JSceneManager::Destroy();
+	JSceneManager::EndOfFrame();
+
+	mEventQueue.Process();
 }
 
 void JApplication::Release()

@@ -10,7 +10,8 @@ enum class EEventType
 	WindowClose, SetWindowResize, WindowFocus, WindowLostFocus, WindowMoved,
 	AppUpdate, AppLateUpdate, AppRender,
 	KeyPressed, KeyReleased, KeyTyped,
-	MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled
+	MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled,
+	ActorDestroyed, ActorCreated,
 };
 
 enum EEventCategory
@@ -20,7 +21,9 @@ enum EEventCategory
 	EventCategoryInput			= BIT(1),
 	EventCategoryKeyboard		= BIT(2),
 	EventCategoryMouse			= BIT(3),
-	EventCategoryMouseButton	= BIT(4)
+	EventCategoryMouseButton	= BIT(4),
+	EventCategoryGame			= BIT(5),
+	EventCategoryActor			= BIT(6)
 };
 
 #define EVENT_CLASS_TYPE(type)	static EEventType GetStaticType() 					{ return EEventType::type; }\
@@ -73,4 +76,5 @@ inline ostream& operator<<(ostream& os, const IEvent& e)
 }
 
 using EventCallbackFn = function<void(IEvent&)>;
+using HandlerCallbackFn = function<bool(IEvent&)>;
 

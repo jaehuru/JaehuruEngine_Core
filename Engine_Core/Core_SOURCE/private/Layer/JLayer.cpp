@@ -74,7 +74,7 @@ void JLayer::Render()
 	}
 }
 
-void JLayer::Destroy()
+void JLayer::EndOfFrame()
 {
 	vector<AActor*> deleteObjects = {};
 	findDeadActors(deleteObjects);
@@ -144,7 +144,7 @@ void JLayer::findDeadActors(OUT vector<AActor*>& actors)
 	for (AActor* actor : mActors)
 	{
 		AActor::EState active = actor->GetState();
-		if (active == AActor::EState::Dead)
+		if (active == AActor::EState::Destroyed)
 			actors.push_back(actor);
 	}
 }

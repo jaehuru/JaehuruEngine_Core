@@ -69,6 +69,6 @@ private:
 	bool								mbLoop;
 
 	//FEvent
-	map<wstring, Events*>				mEvents;
+	map<wstring, Events*> mQueue;
 
 };
